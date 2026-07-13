@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { BadgeCheck, CalendarClock, ChevronLeft, ChevronRight, ShieldCheck, Timer } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import { useEffect, useState } from 'react';
 
@@ -130,33 +130,28 @@ const slides = [
 
 export default function ServiceCarousel() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const slide = slides[activeSlide];
 
   useEffect(() => {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion || isPaused) {
-      return undefined;
-    }
-
     const interval = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % slides.length);
-    }, 2000);
+    }, 1000);
 
     return () => window.clearInterval(interval);
-  }, [isPaused]);
+  }, []);
+
+  const showPreviousSlide = () => {
+    setActiveSlide((current) => (current - 1 + slides.length) % slides.length);
+  };
+
+  const showNextSlide = () => {
+    setActiveSlide((current) => (current + 1) % slides.length);
+  };
 
   return (
     <section className="serviceCarousel" id="services" aria-roledescription="carousel" aria-label="ApnaServo home services">
       <span className="anchorTarget" id="commercial" />
-      <div
-        className="serviceCarouselViewport"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onFocus={() => setIsPaused(true)}
-        onBlur={() => setIsPaused(false)}
-      >
+      <div className="serviceCarouselViewport">
         <div className="serviceCarouselMedia" aria-live="polite">
           <span className="serviceCarouselMediaFallback" aria-hidden="true">{slide.label}</span>
           {slides.map((item, index) => (
@@ -179,15 +174,25 @@ export default function ServiceCarousel() {
         </div>
 
         <div className="serviceCarouselContent" key={slide.src}>
-          <p className="serviceCarouselEyebrow">{slide.label} service</p>
-          <h2>{slide.title} <span>{slide.highlight}</span></h2>
-          <p className="serviceCarouselDescription">{slide.description}</p>
-          <a className="serviceCarouselCta" href="#contact">{slide.cta}<ArrowRight size={20} /></a>
+          <Image className="serviceCarouselWordmark" src="/apnaservo-wordmark.png" alt="ApnaServo" width={248} height={62} />
+          <p className="serviceCarouselEyebrow">Our services</p>
+          <h2><span>Everything</span><span>your home</span><em>needs.</em></h2>
+          <p className="serviceCarouselDescription">Trusted {slide.label.toLowerCase()} help for every task.</p>
         </div>
 
-        <div className="serviceCarouselBenefits" aria-label={`${slide.label} service benefits`}>
-          {slide.benefits.map((benefit) => <span key={benefit}>{benefit}</span>)}
+        <div className="serviceCarouselBenefits" aria-label="ApnaServo service benefits">
+          <span><ShieldCheck aria-hidden="true" />Trusted pros</span>
+          <span><CalendarClock aria-hidden="true" />Quick booking</span>
+          <span><BadgeCheck aria-hidden="true" />Verified partners</span>
+          <span><Timer aria-hidden="true" />On-time service</span>
         </div>
+
+        <button className="serviceCarouselArrow serviceCarouselArrowPrevious" type="button" aria-label="Show previous service" onClick={showPreviousSlide}>
+          <ChevronLeft aria-hidden="true" />
+        </button>
+        <button className="serviceCarouselArrow serviceCarouselArrowNext" type="button" aria-label="Show next service" onClick={showNextSlide}>
+          <ChevronRight aria-hidden="true" />
+        </button>
 
         <div className="serviceCarouselDots" role="tablist" aria-label="Choose a service slide">
           {slides.map((item, index) => (
