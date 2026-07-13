@@ -21798,6 +21798,269 @@ body {
   }
 }
 
+/* Dynamic service showcase */
+.serviceCarousel {
+  padding: 32px 30px 42px;
+}
+
+.serviceCarouselViewport {
+  aspect-ratio: auto;
+  min-height: clamp(560px, 48vw, 760px);
+  border-radius: 12px;
+  background: #f8e6e1;
+}
+
+.serviceCarouselSlide img {
+  object-position: right center;
+  transform: scale(1.55);
+  transform-origin: right center;
+}
+
+.serviceCarouselViewport::after {
+  background:
+    linear-gradient(90deg, rgba(255, 250, 247, 0.98) 0%, rgba(255, 250, 247, 0.95) 30%, rgba(255, 250, 247, 0.72) 48%, rgba(255, 250, 247, 0.08) 72%, rgba(54, 24, 33, 0.08) 100%),
+    linear-gradient(180deg, rgba(255, 250, 248, 0.1), transparent 75%, rgba(64, 26, 36, 0.12));
+}
+
+.serviceCarouselContent {
+  top: 50%;
+  left: clamp(38px, 7vw, 140px);
+  width: min(520px, 36vw);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+  transform: translateY(-54%);
+  backdrop-filter: none;
+  animation: serviceShowcaseContent 420ms ease both;
+}
+
+.serviceCarouselEyebrow {
+  margin: 0 0 14px;
+  color: #9e3555;
+  font-size: clamp(11px, 1vw, 15px);
+  font-weight: 850;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.serviceCarouselContent h2 {
+  max-width: 520px;
+  margin: 0;
+  color: #1b1820;
+  font-size: clamp(40px, 4.3vw, 72px);
+  font-weight: 830;
+  line-height: 0.99;
+  text-wrap: balance;
+}
+
+.serviceCarouselContent h2 span {
+  display: block;
+  color: #ca5d76;
+}
+
+.serviceCarouselDescription {
+  max-width: 450px;
+  margin: clamp(16px, 2vw, 26px) 0 0;
+  color: #5f5b62;
+  font-size: clamp(15px, 1.4vw, 20px);
+  line-height: 1.5;
+}
+
+.serviceCarouselContent .serviceCarouselDescription {
+  color: #5f5b62;
+  font-size: clamp(15px, 1.4vw, 20px);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.serviceCarouselCta {
+  display: inline-flex;
+  min-height: 54px;
+  margin-top: clamp(18px, 2vw, 28px);
+  padding: 0 19px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  background: linear-gradient(100deg, #d96e86, #a64660);
+  box-shadow: 0 12px 28px rgba(153, 54, 78, 0.2);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.serviceCarouselCta:hover {
+  box-shadow: 0 16px 32px rgba(153, 54, 78, 0.28);
+  transform: translateY(-2px);
+}
+
+.serviceCarouselBenefits {
+  position: absolute;
+  z-index: 3;
+  right: 30px;
+  bottom: 24px;
+  left: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid rgba(159, 80, 101, 0.17);
+  border-radius: 10px;
+  background: rgba(255, 253, 251, 0.82);
+  box-shadow: 0 14px 35px rgba(78, 31, 44, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.serviceCarouselBenefits span {
+  display: flex;
+  min-height: 82px;
+  padding: 16px 18px;
+  align-items: center;
+  gap: 10px;
+  color: #332b32;
+  font-size: 14px;
+  font-weight: 780;
+  line-height: 1.25;
+}
+
+.serviceCarouselBenefits span + span {
+  border-left: 1px solid rgba(159, 80, 101, 0.17);
+}
+
+.serviceCarouselBenefits span::before {
+  width: 11px;
+  height: 11px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #cd5c79;
+  box-shadow: 0 0 0 6px rgba(205, 92, 121, 0.11);
+  content: "";
+}
+
+.serviceCarouselDots {
+  z-index: 4;
+  top: 24px;
+  right: 24px;
+  bottom: auto;
+  left: auto;
+  background: rgba(255, 250, 248, 0.78);
+}
+
+@keyframes serviceShowcaseContent {
+  from { opacity: 0; transform: translateY(calc(-54% + 12px)); }
+  to { opacity: 1; transform: translateY(-54%); }
+}
+
+@media (max-width: 767px) {
+  .serviceCarousel {
+    padding: 20px 12px 30px;
+  }
+
+  .serviceCarouselViewport {
+    min-height: clamp(540px, 148vw, 620px);
+    border-radius: 10px;
+  }
+
+  .serviceCarouselSlide img {
+    transform: scale(1.68);
+    transform-origin: right center;
+  }
+
+  .serviceCarouselViewport::after {
+    background:
+      linear-gradient(90deg, rgba(255, 250, 247, 0.98) 0%, rgba(255, 250, 247, 0.93) 60%, rgba(255, 250, 247, 0.28) 100%),
+      linear-gradient(180deg, rgba(255, 250, 248, 0.04), rgba(255, 250, 248, 0.18) 48%, rgba(57, 23, 33, 0.14) 100%);
+  }
+
+  .serviceCarouselContent {
+    top: 26px;
+    right: 18px;
+    left: 18px;
+    width: auto;
+    transform: none;
+  }
+
+  .serviceCarouselEyebrow {
+    margin-bottom: 10px;
+    font-size: 9px;
+  }
+
+  .serviceCarouselContent h2 {
+    font-size: clamp(31px, 9.1vw, 38px);
+    line-height: 1.02;
+  }
+
+  .serviceCarouselDescription {
+    max-width: 260px;
+    margin-top: 13px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .serviceCarouselCta {
+    min-height: 46px;
+    margin-top: 16px;
+    padding: 0 13px;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .serviceCarouselCta svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .serviceCarouselBenefits {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-radius: 8px;
+  }
+
+  .serviceCarouselBenefits span {
+    min-height: 47px;
+    padding: 10px;
+    gap: 7px;
+    font-size: 10.5px;
+  }
+
+  .serviceCarouselBenefits span + span {
+    border-left: 0;
+  }
+
+  .serviceCarouselBenefits span:nth-child(2n) {
+    border-left: 1px solid rgba(159, 80, 101, 0.17);
+  }
+
+  .serviceCarouselBenefits span:nth-child(n+3) {
+    border-top: 1px solid rgba(159, 80, 101, 0.17);
+  }
+
+  .serviceCarouselBenefits span::before {
+    width: 7px;
+    height: 7px;
+    box-shadow: 0 0 0 4px rgba(205, 92, 121, 0.11);
+  }
+
+  .serviceCarouselDots {
+    top: 12px;
+    right: 12px;
+    left: auto;
+    bottom: auto;
+  }
+
+  @keyframes serviceShowcaseContent {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
 @media (min-width: 360px) and (max-width: 767px) {
   .supportOptionGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
