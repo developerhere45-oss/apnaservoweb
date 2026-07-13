@@ -1,0 +1,1040 @@
+.page {
+  --story-ink: #191922;
+  --story-muted: #625f66;
+  --story-pink: #c85d78;
+  --story-pink-dark: #963e57;
+  --story-line: rgba(184, 86, 112, 0.2);
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--story-ink);
+  background: linear-gradient(180deg, #fff8f7 0%, #fbe8e7 50%, #f6d9dc 100%);
+  font-family: var(--font-body), sans-serif;
+}
+
+.nav {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  min-height: 84px;
+  padding: 0 clamp(24px, 5vw, 78px);
+  border-bottom: 1px solid var(--story-line);
+  background: rgba(255, 248, 247, 0.92);
+  box-shadow: 0 8px 28px rgba(150, 62, 87, 0.045);
+  backdrop-filter: blur(16px);
+}
+
+.brand,
+.footer > a {
+  display: block;
+  width: 166px;
+}
+
+.brand img,
+.footer img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.nav nav {
+  display: flex;
+  justify-content: center;
+  gap: clamp(22px, 3vw, 44px);
+}
+
+.nav nav a,
+.footer nav a {
+  color: #454249;
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.nav nav a:hover,
+.footer nav a:hover {
+  color: var(--story-pink);
+}
+
+.navCta,
+.closing > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 0 21px;
+  border-radius: 6px;
+  color: #fff;
+  background: var(--story-pink);
+  box-shadow: 0 13px 30px rgba(174, 54, 83, 0.17);
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.navCta:hover,
+.closing > a:hover {
+  transform: translateY(-2px);
+  background: var(--story-pink-dark);
+}
+
+.menuButton {
+  display: none;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 680px;
+  padding: 112px clamp(24px, 8vw, 132px) 72px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255, 252, 251, 0.72), rgba(251, 232, 231, 0.4));
+}
+
+.hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(rgba(184, 86, 112, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 86, 112, 0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  content: '';
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 78%);
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow,
+.bandHeading > span,
+.visionSection > span,
+.cultureIntro > span,
+.founderMessage > span,
+.closing span {
+  color: var(--story-pink);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 20px 0 16px;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(72px, 10vw, 148px);
+  font-weight: 760;
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.hero > p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--story-muted);
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.48;
+}
+
+.heroLine {
+  position: relative;
+  width: min(650px, 72vw);
+  height: 1px;
+  margin: 64px 0 38px;
+  background: var(--story-line);
+}
+
+.heroLine span {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--story-pink);
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 7px #fcedeb;
+}
+
+.heroFacts {
+  display: grid;
+  width: min(900px, 100%);
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--story-line);
+  border-radius: 8px;
+  background: rgba(255, 252, 251, 0.62);
+  box-shadow: 0 18px 50px rgba(150, 62, 87, 0.07);
+}
+
+.heroFacts span {
+  display: grid;
+  min-height: 76px;
+  padding: 0 28px;
+  border-right: 1px solid var(--story-line);
+  place-items: center;
+  color: var(--story-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.heroFacts span:last-child {
+  border-right: 0;
+}
+
+.heroFacts svg {
+  color: var(--story-pink);
+}
+
+.heroFacts b {
+  color: var(--story-ink);
+  font-size: 15px;
+}
+
+.storySection {
+  display: grid;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 146px clamp(24px, 6vw, 86px);
+  grid-template-columns: minmax(180px, 0.65fr) minmax(0, 1.55fr);
+  gap: clamp(64px, 10vw, 154px);
+  border-top: 1px solid var(--story-line);
+  background: rgba(255, 252, 251, 0.24);
+}
+
+.sectionIndex {
+  align-self: start;
+  padding-top: 10px;
+}
+
+.sectionIndex span,
+.beliefLabel span {
+  display: block;
+  color: var(--story-pink);
+  font-family: var(--font-display), sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+}
+
+.sectionIndex p {
+  margin: 12px 0 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.storyCopy h2,
+.bandHeading h2,
+.cultureIntro h2,
+.closing h2 {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 730;
+  letter-spacing: 0;
+}
+
+.storyCopy h2 {
+  max-width: 700px;
+  margin-bottom: 44px;
+  font-size: clamp(40px, 5vw, 66px);
+  line-height: 1.06;
+}
+
+.storyCopy > p {
+  max-width: 770px;
+  margin: 0 0 27px;
+  color: var(--story-muted);
+  font-size: 18px;
+  line-height: 1.85;
+}
+
+.storyCopy blockquote {
+  position: relative;
+  max-width: 780px;
+  margin: 56px 0;
+  padding: 30px 0 30px 42px;
+  border-left: 3px solid var(--story-pink);
+  color: var(--story-ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(27px, 3.2vw, 43px);
+  font-weight: 650;
+  line-height: 1.32;
+}
+
+.storyCopy blockquote span {
+  position: absolute;
+  top: -30px;
+  left: 25px;
+  color: rgba(216, 87, 118, 0.12);
+  font-size: 130px;
+}
+
+.missionBand {
+  padding: 132px clamp(24px, 7vw, 110px);
+  border-top: 1px solid var(--story-line);
+  border-bottom: 1px solid var(--story-line);
+  background: linear-gradient(135deg, rgba(255, 250, 249, 0.74), rgba(246, 217, 220, 0.7));
+}
+
+.bandInner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.bandHeading {
+  display: grid;
+  margin-bottom: 64px;
+  grid-template-columns: 0.55fr 1.45fr;
+  align-items: start;
+  gap: 54px;
+}
+
+.bandHeading h2 {
+  max-width: 750px;
+  font-size: clamp(42px, 5.5vw, 76px);
+  line-height: 1.04;
+}
+
+.bandCopy {
+  display: grid;
+  padding: 54px 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(36px, 7vw, 100px);
+  border-top: 1px solid rgba(157, 48, 77, 0.18);
+  border-bottom: 1px solid rgba(157, 48, 77, 0.18);
+}
+
+.bandCopy p {
+  margin: 0;
+  color: var(--story-muted);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.sharedGrowth {
+  display: grid;
+  margin-top: 62px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 34px;
+}
+
+.sharedGrowth > div:not(.growthMark) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 15px;
+  border: 1px solid var(--story-line);
+  border-radius: 8px;
+  background: rgba(255, 252, 251, 0.64);
+  box-shadow: 0 14px 34px rgba(150, 62, 87, 0.055);
+}
+
+.sharedGrowth svg {
+  color: var(--story-pink);
+  grid-row: span 2;
+}
+
+.sharedGrowth span {
+  color: var(--story-muted);
+  font-size: 13px;
+}
+
+.sharedGrowth strong {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(20px, 2vw, 28px);
+}
+
+.growthMark {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(216, 87, 118, 0.3);
+  border-radius: 50%;
+  place-items: center;
+}
+
+.together {
+  margin: 48px 0 0;
+  color: var(--story-pink-dark);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(27px, 3vw, 42px);
+  font-weight: 750;
+  text-align: center;
+}
+
+.beliefSection {
+  display: grid;
+  padding: 140px clamp(24px, 8vw, 132px);
+  grid-template-columns: 0.6fr 1.4fr;
+  gap: 80px;
+  color: var(--story-ink);
+  border-top: 1px solid var(--story-line);
+  border-bottom: 1px solid var(--story-line);
+  background: linear-gradient(145deg, #f6d9dc 0%, #fbe8e7 48%, #fff4f3 100%);
+}
+
+.beliefLabel {
+  color: var(--story-ink);
+  font-size: 15px;
+  font-weight: 780;
+  line-height: 1.5;
+}
+
+.beliefLabel span {
+  margin-bottom: 8px;
+  color: var(--story-pink-dark);
+}
+
+.beliefSection h2 {
+  max-width: 900px;
+  margin: 0 0 50px;
+  color: var(--story-ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(40px, 5.8vw, 78px);
+  font-weight: 730;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.beliefSection p {
+  max-width: 780px;
+  margin: 0 0 24px;
+  color: var(--story-muted);
+  font-size: 18px;
+  line-height: 1.78;
+}
+
+.visionSection {
+  display: flex;
+  min-height: 690px;
+  padding: 120px clamp(24px, 8vw, 130px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid var(--story-line);
+  background: linear-gradient(180deg, rgba(255, 249, 248, 0.46), rgba(247, 220, 222, 0.42));
+}
+
+.visionSection svg {
+  margin: 40px 0;
+  color: var(--story-pink);
+}
+
+.visionSection h2 {
+  max-width: 1100px;
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(40px, 5.5vw, 75px);
+  font-weight: 680;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.cultureSection {
+  display: grid;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 130px clamp(24px, 6vw, 80px);
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(60px, 9vw, 132px);
+  border-top: 1px solid var(--story-line);
+  background: rgba(255, 252, 251, 0.26);
+}
+
+.cultureIntro h2 {
+  margin: 20px 0 32px;
+  font-size: clamp(46px, 6vw, 80px);
+  line-height: 1.02;
+}
+
+.cultureIntro p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--story-muted);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.principles {
+  border-top: 1px solid var(--story-line);
+}
+
+.principles > div {
+  display: grid;
+  min-height: 92px;
+  grid-template-columns: 42px 44px 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--story-line);
+  background: rgba(255, 252, 251, 0.36);
+}
+
+.principles > div > span {
+  color: #a19da2;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.principles svg {
+  color: var(--story-pink);
+}
+
+.principles p {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 680;
+}
+
+.principles > strong {
+  display: block;
+  margin-top: 36px;
+  color: var(--story-pink-dark);
+  font-family: var(--font-display), sans-serif;
+  font-size: 23px;
+  line-height: 1.4;
+}
+
+.founderMessage {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 145px clamp(24px, 6vw, 76px);
+  border-top: 1px solid var(--story-line);
+  background: rgba(255, 247, 246, 0.32);
+}
+
+.founderMessage blockquote {
+  margin: 38px 0 56px;
+  color: #343139;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(25px, 3.2vw, 40px);
+  font-weight: 540;
+  line-height: 1.55;
+}
+
+.founderNames {
+  display: flex;
+  gap: 68px;
+}
+
+.founderNames p {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.founderNames strong {
+  font-size: 15px;
+}
+
+.founderNames span {
+  color: var(--story-muted);
+  font-size: 12px;
+}
+
+.closing {
+  display: flex;
+  max-width: 1240px;
+  margin: 0 auto 80px;
+  padding: 76px clamp(26px, 6vw, 84px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  border: 1px solid var(--story-line);
+  border-radius: 8px;
+  background: rgba(255, 252, 251, 0.68);
+  box-shadow: 0 22px 58px rgba(150, 62, 87, 0.08);
+}
+
+.closing h2 {
+  max-width: 720px;
+  margin-top: 13px;
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.12;
+}
+
+.closing > a {
+  flex: 0 0 auto;
+}
+
+.footer {
+  display: grid;
+  min-height: 180px;
+  padding: 48px clamp(24px, 6vw, 88px);
+  grid-template-columns: 180px 1fr auto;
+  align-items: center;
+  gap: 42px;
+  border-top: 1px solid var(--story-line);
+  background: rgba(247, 220, 222, 0.64);
+}
+
+.footer p {
+  margin: 0;
+  color: var(--story-muted);
+  font-size: 13px;
+}
+
+.footer nav {
+  display: flex;
+  gap: 26px;
+}
+
+.reveal {
+  animation: storyReveal 720ms ease both;
+  animation-timeline: view();
+  animation-range: entry 8% cover 28%;
+}
+
+@keyframes storyReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .nav nav,
+  .navCta {
+    display: none;
+  }
+
+  .nav {
+    grid-template-columns: 1fr auto;
+  }
+
+  .menuButton {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid var(--story-line);
+    border-radius: 6px;
+    color: var(--story-pink);
+    background: rgba(255, 252, 251, 0.78);
+    place-items: center;
+  }
+
+  .storySection,
+  .beliefSection,
+  .cultureSection {
+    grid-template-columns: 1fr;
+  }
+
+  .storySection,
+  .cultureSection {
+    gap: 48px;
+  }
+
+  .beliefSection {
+    gap: 44px;
+  }
+
+  .bandHeading {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .closing {
+    margin-right: 24px;
+    margin-left: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav {
+    min-height: 74px;
+    padding: 0 20px;
+  }
+
+  .brand {
+    width: 145px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 82px 22px 68px;
+  }
+
+  .hero h1 {
+    margin-top: 17px;
+    font-size: clamp(58px, 18vw, 76px);
+  }
+
+  .hero > p {
+    font-size: 19px;
+  }
+
+  .heroLine {
+    margin: 48px 0 30px;
+  }
+
+  .heroFacts {
+    grid-template-columns: 1fr;
+  }
+
+  .heroFacts span {
+    min-height: 70px;
+    grid-template-columns: 28px 92px 1fr;
+    border-right: 0;
+    border-bottom: 1px solid var(--story-line);
+    text-align: left;
+  }
+
+  .heroFacts span:last-child {
+    border-bottom: 0;
+  }
+
+  .storySection,
+  .missionBand,
+  .beliefSection,
+  .cultureSection,
+  .founderMessage {
+    padding-top: 92px;
+    padding-bottom: 92px;
+  }
+
+  .storyCopy h2 {
+    margin-bottom: 30px;
+    font-size: 39px;
+  }
+
+  .storyCopy > p,
+  .bandCopy p,
+  .beliefSection p,
+  .cultureIntro p {
+    font-size: 16px;
+  }
+
+  .storyCopy blockquote {
+    margin: 44px 0;
+    padding-left: 25px;
+    font-size: 27px;
+  }
+
+  .bandCopy,
+  .sharedGrowth {
+    grid-template-columns: 1fr;
+  }
+
+  .bandCopy {
+    gap: 28px;
+  }
+
+  .growthMark {
+    transform: rotate(90deg);
+  }
+
+  .sharedGrowth {
+    gap: 24px;
+  }
+
+  .visionSection {
+    min-height: 600px;
+    padding: 94px 24px;
+  }
+
+  .visionSection h2 {
+    font-size: 38px;
+  }
+
+  .cultureIntro h2 {
+    font-size: 50px;
+  }
+
+  .founderMessage blockquote {
+    font-size: 24px;
+  }
+
+  .founderNames {
+    gap: 34px;
+  }
+
+  .closing {
+    margin-bottom: 48px;
+    padding: 52px 25px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .closing > a {
+    width: 100%;
+  }
+
+  .footer {
+    padding: 50px 24px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer > a {
+    width: 145px;
+  }
+
+  .footer nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+
+  .navCta,
+  .closing > a {
+    transition: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .page {
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .nav {
+    min-height: 64px;
+    padding: 0 18px;
+  }
+
+  .brand {
+    width: 138px;
+  }
+
+  .menuButton {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 32px 16px 30px;
+  }
+
+  .hero h1 {
+    margin: 12px 0 10px;
+    font-size: clamp(48px, 13vw, 58px);
+    line-height: 0.96;
+  }
+
+  .hero > p {
+    max-width: 520px;
+    font-size: 16px;
+    line-height: 1.42;
+  }
+
+  .heroLine {
+    margin: 24px 0 16px;
+  }
+
+  .heroFacts span {
+    min-height: 50px;
+    padding: 0 10px;
+    grid-template-columns: 22px 76px 1fr;
+    font-size: 11px;
+  }
+
+  .heroFacts b {
+    font-size: 13px;
+  }
+
+  .storySection,
+  .missionBand,
+  .beliefSection,
+  .cultureSection,
+  .founderMessage {
+    padding: 34px 16px;
+  }
+
+  .storySection,
+  .cultureSection,
+  .beliefSection {
+    gap: 16px;
+  }
+
+  .sectionIndex {
+    display: flex;
+    padding-top: 0;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .sectionIndex p {
+    margin: 0;
+  }
+
+  .sectionIndex span,
+  .beliefLabel span {
+    font-size: 36px;
+  }
+
+  .storyCopy h2 {
+    margin-bottom: 20px;
+    font-size: clamp(30px, 8vw, 35px);
+    line-height: 1.06;
+  }
+
+  .storyCopy > p {
+    margin-bottom: 14px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .storyCopy blockquote {
+    margin: 22px 0;
+    padding: 16px 0 16px 18px;
+    font-size: 21px;
+    line-height: 1.32;
+  }
+
+  .bandHeading {
+    margin-bottom: 20px;
+    gap: 12px;
+  }
+
+  .bandHeading h2 {
+    font-size: clamp(30px, 8vw, 35px);
+    line-height: 1.06;
+  }
+
+  .bandCopy {
+    padding: 20px 0;
+    gap: 14px;
+  }
+
+  .bandCopy p,
+  .beliefSection p,
+  .cultureIntro p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .sharedGrowth {
+    margin-top: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .sharedGrowth > div:not(.growthMark) {
+    padding: 12px;
+    grid-template-columns: 24px 1fr;
+    gap: 4px 8px;
+  }
+
+  .sharedGrowth .growthMark {
+    display: none;
+  }
+
+  .sharedGrowth strong {
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  .together {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+
+  .beliefSection h2 {
+    margin-bottom: 20px;
+    font-size: clamp(30px, 8vw, 35px);
+    line-height: 1.06;
+  }
+
+  .visionSection {
+    min-height: auto;
+    padding: 38px 16px;
+  }
+
+  .visionSection svg {
+    margin: 18px 0;
+  }
+
+  .visionSection h2 {
+    font-size: clamp(28px, 7.5vw, 33px);
+    line-height: 1.1;
+  }
+
+  .cultureIntro h2 {
+    margin: 12px 0 18px;
+    font-size: 36px;
+    line-height: 1.02;
+  }
+
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    border-top: 0;
+  }
+
+  .principles > div {
+    min-height: 0;
+    padding: 12px;
+    grid-template-columns: 24px 1fr;
+    align-content: start;
+    gap: 6px;
+    border: 1px solid var(--story-line);
+    border-radius: 8px;
+  }
+
+  .principles > div > span {
+    grid-column: 1;
+  }
+
+  .principles svg {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .principles > div p {
+    grid-column: 1 / -1;
+  }
+
+  .principles p {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .principles > strong {
+    margin-top: 10px;
+    grid-column: 1 / -1;
+    font-size: 18px;
+  }
+
+  .founderMessage blockquote {
+    margin: 18px 0 22px;
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  .founderNames {
+    gap: 28px;
+  }
+
+  .closing {
+    margin: 0 16px 24px;
+    padding: 26px 18px;
+    gap: 18px;
+  }
+
+  .closing h2 {
+    font-size: 27px;
+  }
+
+  .footer {
+    min-height: auto;
+    padding: 26px 16px;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 340px) {
+  .sharedGrowth {
+    grid-template-columns: 1fr;
+  }
+}

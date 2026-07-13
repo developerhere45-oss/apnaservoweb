@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "next build",
+    "start": "next start --hostname 0.0.0.0"
+  },
+  "dependencies": {
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.17",
+    "cookie": "^1.1.1",
+    "lucide-react": "^1.17.0",
+    "next": "^16.2.7",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "typescript": "^6.0.3",
+    "zod": "^4.4.3"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
+  }
+}
