@@ -94,11 +94,10 @@ export default function OurStoryPage() {
         <nav aria-label="Main navigation">
           <Link href="/">Home</Link>
           <Link href="/#services">Services</Link>
-          <Link href="/#partner">Become Partner</Link>
           <Link href="/contact-us">Support</Link>
         </nav>
-        <Link className={styles.navCta} href="/#waitlist">
-          Get Updates <ArrowRight size={16} />
+        <Link className={styles.navCta} href="/contact-us">
+          Contact <ArrowRight size={16} />
         </Link>
         <Link className={styles.menuButton} href="/" aria-label="Go to home" title="Home">
           <Home size={21} />
@@ -246,7 +245,7 @@ export default function OurStoryPage() {
           <span>The story continues</span>
           <h2>Built in Guwahati. Created for opportunity.</h2>
         </div>
-        <Link href="/#waitlist">Be part of the journey <ArrowRight size={18} /></Link>
+        <Link href="/contact-us">Get in touch <ArrowRight size={18} /></Link>
       </section>
 
       <footer className={styles.footer}>

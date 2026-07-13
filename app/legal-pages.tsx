@@ -117,12 +117,11 @@ export function LegalNav() {
       <nav aria-label="Legal navigation">
         <Link href="/">Home</Link>
         <Link href="/#services">Services</Link>
-        <Link href="/#why">Why Us</Link>
-        <Link href="/#features">Features</Link>
+        <Link href="/our-story">Our Story</Link>
         <Link href="/#launch">Launch</Link>
         <Link href="/contact-us">Contact</Link>
       </nav>
-      <Link className="legalCleanNavCta" href="/#waitlist">Get Updates</Link>
+      <Link className="legalCleanNavCta" href="/contact-us">Contact</Link>
     </header>
   );
 }

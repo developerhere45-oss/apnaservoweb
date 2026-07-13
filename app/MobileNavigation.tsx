@@ -8,7 +8,6 @@ const mobileLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Services', href: '#services' },
   { label: 'Commercial', href: '#commercial' },
-  { label: 'Become Partner', href: '#partner' },
   { label: 'Our Story', href: '/our-story' },
   { label: 'Track Booking', href: '#track' },
   { label: 'Support', href: '#contact' },

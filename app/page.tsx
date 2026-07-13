@@ -163,12 +163,8 @@ function App() {
         <Hero />
         <LaunchTrustGrid />
         <Services />
-        <HowItWorks />
-        <WhyChoose />
-        <PartnerSection />
         <VerificationProcess />
         <AssamSection />
-        <Waitlist />
       </main>
       <Footer />
     </div>
@@ -185,11 +181,10 @@ function Header() {
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#commercial">Commercial</a>
-        <a href="#partner">Become Partner</a>
         <a href="#track">Track Booking</a>
         <a href="#contact">Support</a>
       </nav>
-      <a className="navCta" href="#waitlist">Get Updates</a>
+      <a className="navCta" href="#contact">Contact</a>
       <MobileNavigation />
     </header>
   );
@@ -214,7 +209,7 @@ function Hero() {
           Book verified electricians, plumbers, AC technicians, carpenters, painters, pest control experts, and more in selected areas of Guwahati.
         </p>
         <div className="heroActions">
-          <a className="primaryBtn rippleBtn" href="#waitlist">🚀 Get Early Access <ChevronRight size={18} /></a>
+          <a className="primaryBtn rippleBtn" href="#contact">Contact Us <ChevronRight size={18} /></a>
           <a className="secondaryBtn rippleBtn" href="#services">Explore Services <ChevronRight size={17} /></a>
         </div>
         <div className="heroTrustStrip">
@@ -589,8 +584,8 @@ function Footer() {
           <span> <i>App Store</i></span>
         </div>
         <div className="footerStoresMobile">
-          <a href="#waitlist" aria-label="Google Play coming soon"><Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized /></a>
-          <a href="#waitlist" aria-label="App Store coming soon"><Image src="/app-store-badge.svg" alt="Download on the App Store" width={250} height={84} unoptimized /></a>
+          <a href="#contact" aria-label="Contact ApnaServo"><Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized /></a>
+          <a href="#contact" aria-label="Contact ApnaServo"><Image src="/app-store-badge.svg" alt="Download on the App Store" width={250} height={84} unoptimized /></a>
         </div>
         <div className="socials"><Send size={18} /><Mail size={18} /><Phone size={18} /></div>
         <div className="mobileSocials">
@@ -606,7 +601,6 @@ function Footer() {
         <a className="exploreServices" href="#services">Services</a>
         <a className="exploreAreas" href="#launch">Service Areas</a>
         <a className="exploreBusiness" href="#commercial">Business Services</a>
-        <a className="explorePartner" href="#partner">Become Partner</a>
       </div>
       <div className="footerColumn footerSupport">
         <h4><Headset className="footerHeadingIcon" size={23} /> Support</h4>
