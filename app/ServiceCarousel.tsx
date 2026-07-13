@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import type { CSSProperties } from 'react';
 import { useEffect, useState } from 'react';
 
 const slides = [
@@ -9,6 +10,8 @@ const slides = [
     src: '/service-slides/electrician.png',
     label: 'Electrician',
     alt: 'ApnaServo electrician service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '78% center',
     title: 'Reliable repairs.',
     highlight: 'Safe electrical care.',
     description: 'Verified electricians for quick, careful repairs and installations at your doorstep.',
@@ -19,6 +22,8 @@ const slides = [
     src: '/service-slides/plumbing.png',
     label: 'Plumbing',
     alt: 'ApnaServo plumbing service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '74% center',
     title: 'Trusted skills.',
     highlight: 'Reliable plumbing.',
     description: 'Get clean, dependable plumbing support for repairs, fittings, and everyday home needs.',
@@ -29,6 +34,8 @@ const slides = [
     src: '/service-slides/ac-repair.png',
     label: 'AC Repair',
     alt: 'ApnaServo AC repair service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '76% center',
     title: 'Trusted cooling.',
     highlight: 'Reliable AC repair.',
     description: 'Keep your home comfortable with professional AC service, repair, and maintenance.',
@@ -39,6 +46,8 @@ const slides = [
     src: '/service-slides/carpentry.png',
     label: 'Carpentry',
     alt: 'ApnaServo carpentry service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '76% center',
     title: 'Skilled hands.',
     highlight: 'Reliable carpentry.',
     description: 'From repairs to custom work, find practical carpentry help for the details that matter.',
@@ -49,6 +58,8 @@ const slides = [
     src: '/service-slides/painting.png',
     label: 'Painting',
     alt: 'ApnaServo painting service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '75% center',
     title: 'Smooth finish.',
     highlight: 'Professional painting.',
     description: 'Refresh your space with careful painting service and a finish you can feel good about.',
@@ -59,6 +70,8 @@ const slides = [
     src: '/service-slides/interior-design.png',
     label: 'Interior Design',
     alt: 'ApnaServo interior design service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '73% center',
     title: 'Smart spaces.',
     highlight: 'Professional interior design.',
     description: 'Make every room feel more personal with thoughtful interior support for your home.',
@@ -69,6 +82,8 @@ const slides = [
     src: '/service-slides/home-cleaning.png',
     label: 'Home Cleaning',
     alt: 'ApnaServo home cleaning service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '73% center',
     title: 'Trusted care.',
     highlight: 'Reliable cleaning.',
     description: 'Bring a cleaner, more comfortable home within reach with dependable cleaning partners.',
@@ -79,6 +94,8 @@ const slides = [
     src: '/service-slides/pest-control.png',
     label: 'Pest Control',
     alt: 'ApnaServo pest control service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '75% center',
     title: 'Safe treatment.',
     highlight: 'Effective pest control.',
     description: 'Get careful pest management support designed for cleaner, safer everyday living.',
@@ -89,6 +106,8 @@ const slides = [
     src: '/service-slides/appliance-repair.png',
     label: 'Appliance Repair',
     alt: 'ApnaServo appliance repair service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '77% center',
     title: 'Trusted repairs.',
     highlight: 'Reliable appliance care.',
     description: 'Professional help for the appliances that keep your daily home routine moving.',
@@ -99,6 +118,8 @@ const slides = [
     src: '/service-slides/installation.png',
     label: 'Installation',
     alt: 'ApnaServo installation service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '76% center',
     title: 'Perfect fit.',
     highlight: 'Professional installation.',
     description: 'Arrange reliable installation support for home fixtures, fittings, and essentials.',
@@ -136,20 +157,29 @@ export default function ServiceCarousel() {
         onFocus={() => setIsPaused(true)}
         onBlur={() => setIsPaused(false)}
       >
-        {slides.map((item, index) => (
-          <figure className={`serviceCarouselSlide${index === activeSlide ? ' isActive' : ''}`} key={item.src} aria-hidden={index !== activeSlide}>
-            <Image
-              src={item.src}
-              alt={index === activeSlide ? item.alt : ''}
-              fill
-              priority={index === 0}
-              sizes="(max-width: 767px) calc(100vw - 24px), 100vw"
-            />
-          </figure>
-        ))}
+        <div className="serviceCarouselMedia" aria-live="polite">
+          <span className="serviceCarouselMediaFallback" aria-hidden="true">{slide.label}</span>
+          {slides.map((item, index) => (
+            <figure
+              className={`serviceCarouselSlide${index === activeSlide ? ' isActive' : ''}`}
+              key={item.src}
+              aria-hidden={index !== activeSlide}
+              style={{ '--desktop-image-position': item.desktopPosition, '--mobile-image-position': item.mobilePosition } as CSSProperties}
+            >
+              <Image
+                src={item.src}
+                alt={index === activeSlide ? item.alt : ''}
+                fill
+                priority={index === 0}
+                sizes="(max-width: 767px) calc(100vw - 24px), 100vw"
+                onError={(event) => { event.currentTarget.style.opacity = '0'; }}
+              />
+            </figure>
+          ))}
+        </div>
 
         <div className="serviceCarouselContent" key={slide.src}>
-          <p className="serviceCarouselEyebrow">ApnaServo service partner</p>
+          <p className="serviceCarouselEyebrow">{slide.label} service</p>
           <h2>{slide.title} <span>{slide.highlight}</span></h2>
           <p className="serviceCarouselDescription">{slide.description}</p>
           <a className="serviceCarouselCta" href="#contact">{slide.cta}<ArrowRight size={20} /></a>

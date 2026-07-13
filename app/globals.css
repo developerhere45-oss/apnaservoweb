@@ -21798,82 +21798,133 @@ body {
   }
 }
 
-/* Dynamic service showcase */
+/* Services slider production layout */
 .serviceCarousel {
-  padding: 32px 30px 42px;
+  width: 100%;
+  padding: 44px clamp(20px, 3.2vw, 56px);
 }
 
 .serviceCarouselViewport {
+  position: relative;
+  display: grid;
   aspect-ratio: auto;
-  min-height: clamp(560px, 48vw, 760px);
-  border-radius: 12px;
-  background: #f8e6e1;
-}
-
-.serviceCarouselSlide img {
-  object-position: right center;
-  transform: scale(1.55);
-  transform-origin: right center;
+  align-items: stretch;
+  min-height: clamp(620px, 49vw, 740px);
+  overflow: hidden;
+  border: 1px solid rgba(176, 89, 113, 0.2);
+  border-radius: 22px;
+  background: #f7e8e4;
+  box-shadow: 0 24px 58px rgba(104, 46, 62, 0.13);
 }
 
 .serviceCarouselViewport::after {
-  background:
-    linear-gradient(90deg, rgba(255, 250, 247, 0.98) 0%, rgba(255, 250, 247, 0.95) 30%, rgba(255, 250, 247, 0.72) 48%, rgba(255, 250, 247, 0.08) 72%, rgba(54, 24, 33, 0.08) 100%),
-    linear-gradient(180deg, rgba(255, 250, 248, 0.1), transparent 75%, rgba(64, 26, 36, 0.12));
+  content: none;
+}
+
+.serviceCarouselMedia {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(120deg, #f7dfd9, #fdf4ef 58%, #ecd6ce);
+}
+
+.serviceCarouselMedia::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(90deg, #fffaf7 0%, rgba(255, 250, 247, 0.95) 28%, rgba(255, 250, 247, 0.6) 43%, rgba(255, 250, 247, 0.08) 61%, rgba(255, 250, 247, 0) 70%);
+  content: "";
+  pointer-events: none;
+}
+
+.serviceCarouselMediaFallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #a94866;
+  font-size: clamp(30px, 5vw, 70px);
+  font-weight: 800;
+}
+
+.serviceCarouselSlide {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  opacity: 0;
+  transform: scale(1.015);
+  transition: opacity 480ms ease, transform 2s ease;
+}
+
+.serviceCarouselSlide.isActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.serviceCarouselSlide img {
+  object-fit: cover;
+  object-position: var(--desktop-image-position);
+  transform: none;
 }
 
 .serviceCarouselContent {
-  top: 50%;
-  left: clamp(38px, 7vw, 140px);
-  width: min(520px, 36vw);
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: 2;
+  align-self: center;
+  box-sizing: border-box;
+  width: min(520px, 44%);
+  margin: 0 0 154px clamp(32px, 6vw, 112px);
   padding: 0;
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+  color: #1d1920;
   text-align: left;
-  transform: translateY(-54%);
+  transform: none;
   backdrop-filter: none;
-  animation: serviceShowcaseContent 420ms ease both;
+  animation: serviceContentIn 400ms ease both;
 }
 
 .serviceCarouselEyebrow {
   margin: 0 0 14px;
-  color: #9e3555;
-  font-size: clamp(11px, 1vw, 15px);
+  color: #a74665;
+  font-size: clamp(14px, 1.1vw, 16px);
   font-weight: 850;
   line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 .serviceCarouselContent h2 {
   max-width: 520px;
   margin: 0;
   color: #1b1820;
-  font-size: clamp(40px, 4.3vw, 72px);
-  font-weight: 830;
-  line-height: 0.99;
+  font-size: clamp(40px, 4vw, 68px);
+  font-weight: 820;
+  line-height: 1.03;
+  letter-spacing: 0;
   text-wrap: balance;
 }
 
 .serviceCarouselContent h2 span {
   display: block;
-  color: #ca5d76;
-}
-
-.serviceCarouselDescription {
-  max-width: 450px;
-  margin: clamp(16px, 2vw, 26px) 0 0;
-  color: #5f5b62;
-  font-size: clamp(15px, 1.4vw, 20px);
-  line-height: 1.5;
+  color: #bd5872;
 }
 
 .serviceCarouselContent .serviceCarouselDescription {
-  color: #5f5b62;
-  font-size: clamp(15px, 1.4vw, 20px);
+  max-width: 480px;
+  margin: 18px 0 0;
+  color: #5f5960;
+  font-size: clamp(17px, 1.4vw, 20px);
   font-weight: 500;
+  line-height: 1.5;
   letter-spacing: 0;
   text-transform: none;
 }
@@ -21881,153 +21932,204 @@ body {
 .serviceCarouselCta {
   display: inline-flex;
   min-height: 54px;
-  margin-top: clamp(18px, 2vw, 28px);
-  padding: 0 19px;
+  margin-top: 28px;
+  padding: 0 20px;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  border-radius: 8px;
-  background: linear-gradient(100deg, #d96e86, #a64660);
-  box-shadow: 0 12px 28px rgba(153, 54, 78, 0.2);
+  border-radius: 10px;
+  background: linear-gradient(105deg, #d16b84, #ac4964);
+  box-shadow: none;
   color: #fff;
   font-size: 14px;
   font-weight: 800;
   line-height: 1;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform 180ms ease, background-color 180ms ease;
 }
 
 .serviceCarouselCta:hover {
-  box-shadow: 0 16px 32px rgba(153, 54, 78, 0.28);
+  box-shadow: none;
+  background: #9d3d59;
   transform: translateY(-2px);
 }
 
 .serviceCarouselBenefits {
   position: absolute;
   z-index: 3;
-  right: 30px;
-  bottom: 24px;
-  left: 30px;
+  right: clamp(20px, 3vw, 48px);
+  bottom: 66px;
+  left: clamp(20px, 3vw, 48px);
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  min-height: 84px;
   overflow: hidden;
-  border: 1px solid rgba(159, 80, 101, 0.17);
-  border-radius: 10px;
-  background: rgba(255, 253, 251, 0.82);
-  box-shadow: 0 14px 35px rgba(78, 31, 44, 0.1);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(174, 88, 110, 0.18);
+  border-radius: 12px;
+  background: rgba(255, 253, 251, 0.88);
+  box-shadow: 0 12px 30px rgba(92, 41, 54, 0.08);
+  backdrop-filter: blur(8px);
 }
 
 .serviceCarouselBenefits span {
   display: flex;
-  min-height: 82px;
-  padding: 16px 18px;
+  min-width: 0;
+  padding: 15px 18px;
   align-items: center;
   gap: 10px;
-  color: #332b32;
+  color: #352d34;
   font-size: 14px;
-  font-weight: 780;
+  font-weight: 750;
   line-height: 1.25;
 }
 
 .serviceCarouselBenefits span + span {
-  border-left: 1px solid rgba(159, 80, 101, 0.17);
+  border-left: 1px solid rgba(174, 88, 110, 0.16);
 }
 
 .serviceCarouselBenefits span::before {
-  width: 11px;
-  height: 11px;
+  width: 9px;
+  height: 9px;
   flex: 0 0 auto;
-  border-radius: 50%;
-  background: #cd5c79;
-  box-shadow: 0 0 0 6px rgba(205, 92, 121, 0.11);
+  border-radius: 999px;
+  background: #ca5b77;
+  box-shadow: 0 0 0 5px rgba(202, 91, 119, 0.12);
   content: "";
 }
 
 .serviceCarouselDots {
+  position: absolute;
+  top: auto;
+  right: auto;
   z-index: 4;
-  top: 24px;
-  right: 24px;
-  bottom: auto;
-  left: auto;
-  background: rgba(255, 250, 248, 0.78);
+  bottom: 24px;
+  left: clamp(24px, 3vw, 48px);
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
 }
 
-@keyframes serviceShowcaseContent {
-  from { opacity: 0; transform: translateY(calc(-54% + 12px)); }
-  to { opacity: 1; transform: translateY(-54%); }
+.serviceCarouselDots button {
+  width: 8px;
+  height: 8px;
+  background: rgba(129, 56, 76, 0.32);
 }
 
-@media (max-width: 767px) {
-  .serviceCarousel {
-    padding: 20px 12px 30px;
-  }
+.serviceCarouselDots button.isActive {
+  width: 26px;
+  background: #b74e6b;
+}
 
+@keyframes serviceContentIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
   .serviceCarouselViewport {
-    min-height: clamp(540px, 148vw, 620px);
-    border-radius: 10px;
-  }
-
-  .serviceCarouselSlide img {
-    transform: scale(1.68);
-    transform-origin: right center;
-  }
-
-  .serviceCarouselViewport::after {
-    background:
-      linear-gradient(90deg, rgba(255, 250, 247, 0.98) 0%, rgba(255, 250, 247, 0.93) 60%, rgba(255, 250, 247, 0.28) 100%),
-      linear-gradient(180deg, rgba(255, 250, 248, 0.04), rgba(255, 250, 248, 0.18) 48%, rgba(57, 23, 33, 0.14) 100%);
+    min-height: 610px;
   }
 
   .serviceCarouselContent {
-    top: 26px;
-    right: 18px;
-    left: 18px;
+    width: min(470px, 48%);
+    margin-left: clamp(28px, 5vw, 58px);
+  }
+
+  .serviceCarouselBenefits span {
+    padding: 14px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceCarousel {
+    padding: 28px 12px 34px;
+  }
+
+  .serviceCarouselViewport {
+    display: flex;
+    height: auto;
+    min-height: 0;
+    align-items: stretch;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #fffaf8;
+  }
+
+  .serviceCarouselMedia {
+    position: relative;
+    height: clamp(250px, 64vw, 320px);
+    min-height: 250px;
+    flex: 0 0 auto;
+  }
+
+  .serviceCarouselMedia::after {
+    background: linear-gradient(180deg, rgba(255, 250, 247, 0.03) 35%, rgba(83, 38, 50, 0.26) 100%);
+  }
+
+  .serviceCarouselSlide img {
+    object-position: var(--mobile-image-position);
+  }
+
+  .serviceCarouselContent {
+    z-index: 2;
     width: auto;
-    transform: none;
+    margin: 0;
+    padding: 24px 20px 20px;
+    align-self: stretch;
+    flex: 0 0 auto;
+    order: 1;
   }
 
   .serviceCarouselEyebrow {
     margin-bottom: 10px;
-    font-size: 9px;
+    font-size: 12px;
   }
 
   .serviceCarouselContent h2 {
-    font-size: clamp(31px, 9.1vw, 38px);
-    line-height: 1.02;
+    max-width: 390px;
+    font-size: clamp(36px, 9.4vw, 44px);
+    line-height: 1.04;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
   }
 
-  .serviceCarouselDescription {
-    max-width: 260px;
-    margin-top: 13px;
-    font-size: 13px;
-    line-height: 1.4;
+  .serviceCarouselContent .serviceCarouselDescription {
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 1.45;
   }
 
   .serviceCarouselCta {
-    min-height: 46px;
-    margin-top: 16px;
-    padding: 0 13px;
-    gap: 8px;
-    font-size: 11px;
-  }
-
-  .serviceCarouselCta svg {
-    width: 16px;
-    height: 16px;
+    width: 100%;
+    min-height: 52px;
+    margin-top: 22px;
+    font-size: 14px;
   }
 
   .serviceCarouselBenefits {
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    order: 2;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-radius: 8px;
+    min-height: 0;
+    margin: 0 20px 20px;
+    flex: 0 0 auto;
+    border-radius: 10px;
+    box-shadow: none;
   }
 
   .serviceCarouselBenefits span {
-    min-height: 47px;
-    padding: 10px;
-    gap: 7px;
-    font-size: 10.5px;
+    min-height: 52px;
+    padding: 11px;
+    gap: 8px;
+    font-size: 11px;
   }
 
   .serviceCarouselBenefits span + span {
@@ -22035,29 +22137,68 @@ body {
   }
 
   .serviceCarouselBenefits span:nth-child(2n) {
-    border-left: 1px solid rgba(159, 80, 101, 0.17);
+    border-left: 1px solid rgba(174, 88, 110, 0.16);
   }
 
   .serviceCarouselBenefits span:nth-child(n+3) {
-    border-top: 1px solid rgba(159, 80, 101, 0.17);
+    border-top: 1px solid rgba(174, 88, 110, 0.16);
   }
 
   .serviceCarouselBenefits span::before {
     width: 7px;
     height: 7px;
-    box-shadow: 0 0 0 4px rgba(205, 92, 121, 0.11);
+    box-shadow: 0 0 0 4px rgba(202, 91, 119, 0.12);
   }
 
   .serviceCarouselDots {
-    top: 12px;
-    right: 12px;
-    left: auto;
+    top: clamp(214px, 55vw, 278px);
+    right: 16px;
     bottom: auto;
+    left: auto;
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    border-radius: 999px;
+    background: rgba(73, 33, 43, 0.58);
+    backdrop-filter: blur(7px);
   }
 
-  @keyframes serviceShowcaseContent {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  .serviceCarouselDots button {
+    width: 7px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  .serviceCarouselDots button.isActive {
+    width: 19px;
+    background: #fff;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceCarouselContent {
+    padding: 22px 16px 18px;
+  }
+
+  .serviceCarouselContent h2 {
+    font-size: clamp(36px, 10vw, 41px);
+  }
+
+  .serviceCarouselBenefits {
+    margin: 0 16px 16px;
+  }
+
+  .serviceCarouselBenefits span {
+    padding: 10px 8px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .serviceCarouselSlide,
+  .serviceCarouselContent,
+  .serviceCarouselCta {
+    animation: none;
+    transition: none;
   }
 }
 
