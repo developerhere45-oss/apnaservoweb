@@ -17,6 +17,145 @@
   background: #fff;
 }
 
+/* Services carousel */
+.serviceCarousel {
+  position: relative;
+  width: min(100%, 1660px);
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+
+.serviceCarouselViewport {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 16 / 8.65;
+  min-height: 360px;
+  overflow: hidden;
+  border: 1px solid rgba(210, 102, 132, 0.2);
+  border-radius: 8px;
+  background: #f8ebe8;
+  box-shadow: 0 22px 48px rgba(108, 49, 65, 0.12);
+}
+
+.serviceCarouselSlide {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+  opacity: 0;
+  transform: scale(1.025);
+  transition: opacity 700ms ease, transform 5.4s ease;
+  pointer-events: none;
+}
+
+.serviceCarouselSlide.isActive {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.serviceCarouselSlide img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.serviceCarouselLabel {
+  position: absolute;
+  z-index: 2;
+  right: 18px;
+  bottom: 18px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 6px;
+  background: rgba(61, 27, 33, 0.66);
+  color: #fffaf8;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(8px);
+}
+
+.serviceCarouselDots {
+  position: absolute;
+  z-index: 2;
+  left: 18px;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 6px;
+  background: rgba(255, 250, 248, 0.74);
+  backdrop-filter: blur(8px);
+}
+
+.serviceCarouselDots button {
+  width: 7px;
+  height: 7px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(91, 35, 49, 0.32);
+  cursor: pointer;
+  transition: width 180ms ease, background-color 180ms ease;
+}
+
+.serviceCarouselDots button.isActive {
+  width: 22px;
+  background: #bd4f6d;
+}
+
+.serviceCarouselDots button:focus-visible {
+  outline: 2px solid #7c1939;
+  outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .serviceCarousel {
+    padding: 28px 16px;
+  }
+
+  .serviceCarouselViewport {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .serviceCarouselLabel {
+    right: 10px;
+    bottom: 10px;
+    padding: 6px 8px;
+    font-size: 8px;
+  }
+
+  .serviceCarouselDots {
+    left: 10px;
+    bottom: 10px;
+    gap: 5px;
+    padding: 7px 8px;
+  }
+
+  .serviceCarouselDots button {
+    width: 5px;
+    height: 5px;
+  }
+
+  .serviceCarouselDots button.isActive {
+    width: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .serviceCarouselSlide,
+  .serviceCarouselDots button {
+    transition: none;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -4066,6 +4205,176 @@ h1::after {
 
   .footerBottomDivider {
     margin-top: 8px !important;
+  }
+
+  main > .serviceCarousel {
+    order: 3 !important;
+  }
+}
+
+/* Partner verification artwork */
+.processTrack {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.processTrack article {
+  display: flex;
+  min-height: 276px;
+  padding: 18px 18px 22px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.processTrack article > .verificationStepImage {
+  display: block;
+  width: 100%;
+  height: 162px;
+  margin: 0 0 12px;
+  overflow: hidden;
+  border: 1px solid rgba(217, 123, 147, 0.18);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff8f7, #f9e6e4);
+  box-shadow: none;
+}
+
+.verificationStepImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 33%;
+  transform: scale(1.3);
+}
+
+.processTrack small {
+  margin-top: 0;
+}
+
+.processTrack h3 {
+  min-height: 36px;
+  margin: 6px 0 0;
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .processTrack article {
+    display: grid !important;
+    min-height: 82px !important;
+    padding: 8px 10px !important;
+    grid-template-columns: 58px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 9px !important;
+  }
+
+  .processTrack article > .verificationStepImage {
+    width: 58px !important;
+    height: 58px !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    grid-row: 1 / span 2 !important;
+    border-radius: 12px !important;
+  }
+
+  .verificationStepImage img {
+    object-position: center 35%;
+    transform: scale(1.5);
+  }
+
+  .processTrack small {
+    align-self: end !important;
+  }
+
+  .processTrack h3 {
+    display: block;
+    min-height: 0 !important;
+    margin: 1px 0 0 !important;
+  }
+}
+
+/* Full-width service background slider */
+.serviceCarousel {
+  width: 100%;
+  max-width: none;
+  padding: 24px 30px 38px;
+}
+
+.serviceCarouselViewport {
+  aspect-ratio: 16 / 7.4;
+  min-height: 0;
+  border-radius: 10px;
+}
+
+.serviceCarouselViewport::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 249, 247, 0.62) 0%, rgba(255, 249, 247, 0.18) 44%, rgba(255, 249, 247, 0.08) 100%),
+    linear-gradient(180deg, rgba(255, 250, 248, 0.34), transparent 48%, rgba(51, 22, 30, 0.16));
+}
+
+.serviceCarouselContent {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: min(720px, calc(100% - 96px));
+  padding: clamp(16px, 2vw, 28px) clamp(20px, 3vw, 42px);
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  border-radius: 8px;
+  background: rgba(255, 250, 248, 0.62);
+  box-shadow: 0 16px 44px rgba(75, 31, 43, 0.13);
+  color: #171820;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(9px);
+}
+
+.serviceCarouselContent p {
+  margin: 0 0 8px;
+  color: #c65374;
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: 850;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.serviceCarouselContent h2 {
+  max-width: 670px;
+  margin: 0 auto;
+  font-size: clamp(32px, 4vw, 64px);
+  font-weight: 820;
+  line-height: 1.04;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+@media (max-width: 767px) {
+  .serviceCarousel {
+    padding: 20px 12px 28px;
+  }
+
+  .serviceCarouselViewport {
+    aspect-ratio: 16 / 10;
+    border-radius: 8px;
+  }
+
+  .serviceCarouselContent {
+    width: calc(100% - 34px);
+    padding: 13px 16px;
+  }
+
+  .serviceCarouselContent p {
+    margin-bottom: 6px;
+    font-size: 9px;
+  }
+
+  .serviceCarouselContent h2 {
+    font-size: clamp(24px, 7.4vw, 32px);
+    line-height: 1.06;
   }
 }
 

@@ -55,22 +55,8 @@ import {
   type LucideIcon
 } from 'lucide-react';
 import WaitlistSignupForm from './WaitlistSignupForm';
+import ServiceCarousel from './ServiceCarousel';
 import { absoluteUrl, siteUrl } from './site';
-
-const services: Array<{ name: string; icon: LucideIcon; mobileName?: string; mobileOrder?: number; mobileHidden?: boolean }> = [
-  { name: 'Electrician', icon: Zap, mobileOrder: 1 },
-  { name: 'Plumbing', icon: Droplets, mobileOrder: 2 },
-  { name: 'AC Repair', icon: AirVent, mobileOrder: 3 },
-  { name: 'Carpentry', icon: Hammer, mobileOrder: 4 },
-  { name: 'Painting', icon: PaintRoller, mobileOrder: 5 },
-  { name: 'Pest Control', icon: ShieldCheck, mobileOrder: 6 },
-  { name: 'Interior Design', icon: Sparkles, mobileOrder: 7 },
-  { name: 'Home Decoration', icon: Gift, mobileHidden: true },
-  { name: 'Home Cleaning', icon: Brush, mobileName: 'Deep Cleaning', mobileOrder: 9 },
-  { name: 'Appliance Repair', icon: Wrench, mobileOrder: 8 },
-  { name: 'Installation', icon: Home, mobileHidden: true },
-  { name: 'Maintenance', icon: BadgeCheck, mobileHidden: true }
-];
 
 const features: Array<{ title: string; text: string; icon: LucideIcon }> = [
   { title: 'Verified Professionals', text: 'Identity-checked experts with transparent profiles and service-ready onboarding.', icon: ShieldCheck },
@@ -162,7 +148,7 @@ function App() {
       <main>
         <Hero />
         <LaunchTrustGrid />
-        <Services />
+        <ServiceCarousel />
         <VerificationProcess />
         <AssamSection />
       </main>
@@ -283,27 +269,6 @@ function HowItWorks() {
       <p className="availabilityNote">
         Service availability may vary by location. If your selected location is not supported, ApnaServo will show: “ApnaServo is not available in your area yet. We are expanding across Guwahati and will be there soon.”
       </p>
-    </section>
-  );
-}
-
-function Services() {
-  return (
-    <section className="section services" id="services">
-      <span className="anchorTarget" id="commercial" />
-      <SectionTitle eyebrow="Services" title="Everything your home needs, in one place." />
-      <div className="serviceGrid serviceCategoryGrid serviceCategoryGridFull">
-        {services.map(({ name, icon: Icon, mobileName, mobileOrder, mobileHidden }) => (
-          <article
-            className={`serviceCard${mobileHidden ? ' mobileHiddenService' : ''}`}
-            key={name}
-            style={mobileOrder ? ({ '--mobile-order': mobileOrder } as CSSProperties) : undefined}
-          >
-            <Icon size={34} />
-            <h3><span className="desktopServiceLabel">{name}</span><span className="mobileServiceLabel">{mobileName || name}</span></h3>
-          </article>
-        ))}
-      </div>
     </section>
   );
 }
@@ -513,19 +478,35 @@ function PartnerEarningsScreen() {
 
 function VerificationProcess() {
   const steps = [
-    ['Apply', Smartphone],
-    ['Document Verification', FileCheck2],
-    ['Manual Approval', ClipboardCheck],
-    ['Live On Platform', Rocket]
+    {
+      title: 'Apply',
+      image: '/verification-steps/apply.png',
+      alt: 'Illustration of applying to become an ApnaServo service partner'
+    },
+    {
+      title: 'Document Verification',
+      image: '/verification-steps/document-verification.png',
+      alt: 'Illustration of document verification for an ApnaServo service partner'
+    },
+    {
+      title: 'Manual Approval',
+      image: '/verification-steps/manual-approval.png',
+      alt: 'Illustration of manual partner approval'
+    },
+    {
+      title: 'Live On Platform',
+      image: '/verification-steps/live-on-platform.png',
+      alt: 'Illustration of a service partner going live on the ApnaServo platform'
+    }
   ] as const;
 
   return (
     <section className="section verificationProcess" id="verification">
       <SectionTitle eyebrow="Partner verification" title="Every professional earns their place." />
       <div className="processTrack">
-        {steps.map(([title, Icon], index) => (
+        {steps.map(({ title, image, alt }, index) => (
           <article key={title}>
-            <span><Icon size={25} /></span>
+            <span className="verificationStepImage"><Image src={image} alt={alt} width={1536} height={1024} sizes="(max-width: 767px) 68px, 260px" /></span>
             <small>Step {index + 1}</small>
             <h3>{title}</h3>
           </article>
