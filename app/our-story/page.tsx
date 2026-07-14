@@ -36,20 +36,22 @@ const organizationSchema = {
   logo: absoluteUrl('/apnaservo-wordmark.png'),
   description:
     'A home services platform connecting customers with trusted professionals while creating sustainable work opportunities for skilled people.',
-  founder: [
-    {
-      '@type': 'Person',
-      name: 'Dijendra Mallah',
-      jobTitle: 'Founder',
-      url: absoluteUrl('/founder')
-    },
-    {
+  founder: {
+    '@type': 'Person',
+    name: 'Dijendra Mallah',
+    jobTitle: 'Founder',
+    url: absoluteUrl('/founder')
+  },
+  member: {
+    '@type': 'OrganizationRole',
+    roleName: 'Co-Founder',
+    member: {
       '@type': 'Person',
       name: 'Pinku Chetry',
       jobTitle: 'Co-Founder',
       url: absoluteUrl('/co-founder')
     }
-  ]
+  }
 };
 
 const aboutPageSchema = {
@@ -124,8 +126,9 @@ export default function OurStoryPage() {
         <div className={styles.storyCopy}>
           <h2>A small problem that refused to stay small.</h2>
           <p>
-            ApnaServo was created by two friends, <strong>Dijendra Mallah</strong> and <strong>Pinku Chetry</strong>.
-            At the time, we were PG mates, sharing the ordinary routines, uncertainties and ambitions that come with
+            ApnaServo was created by two friends: <strong>Dijendra Mallah, Founder</strong>, and{' '}
+            <strong>Pinku Chetry, Co-Founder</strong>. At the time, we were PG mates, sharing the ordinary routines,
+            uncertainties and ambitions that come with
             trying to build a future.
           </p>
           <p>
@@ -235,8 +238,8 @@ export default function OurStoryPage() {
           We are only getting started.”
         </blockquote>
         <div className={styles.founderNames}>
-          <p><strong>Dijendra Mallah</strong><span>Founder</span></p>
-          <p><strong>Pinku Chetry</strong><span>Co-Founder</span></p>
+          <p><strong>Dijendra Mallah</strong><span>, Founder</span></p>
+          <p><strong>Pinku Chetry</strong><span>, Co-Founder</span></p>
         </div>
       </section>
 

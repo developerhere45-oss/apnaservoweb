@@ -115,20 +115,22 @@ const organizationSchema = {
   name: 'ApnaServo',
   url: siteUrl,
   logo: absoluteUrl('/apnaservo-wordmark.png'),
-  founder: [
-    {
-      '@type': 'Person',
-      name: 'Dijendra Mallah',
-      jobTitle: 'Founder',
-      url: absoluteUrl('/founder')
-    },
-    {
+  founder: {
+    '@type': 'Person',
+    name: 'Dijendra Mallah',
+    jobTitle: 'Founder',
+    url: absoluteUrl('/founder')
+  },
+  member: {
+    '@type': 'OrganizationRole',
+    roleName: 'Co-Founder',
+    member: {
       '@type': 'Person',
       name: 'Pinku Chetry',
       jobTitle: 'Co-Founder',
       url: absoluteUrl('/co-founder')
     }
-  ]
+  }
 };
 
 const trustPoints: Array<{ title: string; text: string; icon: LucideIcon }> = [
