@@ -1,130 +1,73 @@
 'use client';
 
 import Image from 'next/image';
-import { BadgeCheck, CalendarClock, ChevronLeft, ChevronRight, ShieldCheck, Timer } from 'lucide-react';
+import { BadgeCheck, Check, ChevronRight } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import { useEffect, useState } from 'react';
 
 const slides = [
   {
-    src: '/service-slides/electrician.png',
+    src: '/service-slides/electrician-clean.png',
     label: 'Electrician',
     alt: 'ApnaServo electrician service partner at work',
     desktopPosition: 'right center',
-    mobilePosition: '78% center',
-    title: 'Reliable repairs.',
-    highlight: 'Safe electrical care.',
-    description: 'Verified electricians for quick, careful repairs and installations at your doorstep.',
-    cta: 'Explore electrician services',
-    benefits: ['Verified experts', 'Safe diagnostics', 'Clear estimates', 'On-time service']
+    mobilePosition: '76% center'
   },
   {
-    src: '/service-slides/plumbing.png',
-    label: 'Plumbing',
-    alt: 'ApnaServo plumbing service partner at work',
-    desktopPosition: 'right center',
-    mobilePosition: '74% center',
-    title: 'Trusted skills.',
-    highlight: 'Reliable plumbing.',
-    description: 'Get clean, dependable plumbing support for repairs, fittings, and everyday home needs.',
-    cta: 'Explore plumbing services',
-    benefits: ['Local plumbers', 'Quality tools', 'Transparent pricing', 'Quick support']
-  },
-  {
-    src: '/service-slides/ac-repair.png',
-    label: 'AC Repair',
-    alt: 'ApnaServo AC repair service partner at work',
-    desktopPosition: 'right center',
-    mobilePosition: '76% center',
-    title: 'Trusted cooling.',
-    highlight: 'Reliable AC repair.',
-    description: 'Keep your home comfortable with professional AC service, repair, and maintenance.',
-    cta: 'Explore AC repair services',
-    benefits: ['Trained technicians', 'Careful servicing', 'Clear quotes', 'Fast visits']
-  },
-  {
-    src: '/service-slides/carpentry.png',
+    src: '/service-slides/carpentry-clean.png',
     label: 'Carpentry',
     alt: 'ApnaServo carpentry service partner at work',
     desktopPosition: 'right center',
-    mobilePosition: '76% center',
-    title: 'Skilled hands.',
-    highlight: 'Reliable carpentry.',
-    description: 'From repairs to custom work, find practical carpentry help for the details that matter.',
-    cta: 'Explore carpentry services',
-    benefits: ['Skilled partners', 'Quality materials', 'Precise work', 'Timely delivery']
+    mobilePosition: '76% center'
   },
   {
-    src: '/service-slides/painting.png',
+    src: '/service-slides/painting-clean.png',
     label: 'Painting',
     alt: 'ApnaServo painting service partner at work',
     desktopPosition: 'right center',
-    mobilePosition: '75% center',
-    title: 'Smooth finish.',
-    highlight: 'Professional painting.',
-    description: 'Refresh your space with careful painting service and a finish you can feel good about.',
-    cta: 'Explore painting services',
-    benefits: ['Clean preparation', 'Trusted painters', 'Quality finish', 'On-time service']
+    mobilePosition: '75% center'
   },
   {
-    src: '/service-slides/interior-design.png',
+    src: '/service-slides/interior-design-clean.png',
     label: 'Interior Design',
     alt: 'ApnaServo interior design service partner at work',
     desktopPosition: 'right center',
-    mobilePosition: '73% center',
-    title: 'Smart spaces.',
-    highlight: 'Professional interior design.',
-    description: 'Make every room feel more personal with thoughtful interior support for your home.',
-    cta: 'Explore interior services',
-    benefits: ['Personalized design', 'Space planning', 'Premium quality', 'End-to-end support']
+    mobilePosition: '73% center'
   },
   {
-    src: '/service-slides/home-cleaning.png',
+    src: '/service-slides/home-cleaning-clean.png',
     label: 'Home Cleaning',
     alt: 'ApnaServo home cleaning service partner at work',
     desktopPosition: 'right center',
-    mobilePosition: '73% center',
-    title: 'Trusted care.',
-    highlight: 'Reliable cleaning.',
-    description: 'Bring a cleaner, more comfortable home within reach with dependable cleaning partners.',
-    cta: 'Explore cleaning services',
-    benefits: ['Professional cleaning', 'Trusted partners', 'Safe care', 'On-time visits']
+    mobilePosition: '73% center'
   },
   {
-    src: '/service-slides/pest-control.png',
+    src: '/service-slides/pest-control-clean.png',
     label: 'Pest Control',
     alt: 'ApnaServo pest control service partner at work',
     desktopPosition: 'right center',
-    mobilePosition: '75% center',
-    title: 'Safe treatment.',
-    highlight: 'Effective pest control.',
-    description: 'Get careful pest management support designed for cleaner, safer everyday living.',
-    cta: 'Explore pest control services',
-    benefits: ['Careful treatment', 'Hygienic service', 'Verified experts', 'Home support']
+    mobilePosition: '75% center'
   },
   {
-    src: '/service-slides/appliance-repair.png',
+    src: '/service-slides/appliance-repair-clean.png',
     label: 'Appliance Repair',
     alt: 'ApnaServo appliance repair service partner at work',
     desktopPosition: 'right center',
-    mobilePosition: '77% center',
-    title: 'Trusted repairs.',
-    highlight: 'Reliable appliance care.',
-    description: 'Professional help for the appliances that keep your daily home routine moving.',
-    cta: 'Explore appliance services',
-    benefits: ['Expert repair', 'Trusted partners', 'Quick service', 'Home support']
+    mobilePosition: '77% center'
   },
   {
-    src: '/service-slides/installation.png',
+    src: '/service-slides/installation-clean.png',
     label: 'Installation',
     alt: 'ApnaServo installation service partner at work',
     desktopPosition: 'right center',
-    mobilePosition: '76% center',
-    title: 'Perfect fit.',
-    highlight: 'Professional installation.',
-    description: 'Arrange reliable installation support for home fixtures, fittings, and essentials.',
-    cta: 'Explore installation services',
-    benefits: ['Safe installation', 'Precise work', 'Quality tools', 'On-time service']
+    mobilePosition: '76% center'
+  },
+  {
+    src: '/service-slides/plumbing-clean.png',
+    label: 'Plumbing',
+    alt: 'ApnaServo plumbing service partner at work',
+    desktopPosition: 'right center',
+    mobilePosition: '74% center'
   }
 ];
 
@@ -139,14 +82,6 @@ export default function ServiceCarousel() {
 
     return () => window.clearInterval(interval);
   }, []);
-
-  const showPreviousSlide = () => {
-    setActiveSlide((current) => (current - 1 + slides.length) % slides.length);
-  };
-
-  const showNextSlide = () => {
-    setActiveSlide((current) => (current + 1) % slides.length);
-  };
 
   return (
     <section className="serviceCarousel" id="services" aria-roledescription="carousel" aria-label="ApnaServo home services">
@@ -173,39 +108,37 @@ export default function ServiceCarousel() {
           ))}
         </div>
 
-        <div className="serviceCarouselContent" key={slide.src}>
-          <Image className="serviceCarouselWordmark" src="/apnaservo-wordmark.png" alt="ApnaServo" width={248} height={62} />
-          <p className="serviceCarouselEyebrow">Our services</p>
-          <h2><span>Everything</span><span>your home</span><em>needs.</em></h2>
-          <p className="serviceCarouselDescription">Trusted {slide.label.toLowerCase()} help for every task.</p>
-        </div>
+        <div className="serviceCarouselContent">
+          <div className="serviceCarouselEyebrow">
+            <BadgeCheck aria-hidden="true" />
+            <span>Verified Home Service Platform</span>
+          </div>
 
-        <div className="serviceCarouselBenefits" aria-label="ApnaServo service benefits">
-          <span><ShieldCheck aria-hidden="true" />Trusted pros</span>
-          <span><CalendarClock aria-hidden="true" />Quick booking</span>
-          <span><BadgeCheck aria-hidden="true" />Verified partners</span>
-          <span><Timer aria-hidden="true" />On-time service</span>
-        </div>
+          <h2>Our Services</h2>
+          <p className="serviceCarouselDescription">
+            Trusted professionals for every home need. Book verified electricians, plumbers, AC technicians,
+            cleaners and more &mdash; all in one place.
+          </p>
 
-        <button className="serviceCarouselArrow serviceCarouselArrowPrevious" type="button" aria-label="Show previous service" onClick={showPreviousSlide}>
-          <ChevronLeft aria-hidden="true" />
-        </button>
-        <button className="serviceCarouselArrow serviceCarouselArrowNext" type="button" aria-label="Show next service" onClick={showNextSlide}>
-          <ChevronRight aria-hidden="true" />
-        </button>
+          <div className="serviceCarouselActions">
+            <a className="serviceCarouselPrimaryCta" href="#contact">
+              <span>Book a Service</span>
+              <ChevronRight aria-hidden="true" />
+            </a>
+            <a className="serviceCarouselSecondaryCta" href="#how">
+              <span>Explore Services</span>
+              <ChevronRight aria-hidden="true" />
+            </a>
+          </div>
 
-        <div className="serviceCarouselDots" role="tablist" aria-label="Choose a service slide">
-          {slides.map((item, index) => (
-            <button
-              className={index === activeSlide ? 'isActive' : ''}
-              key={item.src}
-              type="button"
-              role="tab"
-              aria-selected={index === activeSlide}
-              aria-label={`Show ${item.label} service`}
-              onClick={() => setActiveSlide(index)}
-            />
-          ))}
+          <div className="serviceCarouselTrust" aria-label="Service guarantees">
+            {['Verified Professionals', 'Transparent Pricing', 'No Upfront Payment', 'Fast Response'].map((item) => (
+              <span key={item}>
+                <i aria-hidden="true"><Check /></i>
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -4219,22 +4219,22 @@ h1::after {
 
 .processTrack article {
   display: flex;
-  min-height: 276px;
+  min-height: 254px;
   padding: 18px 18px 22px;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .processTrack article > .verificationStepImage {
   display: block;
-  width: 100%;
-  height: 162px;
-  margin: 0 0 12px;
+  width: 126px;
+  height: 126px;
+  margin: 0 auto 12px;
   overflow: hidden;
-  border: 1px solid rgba(217, 123, 147, 0.18);
-  border-radius: 14px;
-  background: linear-gradient(135deg, #fff8f7, #f9e6e4);
+  border: 0;
+  border-radius: 18px;
+  background: #fff8f7;
   box-shadow: none;
 }
 
@@ -4242,8 +4242,9 @@ h1::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 33%;
-  transform: scale(1.3);
+  object-position: center top;
+  transform: scale(1.45);
+  transform-origin: center top;
 }
 
 .processTrack small {
@@ -4251,24 +4252,63 @@ h1::after {
 }
 
 .processTrack h3 {
-  min-height: 36px;
+  min-height: 0;
   margin: 6px 0 0;
-  display: none;
+  display: block;
+  text-align: center;
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .processTrack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .processTrack::before {
+    display: none;
+  }
+
+  .processTrack article {
+    display: grid;
+    min-height: 142px;
+    padding: 18px 22px;
+    grid-template-columns: 104px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 16px;
+    text-align: left;
+  }
+
+  .processTrack article > .verificationStepImage {
+    width: 104px;
+    height: 104px;
+    margin: 0;
+    grid-row: 1 / span 2;
+  }
+
+  .processTrack small {
+    align-self: end;
+  }
+
+  .processTrack h3 {
+    margin-top: 2px;
+    text-align: left;
+  }
 }
 
 @media (max-width: 767px) {
   .processTrack article {
     display: grid !important;
-    min-height: 82px !important;
-    padding: 8px 10px !important;
-    grid-template-columns: 58px minmax(0, 1fr) !important;
+    min-height: 98px !important;
+    padding: 10px 12px !important;
+    grid-template-columns: 72px minmax(0, 1fr) !important;
     grid-template-rows: auto auto !important;
-    column-gap: 9px !important;
+    column-gap: 12px !important;
   }
 
   .processTrack article > .verificationStepImage {
-    width: 58px !important;
-    height: 58px !important;
+    width: 72px !important;
+    height: 72px !important;
     min-height: 0 !important;
     margin: 0 !important;
     grid-row: 1 / span 2 !important;
@@ -4276,8 +4316,9 @@ h1::after {
   }
 
   .verificationStepImage img {
-    object-position: center 35%;
-    transform: scale(1.5);
+    object-position: center top;
+    transform: scale(1.45);
+    transform-origin: center top;
   }
 
   .processTrack small {
@@ -4287,7 +4328,8 @@ h1::after {
   .processTrack h3 {
     display: block;
     min-height: 0 !important;
-    margin: 1px 0 0 !important;
+    margin: 2px 0 0 !important;
+    text-align: left;
   }
 }
 
@@ -21798,6 +21840,1508 @@ body {
   }
 }
 
+/* Keep supplied verification artwork legible without its baked-in labels overlapping card copy. */
+@media (max-width: 767px) {
+  .verificationProcess .processTrack article > .verificationStepImage {
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  .verificationProcess .verificationStepImage img {
+    object-position: center top !important;
+    transform: scale(1.45) !important;
+    transform-origin: center top !important;
+  }
+}
+
+/* Final launch artwork treatment: the Guwahati/rhino artwork is the section background. */
+.assam.assamBackdrop {
+  position: relative;
+  display: grid;
+  min-height: clamp(580px, 47vw, 720px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(34px, 6vw, 100px);
+  max-width: none;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0;
+  background: #fffaf8;
+}
+
+.assamBackdrop .assamArt {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.assamBackdrop .assamArt::before,
+.assamBackdrop .assamArt::after {
+  display: none;
+}
+
+.assamBackdrop .assamArt img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.assamBackdrop::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(255, 250, 247, 0.98) 0%, rgba(255, 250, 247, 0.94) 30%, rgba(255, 250, 247, 0.66) 49%, rgba(255, 250, 247, 0.15) 72%, rgba(255, 250, 247, 0.03) 100%);
+  content: "";
+}
+
+.assamBackdrop .assamCopy {
+  position: relative;
+  z-index: 2;
+  grid-column: 1;
+  width: min(100% - 56px, 620px);
+  max-width: 620px;
+  margin-left: clamp(48px, 5vw, 96px);
+}
+
+.assamBackdrop .assamCopy h2 {
+  max-width: 600px;
+  margin-top: 22px;
+  font-size: clamp(46px, 4.4vw, 76px);
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+}
+
+.assamBackdrop .assamCopy p {
+  max-width: 530px;
+  margin-top: 24px;
+  font-size: clamp(16px, 1.32vw, 20px);
+  line-height: 1.55;
+}
+
+.assamBackdrop .launchMetrics {
+  width: min(100%, 650px);
+  gap: 16px;
+  margin-top: 38px;
+}
+
+.assamBackdrop .launchMetrics div {
+  min-height: 122px;
+  padding: 22px 20px;
+  border-color: rgba(111, 53, 69, 0.12);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 34px rgba(114, 52, 70, 0.08);
+}
+
+.assamBackdrop .launchMetrics strong {
+  font-size: clamp(28px, 2.5vw, 42px);
+}
+
+.assamBackdrop .launchMetrics span {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+@media (max-width: 767px) {
+  .assam.assamBackdrop {
+    display: grid !important;
+    min-height: 560px;
+    grid-template-columns: 1fr !important;
+    align-content: start;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+
+  .assamBackdrop .assamArt {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    border-radius: 0 !important;
+  }
+
+  .assamBackdrop .assamArt img {
+    width: 100% !important;
+    height: 100% !important;
+    object-position: 58% center;
+  }
+
+  .assamBackdrop::after {
+    background: linear-gradient(180deg, rgba(255, 250, 247, 0.94) 0%, rgba(255, 250, 247, 0.7) 38%, rgba(255, 250, 247, 0.2) 68%, rgba(255, 250, 247, 0.04) 100%);
+  }
+
+  .assamBackdrop .assamCopy {
+    grid-column: auto;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 42px var(--mobile-page-padding, 18px) 0 !important;
+  }
+
+  .assamBackdrop .assamCopy h2 {
+    margin-top: 14px;
+    font-size: clamp(34px, 9vw, 43px);
+  }
+
+  .assamBackdrop .assamCopy p {
+    margin-top: 13px;
+    font-size: 15px;
+  }
+
+  .assamBackdrop .launchMetrics {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .assamBackdrop .launchMetrics div {
+    min-height: 0;
+    padding: 12px 9px;
+    border-radius: 14px;
+  }
+
+  .assamBackdrop .launchMetrics strong {
+    font-size: clamp(19px, 5.8vw, 25px);
+  }
+
+  .assamBackdrop .launchMetrics span {
+    margin-top: 4px;
+    font-size: 9px;
+  }
+
+}
+
+/* Homepage portrait video, composed as a landscape hero without changing its content layout. */
+.hero.heroWithVideo {
+  isolation: isolate;
+  overflow: hidden;
+  background: #fffaf8;
+}
+
+.heroWithVideo::before {
+  display: none;
+}
+
+.heroWithVideo > .heroVideoLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heroWithVideo .heroVideoBlur,
+.heroWithVideo .heroVideoSharp {
+  position: absolute;
+  display: block;
+  margin: 0;
+  pointer-events: none;
+}
+
+.heroWithVideo .heroVideoBlur {
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center right;
+  filter: blur(8px) saturate(0.92);
+  opacity: 0.26;
+  transform: scale(1.08);
+}
+
+.heroWithVideo .heroVideoSharp {
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center right;
+  opacity: 1;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 26%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 26%, #000 100%);
+}
+
+.heroWithVideo .heroVideoOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  background: linear-gradient(90deg, rgba(255, 252, 249, 0.98) 0%, rgba(255, 252, 249, 0.94) 30%, rgba(255, 252, 249, 0.84) 38%, rgba(255, 252, 249, 0.32) 50%, rgba(255, 252, 249, 0.06) 60%, transparent 70%);
+}
+
+.heroWithVideo video::-webkit-media-controls,
+.heroWithVideo video::-webkit-media-controls-enclosure,
+.heroWithVideo video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+}
+
+.heroWithVideo > .heroCopy {
+  z-index: 3;
+}
+
+@media (max-width: 767px) {
+  .hero.heroWithVideo {
+    display: block !important;
+    min-height: 0 !important;
+    padding: 28px var(--mobile-page-padding, 18px) 32px !important;
+    background: #fffaf8;
+  }
+
+  .heroWithVideo > .heroCopy {
+    position: relative !important;
+    z-index: 3;
+    display: block !important;
+    max-width: none !important;
+    padding-top: 0;
+  }
+
+  .heroWithVideo > .heroVideoLayer {
+    inset: 0;
+    height: auto;
+  }
+
+  .heroWithVideo .heroVideoBlur {
+    display: block;
+    inset: -8%;
+    width: 116%;
+    height: 116%;
+    object-position: 78% center;
+    filter: blur(8px) saturate(0.92);
+    opacity: 0.2;
+  }
+
+  .heroWithVideo .heroVideoSharp {
+    top: 0;
+    right: -10%;
+    width: 70%;
+    height: 62%;
+    object-fit: cover;
+    object-position: 78% center;
+    opacity: 0.88;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 100%);
+  }
+
+  .heroWithVideo .heroVideoOverlay {
+    background: linear-gradient(90deg, rgba(255, 252, 249, 0.99) 0%, rgba(255, 252, 249, 0.95) 34%, rgba(255, 252, 249, 0.65) 52%, rgba(255, 252, 249, 0.14) 72%, transparent 100%);
+  }
+
+  .heroWithVideo .heroCopy > p:not(.mobileHeroSupport) {
+    max-width: 280px !important;
+    margin-top: 24px !important;
+  }
+
+  .heroWithVideo .heroActions {
+    margin-top: 22px !important;
+  }
+
+  .heroWithVideo .heroActions .secondaryBtn:only-child {
+    width: 100% !important;
+    justify-content: space-between;
+  }
+
+  .heroWithVideo .heroTrustStrip {
+    margin-top: 24px !important;
+  }
+}
+
+/* Authoritative services hero override. Keep this block last. */
+.serviceCarousel {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(26px, 3vw, 48px) clamp(18px, 3.6vw, 56px);
+  background: #fffaf8;
+}
+
+.serviceCarouselViewport {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: clamp(520px, 66vh, 680px);
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(129, 42, 61, 0.2);
+  border-radius: 24px;
+  background: #f3e5df;
+  box-shadow: 0 24px 64px rgba(88, 40, 48, 0.12);
+}
+
+.serviceCarouselMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: #ead8d0;
+}
+
+.serviceCarouselMedia::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 250, 247, 0.99) 0%,
+    rgba(255, 250, 247, 0.96) 32%,
+    rgba(255, 250, 247, 0.76) 45%,
+    rgba(255, 250, 247, 0.18) 62%,
+    rgba(255, 250, 247, 0) 76%
+  );
+}
+
+.serviceCarouselMediaFallback {
+  display: none;
+}
+
+.serviceCarouselSlide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 460ms ease;
+}
+
+.serviceCarouselSlide.isActive {
+  opacity: 1;
+}
+
+.serviceCarouselSlide img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: var(--desktop-image-position, center right) !important;
+  transform: none !important;
+}
+
+.serviceCarouselContent {
+  position: absolute;
+  top: 50%;
+  left: clamp(34px, 5vw, 84px);
+  z-index: 3;
+  display: flex;
+  width: min(45%, 590px);
+  margin: 0;
+  padding: 0;
+  transform: translateY(-50%);
+  flex-direction: column;
+  align-items: flex-start;
+  color: #17141b;
+  text-align: left;
+  animation: none;
+}
+
+.serviceCarouselEyebrow {
+  display: inline-flex;
+  min-height: 40px;
+  margin: 0 0 18px;
+  padding: 9px 14px;
+  border: 1px solid rgba(204, 91, 118, 0.28);
+  border-radius: 999px;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255, 250, 248, 0.8);
+  color: #9b2945;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: 0 8px 24px rgba(114, 42, 59, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.serviceCarouselEyebrow svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.9;
+}
+
+.serviceCarouselContent h2 {
+  max-width: 540px;
+  margin: 0;
+  color: #17141b;
+  font-size: clamp(46px, 5vw, 72px);
+  font-weight: 680;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.serviceCarouselDescription {
+  max-width: 550px;
+  margin: 22px 0 0;
+  color: #5f5a61;
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.58;
+}
+
+.serviceCarouselActions {
+  display: flex;
+  margin-top: 28px;
+  align-items: center;
+  gap: 12px;
+}
+
+.serviceCarouselPrimaryCta,
+.serviceCarouselSecondaryCta {
+  box-sizing: border-box;
+  display: inline-flex;
+  min-height: 54px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 720;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.serviceCarouselPrimaryCta {
+  border-color: #8b293f;
+  background: #8b293f;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(139, 41, 63, 0.2);
+}
+
+.serviceCarouselSecondaryCta {
+  border-color: rgba(139, 41, 63, 0.2);
+  background: rgba(255, 252, 250, 0.86);
+  color: #241d21;
+  box-shadow: 0 10px 24px rgba(73, 36, 44, 0.07);
+}
+
+.serviceCarouselPrimaryCta:hover,
+.serviceCarouselSecondaryCta:hover {
+  transform: translateY(-2px);
+}
+
+.serviceCarouselPrimaryCta svg,
+.serviceCarouselSecondaryCta svg {
+  width: 18px;
+  height: 18px;
+}
+
+.serviceCarouselTrust {
+  display: grid;
+  width: min(100%, 560px);
+  margin-top: 30px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px 22px;
+}
+
+.serviceCarouselTrust > span {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+  color: #3f383d;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.serviceCarouselTrust i {
+  display: inline-flex;
+  width: 23px;
+  height: 23px;
+  flex: 0 0 23px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: #f8dde3;
+  color: #982b46;
+  font-style: normal;
+}
+
+.serviceCarouselTrust i svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.4;
+}
+
+.serviceCarouselArrow,
+.serviceCarouselBenefits,
+.serviceCarouselDots,
+.serviceCarouselWordmark,
+.serviceCarouselCta {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .serviceCarouselViewport {
+    height: clamp(500px, 64vh, 620px);
+  }
+
+  .serviceCarouselContent {
+    left: 38px;
+    width: 49%;
+  }
+
+  .serviceCarouselMedia::after {
+    background: linear-gradient(90deg, rgba(255, 250, 247, 0.99) 0%, rgba(255, 250, 247, 0.94) 36%, rgba(255, 250, 247, 0.58) 54%, rgba(255, 250, 247, 0.06) 74%);
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceCarousel {
+    padding: 20px 12px 28px;
+  }
+
+  .serviceCarouselViewport {
+    display: flex;
+    height: auto;
+    min-height: 0;
+    border-radius: 20px;
+    flex-direction: column;
+  }
+
+  .serviceCarouselMedia {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: clamp(230px, 66vw, 310px);
+    flex: 0 0 auto;
+  }
+
+  .serviceCarouselMedia::after {
+    background: linear-gradient(180deg, rgba(255, 250, 247, 0) 45%, rgba(255, 250, 247, 0.76) 82%, #fffaf8 100%);
+  }
+
+  .serviceCarouselSlide img {
+    object-position: var(--mobile-image-position, center right) !important;
+  }
+
+  .serviceCarouselContent {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    margin: 0;
+    padding: 18px 18px 22px;
+    transform: none;
+    background: #fffaf8;
+  }
+
+  .serviceCarouselEyebrow {
+    min-height: 36px;
+    margin-bottom: 14px;
+    padding: 8px 11px;
+    font-size: 12.5px;
+  }
+
+  .serviceCarouselContent h2 {
+    max-width: none;
+    font-size: clamp(36px, 10vw, 44px);
+    line-height: 1;
+  }
+
+  .serviceCarouselDescription {
+    max-width: none;
+    margin-top: 14px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .serviceCarouselActions {
+    width: 100%;
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .serviceCarouselPrimaryCta,
+  .serviceCarouselSecondaryCta {
+    min-width: 0;
+    min-height: 50px;
+    padding: 0 15px;
+    flex: 1 1 0;
+    font-size: 14px;
+  }
+
+  .serviceCarouselTrust {
+    width: 100%;
+    margin-top: 22px;
+    gap: 11px 12px;
+  }
+
+  .serviceCarouselTrust > span {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 390px) {
+  .serviceCarouselMedia {
+    height: 230px;
+  }
+
+  .serviceCarouselActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .serviceCarouselPrimaryCta,
+  .serviceCarouselSecondaryCta {
+    width: 100%;
+  }
+}
+
+/* Final services hero contract: keep this after all legacy carousel rules. */
+.serviceCarousel {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: clamp(26px, 3vw, 48px) clamp(18px, 3.6vw, 56px);
+  background: #fffaf8;
+}
+
+.serviceCarouselViewport {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: clamp(520px, 66vh, 680px);
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(139, 39, 60, 0.18);
+  border-radius: 24px;
+  background: #f4e4dd;
+  box-shadow: 0 22px 58px rgba(86, 35, 48, 0.12);
+}
+
+.serviceCarouselMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: #f2e2da;
+}
+
+.serviceCarouselMedia::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #fffaf8 0%,
+    rgba(255, 250, 248, 0.98) 27%,
+    rgba(255, 250, 248, 0.9) 40%,
+    rgba(255, 250, 248, 0.5) 54%,
+    rgba(255, 250, 248, 0.08) 68%,
+    transparent 78%
+  );
+  content: "";
+}
+
+.serviceCarouselMediaFallback {
+  display: none;
+}
+
+.serviceCarouselSlide {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  opacity: 0;
+  transform: scale(1.012);
+  transition: opacity 420ms ease, transform 1000ms ease;
+}
+
+.serviceCarouselSlide.isActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.serviceCarouselSlide img {
+  object-fit: cover;
+  object-position: var(--desktop-image-position);
+  transform: none;
+}
+
+.serviceCarouselContent {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: clamp(34px, 5vw, 84px);
+  z-index: 3;
+  width: min(46%, 600px);
+  margin: 0;
+  padding: 0;
+  color: #171219;
+  text-align: left;
+  transform: translateY(-50%);
+  animation: none;
+}
+
+.serviceCarouselEyebrow {
+  display: inline-flex;
+  margin: 0 0 14px;
+  padding: 9px 13px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(166, 43, 72, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 8px 24px rgba(108, 39, 56, 0.06);
+  color: #9e2948;
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 750;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: 0;
+  backdrop-filter: blur(8px);
+}
+
+.serviceCarouselEyebrow::after {
+  display: none;
+}
+
+.serviceCarouselEyebrow svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  stroke-width: 2;
+}
+
+.serviceCarouselContent h2 {
+  max-width: 520px;
+  margin: 0;
+  color: #18131a;
+  font-family: inherit;
+  font-size: clamp(44px, 4.4vw, 68px);
+  font-weight: 720;
+  line-height: 1.02;
+  text-wrap: balance;
+  letter-spacing: 0;
+}
+
+.serviceCarouselContent .serviceCarouselDescription {
+  max-width: 540px;
+  margin: 18px 0 0;
+  color: #5e5960;
+  font-size: clamp(17px, 1.25vw, 20px);
+  font-weight: 450;
+  line-height: 1.55;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.serviceCarouselActions {
+  display: flex;
+  margin-top: 28px;
+  align-items: center;
+  gap: 12px;
+}
+
+.serviceCarouselActions a {
+  display: inline-flex;
+  min-height: 54px;
+  padding: 0 22px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.serviceCarouselActions a:hover {
+  transform: translateY(-2px);
+}
+
+.serviceCarouselActions svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.2;
+}
+
+.serviceCarouselPrimaryCta {
+  border: 1px solid #8f2944;
+  background: #8f2944;
+  box-shadow: 0 12px 24px rgba(117, 33, 54, 0.2);
+  color: #fff;
+}
+
+.serviceCarouselPrimaryCta:hover {
+  background: #7c2039;
+  box-shadow: 0 16px 28px rgba(117, 33, 54, 0.24);
+}
+
+.serviceCarouselSecondaryCta {
+  border: 1px solid rgba(143, 41, 68, 0.2);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 9px 22px rgba(90, 38, 51, 0.07);
+  color: #2a2228;
+  backdrop-filter: blur(8px);
+}
+
+.serviceCarouselSecondaryCta:hover {
+  background: #fff;
+  box-shadow: 0 13px 26px rgba(90, 38, 51, 0.1);
+}
+
+.serviceCarouselTrust {
+  display: grid;
+  max-width: 550px;
+  margin-top: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+}
+
+.serviceCarouselTrust > span {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+  color: #3f373d;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.serviceCarouselTrust i {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 999px;
+  background: #f6dfe4;
+  color: #992846;
+  font-style: normal;
+}
+
+.serviceCarouselTrust svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
+}
+
+.serviceCarouselArrow,
+.serviceCarouselBenefits,
+.serviceCarouselDots,
+.serviceCarouselWordmark,
+.serviceCarouselCta {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .serviceCarousel {
+    padding: 28px 22px;
+  }
+
+  .serviceCarouselViewport {
+    height: clamp(500px, 64vh, 620px);
+  }
+
+  .serviceCarouselContent {
+    left: 40px;
+    width: 49%;
+  }
+
+  .serviceCarouselContent h2 {
+    font-size: clamp(42px, 5.5vw, 58px);
+  }
+
+  .serviceCarouselMedia::after {
+    background: linear-gradient(90deg, #fffaf8 0%, rgba(255, 250, 248, 0.96) 38%, rgba(255, 250, 248, 0.48) 57%, transparent 76%);
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceCarousel {
+    padding: 20px 12px 28px;
+  }
+
+  .serviceCarouselViewport {
+    display: flex;
+    height: auto;
+    min-height: 0;
+    flex-direction: column;
+    border-radius: 20px;
+    background: #fffaf8;
+    box-shadow: 0 16px 38px rgba(86, 35, 48, 0.11);
+  }
+
+  .serviceCarouselMedia {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: clamp(220px, 60vw, 290px);
+    min-height: 220px;
+    flex: 0 0 auto;
+  }
+
+  .serviceCarouselMedia::after {
+    background: linear-gradient(180deg, transparent 48%, rgba(255, 250, 248, 0.28) 74%, #fffaf8 100%);
+  }
+
+  .serviceCarouselSlide img {
+    object-position: var(--mobile-image-position);
+  }
+
+  .serviceCarouselContent {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 18px 22px;
+    transform: none;
+  }
+
+  .serviceCarouselEyebrow {
+    margin-bottom: 12px;
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .serviceCarouselContent h2 {
+    max-width: none;
+    font-size: clamp(36px, 10vw, 44px);
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  .serviceCarouselContent .serviceCarouselDescription {
+    margin-top: 14px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .serviceCarouselActions {
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .serviceCarouselActions a {
+    min-width: 0;
+    min-height: 50px;
+    padding: 0 14px;
+    flex: 1 1 0;
+    font-size: 14px;
+  }
+
+  .serviceCarouselTrust {
+    margin-top: 19px;
+    gap: 10px 12px;
+  }
+
+  .serviceCarouselTrust > span {
+    font-size: 12.5px;
+  }
+
+  .serviceCarouselTrust i {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+@media (max-width: 390px) {
+  .serviceCarousel {
+    padding-inline: 9px;
+  }
+
+  .serviceCarouselMedia {
+    height: 210px;
+    min-height: 210px;
+  }
+
+  .serviceCarouselContent {
+    padding: 18px 15px 20px;
+  }
+
+  .serviceCarouselActions {
+    flex-direction: column;
+  }
+
+  .serviceCarouselActions a {
+    width: 100%;
+  }
+
+  .serviceCarouselTrust {
+    gap: 9px 8px;
+  }
+
+  .serviceCarouselTrust > span {
+    gap: 6px;
+    font-size: 11.5px;
+  }
+}
+
+/* Premium conversion hero for the rotating home-service imagery. */
+.serviceCarousel {
+  box-sizing: border-box;
+  padding: clamp(28px, 3.5vw, 56px) clamp(20px, 4vw, 64px);
+  background: #fffaf8;
+}
+
+.serviceCarouselViewport {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: clamp(540px, 66vh, 720px);
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(139, 39, 60, 0.14);
+  border-radius: 24px;
+  background: #f7e9e3;
+  box-shadow: 0 24px 64px rgba(86, 35, 48, 0.12);
+}
+
+.serviceCarouselMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+  background: #f2e2da;
+}
+
+.serviceCarouselMedia::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #fffaf8 0%,
+    rgba(255, 250, 248, 0.98) 27%,
+    rgba(255, 250, 248, 0.9) 40%,
+    rgba(255, 250, 248, 0.5) 54%,
+    rgba(255, 250, 248, 0.08) 68%,
+    transparent 78%
+  );
+  content: "";
+}
+
+.serviceCarouselSlide {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  opacity: 0;
+  transform: scale(1.015);
+  transition: opacity 420ms ease, transform 1000ms ease;
+}
+
+.serviceCarouselSlide.isActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.serviceCarouselSlide img {
+  object-fit: cover;
+  object-position: var(--desktop-image-position);
+}
+
+.serviceCarouselContent {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: clamp(34px, 5vw, 84px);
+  z-index: 3;
+  width: min(46%, 600px);
+  margin: 0;
+  padding: 0;
+  color: #171219;
+  text-align: left;
+  transform: translateY(-50%);
+}
+
+.serviceCarouselEyebrow {
+  display: inline-flex;
+  margin: 0 0 14px;
+  padding: 9px 13px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(166, 43, 72, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 24px rgba(108, 39, 56, 0.06);
+  color: #9e2948;
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  backdrop-filter: blur(8px);
+}
+
+.serviceCarouselEyebrow::after {
+  display: none;
+}
+
+.serviceCarouselEyebrow svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  stroke-width: 2;
+}
+
+.serviceCarouselContent h2 {
+  max-width: 520px;
+  margin: 0;
+  color: #18131a;
+  font-family: inherit;
+  font-size: clamp(44px, 4.4vw, 68px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.serviceCarouselContent .serviceCarouselDescription {
+  max-width: 540px;
+  margin: 18px 0 0;
+  color: #5e5960;
+  font-size: clamp(17px, 1.25vw, 20px);
+  font-weight: 450;
+  line-height: 1.55;
+}
+
+.serviceCarouselActions {
+  display: flex;
+  margin-top: 28px;
+  align-items: center;
+  gap: 12px;
+}
+
+.serviceCarouselActions a {
+  display: inline-flex;
+  min-height: 54px;
+  padding: 0 22px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.serviceCarouselActions a:hover {
+  transform: translateY(-2px);
+}
+
+.serviceCarouselActions svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.2;
+}
+
+.serviceCarouselPrimaryCta {
+  border: 1px solid #8f2944;
+  background: #8f2944;
+  box-shadow: 0 12px 24px rgba(117, 33, 54, 0.2);
+  color: #fff;
+}
+
+.serviceCarouselPrimaryCta:hover {
+  background: #7c2039;
+  box-shadow: 0 16px 28px rgba(117, 33, 54, 0.24);
+}
+
+.serviceCarouselSecondaryCta {
+  border: 1px solid rgba(143, 41, 68, 0.2);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 9px 22px rgba(90, 38, 51, 0.07);
+  color: #2a2228;
+  backdrop-filter: blur(8px);
+}
+
+.serviceCarouselSecondaryCta:hover {
+  background: #fff;
+  box-shadow: 0 13px 26px rgba(90, 38, 51, 0.1);
+}
+
+.serviceCarouselTrust {
+  display: grid;
+  max-width: 550px;
+  margin-top: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+}
+
+.serviceCarouselTrust > span {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+  color: #3f373d;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.serviceCarouselTrust i {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 999px;
+  background: #f6dfe4;
+  color: #992846;
+  font-style: normal;
+}
+
+.serviceCarouselTrust svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
+}
+
+.serviceCarouselArrow,
+.serviceCarouselBenefits,
+.serviceCarouselDots,
+.serviceCarouselWordmark {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .serviceCarousel {
+    padding: 30px 24px;
+  }
+
+  .serviceCarouselViewport {
+    height: clamp(520px, 66vh, 650px);
+  }
+
+  .serviceCarouselContent {
+    left: 42px;
+    width: 49%;
+  }
+
+  .serviceCarouselMedia::after {
+    background: linear-gradient(90deg, #fffaf8 0%, rgba(255, 250, 248, 0.96) 38%, rgba(255, 250, 248, 0.48) 57%, transparent 76%);
+  }
+
+  .serviceCarouselContent h2 {
+    font-size: clamp(42px, 5.5vw, 58px);
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceCarousel {
+    padding: 22px 14px 30px;
+  }
+
+  .serviceCarouselViewport {
+    display: flex;
+    height: auto;
+    min-height: 0;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 16px 38px rgba(86, 35, 48, 0.11);
+  }
+
+  .serviceCarouselMedia {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: clamp(220px, 60vw, 290px);
+    min-height: 220px;
+    flex: 0 0 auto;
+  }
+
+  .serviceCarouselMedia::after {
+    background: linear-gradient(180deg, transparent 50%, rgba(255, 250, 248, 0.35) 76%, #fffaf8 100%);
+  }
+
+  .serviceCarouselSlide img {
+    object-position: var(--mobile-image-position);
+  }
+
+  .serviceCarouselContent {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 22px 20px 24px;
+    transform: none;
+  }
+
+  .serviceCarouselEyebrow {
+    margin-bottom: 12px;
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .serviceCarouselContent h2 {
+    max-width: none;
+    font-size: clamp(36px, 10vw, 44px);
+    line-height: 1.02;
+  }
+
+  .serviceCarouselContent .serviceCarouselDescription {
+    margin-top: 14px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .serviceCarouselActions {
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .serviceCarouselActions a {
+    min-width: 0;
+    min-height: 50px;
+    padding: 0 15px;
+    flex: 1 1 0;
+    font-size: 14px;
+  }
+
+  .serviceCarouselTrust {
+    margin-top: 20px;
+    gap: 10px 12px;
+  }
+
+  .serviceCarouselTrust > span {
+    font-size: 12.5px;
+  }
+
+  .serviceCarouselTrust i {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+@media (max-width: 390px) {
+  .serviceCarousel {
+    padding-inline: 10px;
+  }
+
+  .serviceCarouselMedia {
+    height: 215px;
+    min-height: 215px;
+  }
+
+  .serviceCarouselContent {
+    padding: 20px 16px 22px;
+  }
+
+  .serviceCarouselActions {
+    flex-direction: column;
+  }
+
+  .serviceCarouselActions a {
+    width: 100%;
+  }
+
+  .serviceCarouselTrust {
+    gap: 9px 8px;
+  }
+
+  .serviceCarouselTrust > span {
+    gap: 6px;
+    font-size: 11.5px;
+  }
+}
+
+/* Compact partner-verification artwork so it never crowds the step copy. */
+.verificationProcess .processTrack article > .verificationStepImage {
+  width: 92px !important;
+  height: 92px !important;
+  flex: 0 0 92px !important;
+  border-radius: 14px !important;
+}
+
+.verificationProcess .verificationStepImage img {
+  object-position: center top !important;
+  transform: scale(1.62) !important;
+  transform-origin: center top !important;
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .verificationProcess .processTrack article {
+    grid-template-columns: 76px minmax(0, 1fr) !important;
+    column-gap: 14px !important;
+  }
+
+  .verificationProcess .processTrack article > .verificationStepImage {
+    width: 76px !important;
+    height: 76px !important;
+    flex-basis: 76px !important;
+    border-radius: 12px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .verificationProcess .processTrack article {
+    min-height: 78px !important;
+    grid-template-columns: 54px minmax(0, 1fr) !important;
+    column-gap: 10px !important;
+  }
+
+  .verificationProcess .processTrack article > .verificationStepImage {
+    width: 54px !important;
+    height: 54px !important;
+    flex-basis: 54px !important;
+    border-radius: 10px !important;
+  }
+
+  .verificationProcess .processTrack small {
+    font-size: 9px !important;
+  }
+
+  .verificationProcess .processTrack h3 {
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroWithVideo > .heroVideoLayer {
+    background: radial-gradient(circle at 75% 38%, rgba(225, 161, 171, 0.34), transparent 28rem), linear-gradient(90deg, #fffaf8 0%, #f9e3df 100%);
+  }
+
+  .heroWithVideo .heroVideoBlur,
+  .heroWithVideo .heroVideoSharp {
+    display: none;
+  }
+}
+
 /* Services slider production layout */
 .serviceCarousel {
   width: 100%;
@@ -22271,9 +23815,7 @@ body {
 
 .serviceCarouselMedia::after {
   z-index: 2;
-  background:
-    linear-gradient(90deg, rgba(255, 250, 247, 0.99) 0%, rgba(255, 250, 247, 0.97) 27%, rgba(255, 250, 247, 0.76) 43%, rgba(255, 250, 247, 0.21) 56%, rgba(255, 250, 247, 0) 70%),
-    linear-gradient(180deg, rgba(255, 250, 247, 0.08), transparent 62%, rgba(255, 250, 247, 0.76) 100%);
+  display: none;
 }
 
 .serviceCarouselMediaFallback {
@@ -22533,7 +24075,7 @@ body {
   }
 
   .serviceCarouselMedia::after {
-    background: linear-gradient(180deg, rgba(255, 250, 247, 0.04) 28%, rgba(39, 18, 25, 0.28) 100%);
+    display: none;
   }
 
   .serviceCarouselSlide img {
@@ -23044,5 +24586,355 @@ body {
 
   .footerBottomDivider {
     margin-top: 8px !important;
+  }
+}
+
+/* Keep the Launching Soon artwork visibly framed at every viewport size. */
+.assam.assamBackdrop {
+  box-sizing: border-box !important;
+  border: 2px solid rgba(199, 91, 118, 0.58) !important;
+  border-radius: 24px !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+    0 10px 28px rgba(128, 54, 75, 0.08) !important;
+}
+
+.assam.assamBackdrop .assamArt {
+  border-radius: inherit !important;
+}
+
+@media (max-width: 767px) {
+  .assam.assamBackdrop {
+    border-color: rgba(199, 91, 118, 0.76) !important;
+    border-radius: 18px !important;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.55),
+      0 8px 22px rgba(128, 54, 75, 0.09) !important;
+  }
+}
+
+/* Final services hero cascade guard. */
+.serviceCarousel {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: clamp(26px, 3vw, 48px) clamp(18px, 3.6vw, 56px) !important;
+  background: #fffaf8 !important;
+}
+
+.serviceCarousel .serviceCarouselViewport {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: clamp(520px, 66vh, 680px) !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  border: 1px solid rgba(129, 42, 61, 0.22) !important;
+  border-radius: 24px !important;
+  background: #f3e5df !important;
+  box-shadow: 0 24px 64px rgba(88, 40, 48, 0.12) !important;
+}
+
+.serviceCarousel .serviceCarouselMedia {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.serviceCarousel .serviceCarouselMedia::after {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  display: block !important;
+  content: "" !important;
+  pointer-events: none;
+  background: linear-gradient(90deg, #fffaf8 0%, rgba(255, 250, 248, 0.97) 32%, rgba(255, 250, 248, 0.76) 45%, rgba(255, 250, 248, 0.16) 62%, transparent 76%) !important;
+}
+
+.serviceCarousel .serviceCarouselSlide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+  transform: none !important;
+  transition: opacity 460ms ease !important;
+}
+
+.serviceCarousel .serviceCarouselSlide.isActive {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.serviceCarousel .serviceCarouselSlide img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: var(--desktop-image-position, center right) !important;
+  transform: none !important;
+}
+
+.serviceCarousel .serviceCarouselContent {
+  position: absolute !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: clamp(34px, 5vw, 84px) !important;
+  z-index: 3 !important;
+  display: flex !important;
+  width: min(45%, 590px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateY(-50%) !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+.serviceCarousel .serviceCarouselEyebrow {
+  position: static !important;
+  display: inline-flex !important;
+  min-height: 40px !important;
+  margin: 0 0 18px !important;
+  padding: 9px 14px !important;
+  border: 1px solid rgba(204, 91, 118, 0.28) !important;
+  border-radius: 999px !important;
+  align-items: center !important;
+  gap: 9px !important;
+  background: rgba(255, 250, 248, 0.82) !important;
+  color: #9b2945 !important;
+  font-size: 14px !important;
+  font-weight: 750 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  box-shadow: 0 8px 24px rgba(114, 42, 59, 0.06) !important;
+}
+
+.serviceCarousel .serviceCarouselEyebrow::after {
+  display: none !important;
+}
+
+.serviceCarousel .serviceCarouselContent h2 {
+  max-width: 540px !important;
+  margin: 0 !important;
+  color: #17141b !important;
+  font-family: inherit !important;
+  font-size: clamp(46px, 5vw, 72px) !important;
+  font-weight: 680 !important;
+  line-height: 0.98 !important;
+  letter-spacing: 0 !important;
+  text-wrap: wrap !important;
+}
+
+.serviceCarousel .serviceCarouselContent .serviceCarouselDescription {
+  max-width: 550px !important;
+  margin: 22px 0 0 !important;
+  color: #5f5a61 !important;
+  font-size: clamp(17px, 1.35vw, 20px) !important;
+  line-height: 1.58 !important;
+}
+
+.serviceCarousel .serviceCarouselActions {
+  display: flex !important;
+  margin-top: 28px !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.serviceCarousel .serviceCarouselActions a {
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  min-height: 54px !important;
+  padding: 0 22px !important;
+  border-radius: 12px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-size: 16px !important;
+  font-weight: 720 !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+}
+
+.serviceCarousel .serviceCarouselPrimaryCta {
+  border: 1px solid #8b293f !important;
+  background: #8b293f !important;
+  color: #fff !important;
+  box-shadow: 0 12px 28px rgba(139, 41, 63, 0.2) !important;
+}
+
+.serviceCarousel .serviceCarouselSecondaryCta {
+  border: 1px solid rgba(139, 41, 63, 0.2) !important;
+  background: rgba(255, 252, 250, 0.9) !important;
+  color: #241d21 !important;
+  box-shadow: 0 10px 24px rgba(73, 36, 44, 0.07) !important;
+}
+
+.serviceCarousel .serviceCarouselTrust {
+  display: grid !important;
+  width: min(100%, 560px) !important;
+  margin-top: 30px !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 13px 22px !important;
+}
+
+.serviceCarousel .serviceCarouselTrust > span {
+  display: flex !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  align-items: center !important;
+  gap: 9px !important;
+  color: #3f383d !important;
+  font-size: 15px !important;
+  font-weight: 650 !important;
+  line-height: 1.25 !important;
+  white-space: normal !important;
+}
+
+.serviceCarousel .serviceCarouselTrust i {
+  display: inline-flex !important;
+  width: 23px !important;
+  height: 23px !important;
+  flex: 0 0 23px !important;
+  border-radius: 50% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #f8dde3 !important;
+  color: #982b46 !important;
+}
+
+.serviceCarousel .serviceCarouselTrust i svg {
+  width: 14px !important;
+  height: 14px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.serviceCarousel .serviceCarouselArrow,
+.serviceCarousel .serviceCarouselBenefits,
+.serviceCarousel .serviceCarouselDots,
+.serviceCarousel .serviceCarouselWordmark,
+.serviceCarousel .serviceCarouselCta {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .serviceCarousel .serviceCarouselViewport {
+    height: clamp(500px, 64vh, 620px) !important;
+  }
+
+  .serviceCarousel .serviceCarouselContent {
+    left: 38px !important;
+    width: 49% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceCarousel {
+    padding: 20px 12px 28px !important;
+  }
+
+  .serviceCarousel .serviceCarouselViewport {
+    display: flex !important;
+    height: auto !important;
+    min-height: 0 !important;
+    border-radius: 20px !important;
+    flex-direction: column !important;
+  }
+
+  .serviceCarousel .serviceCarouselMedia {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: clamp(230px, 66vw, 310px) !important;
+    min-height: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  .serviceCarousel .serviceCarouselMedia::after {
+    background: linear-gradient(180deg, transparent 46%, rgba(255, 250, 248, 0.76) 83%, #fffaf8 100%) !important;
+  }
+
+  .serviceCarousel .serviceCarouselSlide img {
+    object-position: var(--mobile-image-position, center right) !important;
+  }
+
+  .serviceCarousel .serviceCarouselContent {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    padding: 18px 18px 22px !important;
+    transform: none !important;
+    background: #fffaf8 !important;
+  }
+
+  .serviceCarousel .serviceCarouselEyebrow {
+    min-height: 36px !important;
+    margin-bottom: 14px !important;
+    padding: 8px 11px !important;
+    font-size: 12.5px !important;
+  }
+
+  .serviceCarousel .serviceCarouselContent h2 {
+    max-width: none !important;
+    font-size: clamp(36px, 10vw, 44px) !important;
+    line-height: 1 !important;
+  }
+
+  .serviceCarousel .serviceCarouselContent .serviceCarouselDescription {
+    max-width: none !important;
+    margin-top: 14px !important;
+    font-size: 15.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  .serviceCarousel .serviceCarouselActions {
+    width: 100% !important;
+    margin-top: 20px !important;
+    gap: 10px !important;
+  }
+
+  .serviceCarousel .serviceCarouselActions a {
+    min-width: 0 !important;
+    min-height: 50px !important;
+    padding: 0 14px !important;
+    flex: 1 1 0 !important;
+    font-size: 14px !important;
+  }
+
+  .serviceCarousel .serviceCarouselTrust {
+    width: 100% !important;
+    margin-top: 22px !important;
+    gap: 11px 12px !important;
+  }
+
+  .serviceCarousel .serviceCarouselTrust > span {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .serviceCarousel .serviceCarouselMedia {
+    height: 230px !important;
+  }
+
+  .serviceCarousel .serviceCarouselActions {
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+
+  .serviceCarousel .serviceCarouselActions a {
+    width: 100% !important;
   }
 }

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
-import MobileNavigation from './MobileNavigation';
 import {
   AirVent,
   BadgeCheck,
@@ -173,14 +172,23 @@ function Header() {
         <a href="#contact">Support</a>
       </nav>
       <a className="navCta" href="#contact">Contact</a>
-      <MobileNavigation />
     </header>
   );
 }
 
 function Hero() {
   return (
-    <section className="hero" id="home">
+    <section className="hero heroWithVideo" id="home">
+      <span className="anchorTarget" id="track" />
+      <div className="heroVideoLayer" aria-hidden="true">
+        <video className="heroVideoBlur" autoPlay muted loop playsInline preload="metadata" disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" tabIndex={-1}>
+          <source src="/home-services-hero.mp4" type="video/mp4" />
+        </video>
+        <video className="heroVideoSharp" autoPlay muted loop playsInline preload="metadata" disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" tabIndex={-1}>
+          <source src="/home-services-hero.mp4" type="video/mp4" />
+        </video>
+        <span className="heroVideoOverlay" />
+      </div>
       <div className="heroCopy">
         <span className="eyebrow"><MapPin size={14} /> Guwahati-based home services</span>
         <h1>
@@ -197,7 +205,6 @@ function Hero() {
           Book verified electricians, plumbers, AC technicians, carpenters, painters, pest control experts, and more in selected areas of Guwahati.
         </p>
         <div className="heroActions">
-          <a className="primaryBtn rippleBtn" href="#contact">Contact Us <ChevronRight size={18} /></a>
           <a className="secondaryBtn rippleBtn" href="#services">Explore Services <ChevronRight size={17} /></a>
         </div>
         <div className="heroTrustStrip">
@@ -208,29 +215,7 @@ function Hero() {
         </div>
         <p className="mobileHeroSupport">Be the first to experience hassle-free home services in Guwahati.</p>
       </div>
-      <PhoneStage />
     </section>
-  );
-}
-
-function PhoneStage() {
-  return (
-    <div className="phoneStage heroPreviewStage" id="track" aria-label="ApnaServo app preview">
-      <picture className="heroPreviewPicture">
-        <source media="(min-width: 768px)" srcSet="/home-app-preview-cutout.png" />
-        <source media="(max-width: 767px)" srcSet="/home-app-preview-cutout.png" />
-        <Image
-          className="heroPreviewImage"
-          src="/home-app-preview.png"
-          alt="ApnaServo mobile app preview"
-          width={1448}
-          height={1086}
-          priority
-          unoptimized
-          sizes="(max-width: 900px) 100vw, 58vw"
-        />
-      </picture>
-    </div>
   );
 }
 
@@ -354,26 +339,15 @@ function WhyChoose() {
 }
 
 function AssamSection() {
-  const launchMetrics = [
-    ['327', 'Users joined waitlist'],
-    ['52', 'Verified partners'],
-    ['20+', 'Services available']
-  ];
-
   return (
-    <section className="assam section" id="launch">
+    <section className="assam assamBackdrop section" id="launch">
       <div className="assamArt" aria-label="Assam inspired illustration">
         <Image src="/assam-skyline.webp" alt="Assam skyline with Rang Ghar, Saraighat Bridge, river, hills, birds and a rhino" width={1400} height={788} sizes="(max-width: 900px) 100vw, 52vw" loading="lazy" unoptimized />
       </div>
       <div className="assamCopy">
         <span className="eyebrow"><Rocket size={14} /> Launching soon</span>
-        <h2>Launching Soon In <span>Guwahati.</span></h2>
+        <h2>Launching Soon<br />In <span>Guwahati.</span></h2>
         <p>Starting with selected areas and expanding with a verified local partner network.</p>
-        <div className="launchMetrics">
-          {launchMetrics.map(([value, label]) => (
-            <div key={label}><strong>{value}</strong><span>{label}</span></div>
-          ))}
-        </div>
       </div>
     </section>
   );
