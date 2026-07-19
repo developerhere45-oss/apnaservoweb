@@ -14,6 +14,7 @@ import {
   Zap
 } from 'lucide-react';
 import styles from './services.module.css';
+import { LegalFooter } from '../legal-pages';
 
 export const metadata: Metadata = {
   title: 'Home Services in Guwahati | ApnaServo',
@@ -94,6 +95,7 @@ export default function ServicesPage() {
         </div>
         <Image className={styles.phones} src="/home-app-preview-cutout.png" alt="ApnaServo mobile app screens" width={1448} height={1086} />
       </section>
+      <LegalFooter />
     </main>
   );
 }

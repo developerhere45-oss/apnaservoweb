@@ -5,11 +5,10 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 const mobileLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Services', href: '#services' },
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
   { label: 'Our Story', href: '/our-story' },
-  { label: 'Track Booking', href: '#track' },
-  { label: 'Support', href: '#contact' },
+  { label: 'Support', href: '/#contact' },
 ];
 
 export default function MobileNavigation() {

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import MobileNavigation from './MobileNavigation';
 import type { CSSProperties } from 'react';
 import {
   AirVent,
@@ -169,6 +170,7 @@ function Header() {
         <Link href="/services">Services</Link>
         <a href="#contact">Support</a>
       </nav>
+      <MobileNavigation />
     </header>
   );
 }
