@@ -22054,7 +22054,7 @@ body {
   inset: -5%;
   width: 110%;
   height: 110%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center right;
   filter: blur(8px) saturate(0.92);
   opacity: 0.26;
@@ -22067,7 +22067,7 @@ body {
   width: 60%;
   height: 100%;
   max-width: none;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center right;
   opacity: 1;
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 26%, #000 100%);
