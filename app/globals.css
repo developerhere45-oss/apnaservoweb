@@ -25100,6 +25100,19 @@ body {
   box-shadow: none !important;
 }
 
+.assam.assamBackdrop::before {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  display: block !important;
+  background-image: url('/assam-launch-background.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  content: "" !important;
+  pointer-events: none !important;
+}
+
 .assam.assamBackdrop::after {
   background: linear-gradient(90deg, rgba(255, 250, 248, 0.98) 0%, rgba(255, 250, 248, 0.9) 28%, rgba(255, 250, 248, 0.52) 44%, rgba(255, 250, 248, 0.08) 64%, transparent 78%) !important;
 }
