@@ -179,9 +179,6 @@ function Hero() {
     <section className="hero heroWithVideo" id="home">
       <span className="anchorTarget" id="track" />
       <div className="heroVideoLayer" aria-hidden="true">
-        <video className="heroVideoBlur" autoPlay muted loop playsInline preload="metadata" disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" tabIndex={-1}>
-          <source src="/home-services-hero.mp4" type="video/mp4" />
-        </video>
         <video className="heroVideoSharp" autoPlay muted loop playsInline preload="metadata" disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" tabIndex={-1}>
           <source src="/home-services-hero.mp4" type="video/mp4" />
         </video>

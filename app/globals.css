@@ -25084,7 +25084,9 @@ body {
 /* Launch artwork is the section background itself—no extra image panel. */
 .assam.assamBackdrop {
   display: grid !important;
-  min-height: clamp(560px, 44vw, 720px) !important;
+  min-height: 0 !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
   padding: clamp(52px, 6vw, 92px) clamp(42px, 6vw, 110px) !important;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
   align-items: center !important;
@@ -25243,10 +25245,13 @@ body {
 @media (max-width: 767px) {
   .assam.assamBackdrop {
     min-height: 570px !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
     padding: 38px 18px !important;
     grid-template-columns: 1fr !important;
     align-content: start !important;
     background-position: 58% center !important;
+    background-size: auto 100% !important;
   }
 
   .assam.assamBackdrop::after {
