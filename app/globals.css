@@ -25095,22 +25095,13 @@ body {
   background-color: #f8d9dc !important;
   background-image: url('/assam-launch-background.png') !important;
   background-repeat: no-repeat !important;
-  background-position: center bottom !important;
-  background-size: cover !important;
+  background-position: center !important;
+  background-size: 100% 100% !important;
   box-shadow: none !important;
 }
 
 .assam.assamBackdrop::before {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 0 !important;
-  display: block !important;
-  background-image: url('/assam-launch-background.png') !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: contain !important;
-  content: "" !important;
-  pointer-events: none !important;
+  display: none !important;
 }
 
 .assam.assamBackdrop::after {
@@ -25264,7 +25255,7 @@ body {
     grid-template-columns: 1fr !important;
     align-content: start !important;
     background-position: 58% center !important;
-    background-size: auto 100% !important;
+    background-size: 100% 100% !important;
   }
 
   .assam.assamBackdrop::after {
