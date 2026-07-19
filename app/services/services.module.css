@@ -1,0 +1,266 @@
+.page {
+  min-height: 100vh;
+  background: #fffdfa;
+  color: #17151c;
+}
+
+.nav {
+  display: flex;
+  height: 82px;
+  padding: 0 clamp(24px, 5vw, 84px);
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee8e4;
+  background: #fffdfa;
+}
+
+.nav > a img {
+  display: block;
+  width: 190px;
+  height: auto;
+}
+
+.nav nav {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 38px;
+}
+
+.nav nav a {
+  position: relative;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  color: #242127;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav nav a.active {
+  color: #c93252;
+}
+
+.nav nav a.active::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: #d64d6c;
+  content: '';
+}
+
+.hero {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  background: #fffaf7;
+}
+
+.heroImage {
+  object-fit: contain;
+  object-position: right center;
+}
+
+.heroShade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, #fffaf7 0%, rgba(255,250,247,.99) 37%, rgba(255,250,247,.8) 52%, rgba(255,250,247,.16) 72%, transparent 86%);
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: min(52%, 680px);
+  min-height: 500px;
+  padding: 64px 0 58px clamp(30px, 5vw, 92px);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroCopy > span,
+.appCopy > span {
+  color: #d05270;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.heroCopy h1 {
+  margin: 18px 0 0;
+  font-size: clamp(58px, 5.5vw, 84px);
+  line-height: .98;
+  letter-spacing: -.05em;
+}
+
+.heroCopy > p {
+  max-width: 570px;
+  margin: 25px 0 0;
+  color: #5c5760;
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+.trust {
+  display: grid;
+  width: min(100%, 560px);
+  margin-top: 30px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 22px;
+}
+
+.trust span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.trust svg {
+  width: 21px;
+  height: 21px;
+  color: #db5d7b;
+}
+
+.grid {
+  display: grid;
+  width: min(100% - 64px, 1320px);
+  margin: 42px auto 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.grid article {
+  min-height: 245px;
+  padding: 28px 25px;
+  border: 1px solid #eee6e2;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(80,48,52,.035);
+}
+
+.grid article > span {
+  display: flex;
+  width: 58px;
+  height: 58px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: #fff0ef;
+  color: #c93150;
+}
+
+.grid article svg {
+  width: 29px;
+  height: 29px;
+}
+
+.grid h2 {
+  margin: 22px 0 0;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.grid p {
+  margin: 11px 0 0;
+  color: #656069;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.appBanner {
+  position: relative;
+  display: grid;
+  width: min(100% - 64px, 1320px);
+  min-height: 390px;
+  margin: 28px auto 64px;
+  padding: 52px 54px;
+  overflow: hidden;
+  grid-template-columns: minmax(0, .9fr) minmax(440px, 1.1fr);
+  align-items: center;
+  border-radius: 20px;
+  background: linear-gradient(115deg, #fff0ef, #f7d9dc);
+}
+
+.appCopy {
+  position: relative;
+  z-index: 2;
+  max-width: 540px;
+}
+
+.appCopy h2 {
+  margin: 17px 0 0;
+  font-size: clamp(42px, 4vw, 62px);
+  line-height: 1.03;
+  letter-spacing: -.045em;
+}
+
+.appCopy p {
+  max-width: 470px;
+  margin: 20px 0 0;
+  color: #5d5760;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.stores {
+  display: flex;
+  margin-top: 24px;
+  gap: 10px;
+}
+
+.stores a,
+.stores img {
+  display: block;
+  width: auto;
+  height: 46px;
+}
+
+.phones {
+  position: absolute;
+  right: -20px;
+  bottom: -92px;
+  width: min(54%, 670px);
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .appBanner { grid-template-columns: minmax(0, 1fr) minmax(330px, .8fr); }
+}
+
+@media (max-width: 767px) {
+  .nav { height: 68px; padding: 0 18px; }
+  .nav > a img { width: 150px; }
+  .nav nav { gap: 16px; }
+  .nav nav a { font-size: 11px; }
+  .nav nav a:nth-child(3), .nav nav a:nth-child(4) { display: none; }
+
+  .hero { min-height: 0; padding-top: 235px; }
+  .heroImage { height: 260px !important; object-fit: cover; object-position: 67% center; }
+  .heroShade { background: linear-gradient(180deg, transparent 0, rgba(255,250,247,.5) 170px, #fffaf7 255px); }
+  .heroCopy { width: 100%; min-height: 0; padding: 24px 18px 34px; }
+  .heroCopy h1 { margin-top: 12px; font-size: 46px; }
+  .heroCopy > p { margin-top: 16px; font-size: 15px; }
+  .trust { margin-top: 22px; gap: 12px 8px; }
+  .trust span { gap: 6px; font-size: 11px; }
+  .trust svg { width: 18px; height: 18px; }
+
+  .grid { width: calc(100% - 24px); margin-top: 18px; gap: 10px; }
+  .grid article { min-height: 205px; padding: 18px 14px; border-radius: 14px; }
+  .grid article > span { width: 46px; height: 46px; }
+  .grid h2 { margin-top: 16px; font-size: 14px; }
+  .grid p { margin-top: 8px; font-size: 11px; }
+
+  .appBanner { display: block; width: calc(100% - 24px); min-height: 520px; margin: 14px auto 28px; padding: 28px 22px; }
+  .appCopy h2 { font-size: 38px; }
+  .appCopy p { font-size: 14px; }
+  .stores a, .stores img { height: 38px; }
+  .phones { right: -28px; bottom: -48px; width: 92%; }
+}

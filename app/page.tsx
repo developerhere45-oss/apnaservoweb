@@ -166,7 +166,7 @@ function Header() {
       </a>
       <nav className="navLinks" aria-label="Main navigation">
         <a href="#home">Home</a>
-        <a href="#services">Services</a>
+        <Link href="/services">Services</Link>
         <a href="#commercial">Commercial</a>
         <a href="#contact">Support</a>
       </nav>
