@@ -171,7 +171,6 @@ function Header() {
         <a href="#track">Track Booking</a>
         <a href="#contact">Support</a>
       </nav>
-      <a className="navCta" href="#contact">Contact</a>
     </header>
   );
 }
