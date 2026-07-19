@@ -24777,10 +24777,18 @@ body {
   box-shadow: 0 10px 24px rgba(73, 36, 44, 0.07) !important;
 }
 
+.serviceCarousel .serviceCarouselBookingNote {
+  max-width: 550px !important;
+  margin: 24px 0 0 !important;
+  color: #5f5a61 !important;
+  font-size: clamp(14px, 1.15vw, 17px) !important;
+  line-height: 1.45 !important;
+}
+
 .serviceCarousel .serviceCarouselTrust {
   display: grid !important;
   width: min(100%, 560px) !important;
-  margin-top: 30px !important;
+  margin-top: 22px !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 13px 22px !important;
 }
@@ -24935,6 +24943,11 @@ body {
 
   .serviceCarousel .serviceCarouselActions a {
     width: 100% !important;
+  }
+
+  .serviceCarousel .serviceCarouselBookingNote {
+    margin-top: 16px !important;
+    font-size: 13px !important;
   }
 }
 

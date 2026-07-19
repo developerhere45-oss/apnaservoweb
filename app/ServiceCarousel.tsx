@@ -116,20 +116,20 @@ export default function ServiceCarousel() {
 
           <h2>Our Services</h2>
           <p className="serviceCarouselDescription">
-            Trusted professionals for every home need. Book verified electricians, plumbers, AC technicians,
-            cleaners and more &mdash; all in one place.
+            Discover reliable electricians, plumbers, AC technicians, cleaners and more&mdash;all verified and
+            available through the ApnaServo app.
           </p>
 
           <div className="serviceCarouselActions">
-            <a className="serviceCarouselPrimaryCta" href="#contact">
-              <span>Book a Service</span>
-              <ChevronRight aria-hidden="true" />
-            </a>
             <a className="serviceCarouselSecondaryCta" href="#how">
               <span>Explore Services</span>
               <ChevronRight aria-hidden="true" />
             </a>
           </div>
+
+          <p className="serviceCarouselBookingNote">
+            All bookings are securely managed through the ApnaServo app.
+          </p>
 
           <div className="serviceCarouselTrust" aria-label="Service guarantees">
             {['Verified Professionals', 'Transparent Pricing', 'No Upfront Payment', 'Fast Response'].map((item) => (
