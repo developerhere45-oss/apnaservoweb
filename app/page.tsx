@@ -338,10 +338,7 @@ function WhyChoose() {
 
 function AssamSection() {
   return (
-    <section className="assam assamBackdrop section" id="launch">
-      <div className="assamArt" aria-label="Assam inspired illustration">
-        <Image src="/assam-skyline.webp" alt="Assam skyline with Rang Ghar, Saraighat Bridge, river, hills, birds and a rhino" width={1400} height={788} sizes="(max-width: 900px) 100vw, 52vw" loading="lazy" unoptimized />
-      </div>
+    <section className="assam assamBackdrop section" id="launch" aria-label="Assam skyline with Rang Ghar, Saraighat Bridge, river, hills, birds and a rhino">
       <div className="assamCopy">
         <span className="eyebrow"><Rocket size={14} /> Launching soon</span>
         <h2>Launching Soon<br />In <span>Guwahati.</span></h2>
@@ -535,8 +532,8 @@ function Footer() {
         <a className="brand" href="#home"><Image className="brandLogo" src="/apnaservo-wordmark.png" alt="ApnaServo" width={969} height={257} sizes="154px" /></a>
         <p>Guwahati-based home services platform connecting households with trusted local professionals in selected serviceable areas.</p>
         <div className="footerStores footerStoresDesktop">
-          <span>▶ <i>Google Play</i></span>
-          <span> <i>App Store</i></span>
+          <a href="#contact" aria-label="Get ApnaServo on Google Play"><Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized /></a>
+          <a href="#contact" aria-label="Download ApnaServo on the App Store"><Image src="/app-store-badge.svg" alt="Download on the App Store" width={250} height={84} unoptimized /></a>
         </div>
         <div className="footerStoresMobile">
           <a href="#contact" aria-label="Contact ApnaServo"><Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized /></a>

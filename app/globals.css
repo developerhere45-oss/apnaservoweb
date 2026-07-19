@@ -25080,3 +25080,216 @@ body {
     font-size: 9px !important;
   }
 }
+
+/* Launch artwork is the section background itself—no extra image panel. */
+.assam.assamBackdrop {
+  display: grid !important;
+  min-height: clamp(560px, 44vw, 720px) !important;
+  padding: clamp(52px, 6vw, 92px) clamp(42px, 6vw, 110px) !important;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
+  align-items: center !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: #f8d9dc !important;
+  background-image: url('/assam-launch-background.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  box-shadow: none !important;
+}
+
+.assam.assamBackdrop::after {
+  background: linear-gradient(90deg, rgba(255, 250, 248, 0.98) 0%, rgba(255, 250, 248, 0.9) 28%, rgba(255, 250, 248, 0.52) 44%, rgba(255, 250, 248, 0.08) 64%, transparent 78%) !important;
+}
+
+.assam.assamBackdrop .assamCopy {
+  width: min(100%, 600px) !important;
+  max-width: 600px !important;
+  margin: 0 !important;
+}
+
+.assam.assamBackdrop .assamCopy h2 {
+  max-width: 560px !important;
+  font-size: clamp(44px, 4.2vw, 70px) !important;
+  line-height: 1.04 !important;
+}
+
+.assam.assamBackdrop .assamCopy p {
+  max-width: 510px !important;
+  font-size: clamp(16px, 1.2vw, 19px) !important;
+}
+
+/* Official store artwork replaces text-only imitations. */
+.footerStoresDesktop {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  gap: 10px;
+}
+
+.footerStoresDesktop a {
+  display: block;
+  height: 42px;
+  line-height: 0;
+}
+
+.footerStoresDesktop img {
+  display: block;
+  width: auto;
+  height: 42px;
+  object-fit: contain;
+}
+
+/* Reference-matched partner verification timeline. */
+.verificationProcess {
+  padding: 82px clamp(24px, 6vw, 96px) 86px !important;
+  background: #fffdfa !important;
+}
+
+.verificationProcess .sectionTitle {
+  max-width: 720px !important;
+  margin: 0 auto 42px !important;
+  text-align: center !important;
+}
+
+.verificationProcess .sectionTitle > span {
+  color: #da5977 !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+}
+
+.verificationProcess .sectionTitle h2 {
+  max-width: 680px !important;
+  margin: 18px auto 0 !important;
+  color: #111522 !important;
+  font-size: clamp(40px, 4vw, 58px) !important;
+  font-weight: 560 !important;
+  line-height: 1.03 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.verificationProcess .processTrack {
+  position: relative !important;
+  display: grid !important;
+  max-width: 1040px !important;
+  margin: 0 auto !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+.verificationProcess .processTrack::before {
+  top: 38px !important;
+  right: 9% !important;
+  left: 9% !important;
+  background: rgba(218, 89, 119, 0.32) !important;
+}
+
+.verificationProcess .processTrack article {
+  display: flex !important;
+  min-height: 196px !important;
+  padding: 20px 18px 22px !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  border: 1px solid #e3e5e9 !important;
+  border-radius: 24px !important;
+  background: #fff !important;
+  text-align: center !important;
+  box-shadow: none !important;
+}
+
+.verificationProcess .processTrack article > .verificationStepImage {
+  display: block !important;
+  width: 92px !important;
+  height: 92px !important;
+  margin: 0 auto 10px !important;
+  overflow: hidden !important;
+  flex: 0 0 92px !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  background: #fff8f7 !important;
+  box-shadow: none !important;
+}
+
+.verificationProcess .verificationStepImage img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+}
+
+.verificationProcess .processTrack small {
+  margin: 0 !important;
+  color: #d95776 !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+}
+
+.verificationProcess .processTrack h3 {
+  min-height: 0 !important;
+  margin: 10px 0 0 !important;
+  color: #111522 !important;
+  font-size: 16px !important;
+  font-weight: 650 !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+}
+
+@media (max-width: 767px) {
+  .assam.assamBackdrop {
+    min-height: 570px !important;
+    padding: 38px 18px !important;
+    grid-template-columns: 1fr !important;
+    align-content: start !important;
+    background-position: 58% center !important;
+  }
+
+  .assam.assamBackdrop::after {
+    background: linear-gradient(180deg, rgba(255, 250, 248, 0.96) 0%, rgba(255, 250, 248, 0.72) 42%, rgba(255, 250, 248, 0.16) 78%, transparent 100%) !important;
+  }
+
+  .footerStoresDesktop {
+    display: none !important;
+  }
+
+  .verificationProcess {
+    padding: 56px 16px !important;
+  }
+
+  .verificationProcess .sectionTitle {
+    margin-bottom: 28px !important;
+  }
+
+  .verificationProcess .sectionTitle h2 {
+    font-size: 34px !important;
+  }
+
+  .verificationProcess .processTrack {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .verificationProcess .processTrack::before {
+    display: none !important;
+  }
+
+  .verificationProcess .processTrack article {
+    min-height: 170px !important;
+    padding: 16px 10px !important;
+  }
+
+  .verificationProcess .processTrack article > .verificationStepImage {
+    width: 76px !important;
+    height: 76px !important;
+    flex-basis: 76px !important;
+  }
+
+  .verificationProcess .processTrack h3 {
+    font-size: 14px !important;
+  }
+}
