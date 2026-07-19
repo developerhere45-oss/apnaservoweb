@@ -78,7 +78,7 @@ export default function ServiceCarousel() {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % slides.length);
-    }, 1000);
+    }, 3500);
 
     return () => window.clearInterval(interval);
   }, []);

@@ -24676,7 +24676,7 @@ body {
 .serviceCarousel .serviceCarouselSlide img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   object-position: var(--desktop-image-position, center right) !important;
   transform: none !important;
 }
