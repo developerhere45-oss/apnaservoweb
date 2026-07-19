@@ -22064,14 +22064,14 @@ body {
 .heroWithVideo .heroVideoSharp {
   top: 0;
   right: 0;
-  width: 60%;
+  width: min(32vw, 520px);
   height: 100%;
   max-width: none;
   object-fit: contain;
   object-position: center right;
   opacity: 1;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 26%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 26%, #000 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.12) 16%, #000 58%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.12) 16%, #000 58%, #000 100%);
 }
 
 .heroWithVideo .heroVideoOverlay {
@@ -22125,14 +22125,14 @@ body {
 
   .heroWithVideo .heroVideoSharp {
     top: 0;
-    right: -10%;
-    width: 70%;
+    right: -4%;
+    width: 56%;
     height: 62%;
     object-fit: contain;
     object-position: 78% center;
     opacity: 0.88;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 100%);
-    mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.12) 18%, #000 58%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.12) 18%, #000 58%, #000 100%);
   }
 
   .heroWithVideo .heroVideoOverlay {
