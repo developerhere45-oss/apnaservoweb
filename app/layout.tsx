@@ -18,15 +18,17 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: 'ApnaServo',
   title: 'ApnaServo | Guwahati Home Services Platform',
   description: 'Join the waitlist for ApnaServo, a Guwahati-based home services platform launching across selected areas.',
   icons: {
     icon: [
-      { url: '/favicon.ico', type: 'image/x-icon', sizes: '48x48' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/favicon-48.png', type: 'image/png', sizes: '48x48' },
       { url: '/favicon-192.png', type: 'image/png', sizes: '192x192' }
     ],
     shortcut: '/favicon.ico',
-    apple: '/favicon-192.png'
+    apple: [{ url: '/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }]
   },
   robots: {
     index: true,
