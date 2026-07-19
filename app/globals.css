@@ -24937,3 +24937,133 @@ body {
     width: 100% !important;
   }
 }
+
+/* Reference-matched launch trust strip below the homepage hero. */
+.launchTrustGrid {
+  box-sizing: border-box !important;
+  display: grid !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 24px clamp(36px, 5.5vw, 104px) !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  border: 0 !important;
+  border-top: 1px solid #ebe3de !important;
+  border-bottom: 1px solid #ebe3de !important;
+  border-radius: 0 !important;
+  background: #fffdfa !important;
+  box-shadow: none !important;
+}
+
+.launchTrustGrid .launchTrustCard {
+  box-sizing: border-box !important;
+  display: grid !important;
+  min-width: 0 !important;
+  min-height: 72px !important;
+  padding: 0 clamp(22px, 3vw, 58px) !important;
+  overflow: visible !important;
+  grid-template-columns: 34px minmax(0, 1fr) !important;
+  grid-template-rows: auto auto !important;
+  align-content: center !important;
+  align-items: center !important;
+  border: 0 !important;
+  border-left: 1px solid #e5d9d4 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.launchTrustGrid .launchTrustCard:first-child {
+  padding-left: 0 !important;
+  border-left: 0 !important;
+}
+
+.launchTrustGrid .launchTrustCard:last-child {
+  padding-right: 0 !important;
+}
+
+.launchTrustGrid .launchTrustCard::after {
+  display: none !important;
+}
+
+.launchTrustGrid .launchTrustCard > span {
+  display: flex !important;
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 14px 0 0 !important;
+  grid-row: 1 / 3 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #df6886 !important;
+  box-shadow: none !important;
+}
+
+.launchTrustGrid .launchTrustCard > span svg {
+  width: 26px !important;
+  height: 26px !important;
+  stroke-width: 2 !important;
+}
+
+.launchTrustGrid .launchTrustCard h2 {
+  margin: 0 !important;
+  color: #151419 !important;
+  font-size: clamp(19px, 1.45vw, 24px) !important;
+  font-weight: 760 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.launchTrustGrid .launchTrustCard p {
+  margin: 5px 0 0 !important;
+  color: #656168 !important;
+  font-size: 12px !important;
+  font-weight: 450 !important;
+  line-height: 1.25 !important;
+}
+
+@media (max-width: 767px) {
+  .launchTrustGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    margin: 0 !important;
+    padding: 12px 14px !important;
+  }
+
+  .launchTrustGrid .launchTrustCard {
+    min-height: 76px !important;
+    padding: 10px !important;
+    grid-template-columns: 27px minmax(0, 1fr) !important;
+  }
+
+  .launchTrustGrid .launchTrustCard:nth-child(odd) {
+    border-left: 0 !important;
+  }
+
+  .launchTrustGrid .launchTrustCard:nth-child(n + 3) {
+    border-top: 1px solid #e5d9d4 !important;
+  }
+
+  .launchTrustGrid .launchTrustCard > span {
+    width: 23px !important;
+    height: 23px !important;
+    margin-right: 8px !important;
+  }
+
+  .launchTrustGrid .launchTrustCard > span svg {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+  .launchTrustGrid .launchTrustCard h2 {
+    font-size: 17px !important;
+  }
+
+  .launchTrustGrid .launchTrustCard p {
+    margin-top: 3px !important;
+    font-size: 9px !important;
+  }
+}

@@ -74,17 +74,17 @@ const launchTrustFeatures: Array<{ title: string; text: string; icon: LucideIcon
   },
   {
     title: 'Guwahati',
-    text: 'Local service coverage',
+    text: 'Local Service Coverage',
     icon: MapPin
   },
   {
-    title: '< 15 mins',
-    text: 'Average response time',
-    icon: Bolt
+    title: '< 30 mins',
+    text: 'Average Response Time',
+    icon: Clock3
   },
   {
     title: '100%',
-    text: 'Background verified experts',
+    text: 'Background-Verified Experts',
     icon: ShieldCheck
   }
 ];
