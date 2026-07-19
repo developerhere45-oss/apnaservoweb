@@ -19,7 +19,7 @@ const supportOptions = [
   ['Email Support', contactDetails.email, 'We usually reply within 24 hours.', `mailto:${contactDetails.email}`, 'Send Email', Mail],
   ['Phone Support', contactDetails.phone, 'Mon - Sat | 9 AM - 8 PM', `tel:${contactDetails.phone.replace(/\s/g, '')}`, 'Call Now', Phone],
   ['Chat Support', 'Chat with our team', 'Available during support hours.', `mailto:${contactDetails.email}?subject=Chat%20Support`, 'Start Chat', MessageCircle],
-  ['WhatsApp Support', 'Quick support on WhatsApp', 'Share only relevant support details.', 'https://wa.me/919365821434', 'Chat on WhatsApp', Send]
+  ['WhatsApp Support', 'Quick support on WhatsApp', 'Share only relevant support details.', 'https://wa.me/916001794902', 'Chat on WhatsApp', Send]
 ] as const;
 
 const faqs = [

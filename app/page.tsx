@@ -167,7 +167,6 @@ function Header() {
       <nav className="navLinks" aria-label="Main navigation">
         <a href="#home">Home</a>
         <Link href="/services">Services</Link>
-        <a href="#commercial">Commercial</a>
         <a href="#contact">Support</a>
       </nav>
     </header>
@@ -538,9 +537,9 @@ function Footer() {
         </div>
         <div className="socials"><Send size={18} /><Mail size={18} /><Phone size={18} /></div>
         <div className="mobileSocials">
-          <a href="mailto:apnaservo@gmail.com?subject=ApnaServo%20Enquiry" aria-label="Send a message"><Send size={23} /></a>
-          <a href="mailto:apnaservo@gmail.com" aria-label="Email ApnaServo"><Mail size={23} /></a>
-          <a href="tel:+919365821434" aria-label="Call ApnaServo"><Phone size={23} /></a>
+          <a href="mailto:support@apnaservo.com?subject=ApnaServo%20Enquiry" aria-label="Send a message"><Send size={23} /></a>
+          <a href="mailto:support@apnaservo.com" aria-label="Email ApnaServo"><Mail size={23} /></a>
+          <a href="tel:+916001794902" aria-label="Call ApnaServo"><Phone size={23} /></a>
         </div>
       </div>
       <div className="footerColumn footerExplore">
@@ -553,7 +552,6 @@ function Footer() {
       </div>
       <div className="footerColumn footerSupport">
         <h4><Headset className="footerHeadingIcon" size={23} /> Support</h4>
-        <a href="#track">Track Booking</a>
         <Link href="/contact-us">Emergency Support</Link>
         <Link href="/legal-support">Legal & Support</Link>
         <Link href="/privacy-policy">Privacy Policy</Link>
@@ -563,8 +561,8 @@ function Footer() {
         <span className="mobileContactIcon" aria-hidden="true"><UserCheck size={34} /></span>
         <div className="footerContactCopy">
           <h4>Contact</h4>
-          <a href="mailto:apnaservo@gmail.com"><Mail size={17} /> apnaservo@gmail.com</a>
-          <a href="tel:+919365821434"><Phone size={17} /> +91 9365821434</a>
+          <a href="mailto:support@apnaservo.com"><Mail size={17} /> support@apnaservo.com</a>
+          <a href="tel:+916001794902"><Phone size={17} /> +91 6001794902</a>
           <span><MapPin size={17} /> Guwahati, Assam</span>
           <Link className="desktopBusinessLink" href="/contact-us">Business enquiries</Link>
         </div>

@@ -41,7 +41,6 @@ export default function ServicesPage() {
         <nav aria-label="Main navigation">
           <Link href="/">Home</Link>
           <Link className={styles.active} href="/services">Services</Link>
-          <Link href="/#commercial">Commercial</Link>
           <Link href="/#contact">Support</Link>
         </nav>
       </header>

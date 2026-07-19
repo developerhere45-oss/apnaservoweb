@@ -39,8 +39,8 @@ const legalLinks = [
 ] as const;
 
 export const contactDetails = {
-  email: 'apnaservo@gmail.com',
-  phone: '+91 9365821434',
+  email: 'support@apnaservo.com',
+  phone: '+91 6001794902',
   location: 'Guwahati, Assam, India'
 };
 
