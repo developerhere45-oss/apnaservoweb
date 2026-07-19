@@ -24603,6 +24603,11 @@ body {
   border-radius: inherit !important;
 }
 
+.assam.assamBackdrop .assamArt img {
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
 @media (max-width: 767px) {
   .assam.assamBackdrop {
     border-color: rgba(199, 91, 118, 0.76) !important;
