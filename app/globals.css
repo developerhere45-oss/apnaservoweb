@@ -25084,9 +25084,9 @@ body {
 /* Launch artwork is the section background itself—no extra image panel. */
 .assam.assamBackdrop {
   display: grid !important;
-  min-height: 0 !important;
-  height: auto !important;
-  aspect-ratio: 16 / 9 !important;
+  min-height: 620px !important;
+  height: clamp(620px, 46vw, 780px) !important;
+  aspect-ratio: auto !important;
   padding: clamp(52px, 6vw, 92px) clamp(42px, 6vw, 110px) !important;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
   align-items: center !important;
@@ -25095,7 +25095,7 @@ body {
   background-color: #f8d9dc !important;
   background-image: url('/assam-launch-background.png') !important;
   background-repeat: no-repeat !important;
-  background-position: center center !important;
+  background-position: center bottom !important;
   background-size: cover !important;
   box-shadow: none !important;
 }
