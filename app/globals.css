@@ -17,6 +17,203 @@
   background: #fff;
 }
 
+/* App download showcase directly below the homepage trust metrics. */
+.appDownloadShowcase {
+  position: relative;
+  display: grid;
+  width: min(calc(100% - 80px), 1680px);
+  min-height: 430px;
+  margin: 22px auto 26px;
+  overflow: hidden;
+  grid-template-columns: minmax(0, .92fr) minmax(520px, 1.08fr);
+  align-items: center;
+  border: 1px solid rgba(211, 91, 111, .42);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 72% 40%, rgba(241, 166, 151, .3), transparent 34%),
+    linear-gradient(120deg, #fffaf7 8%, #fff1eb 54%, #f8d8d0 100%);
+  box-shadow: 0 18px 55px rgba(94, 52, 47, .1);
+}
+
+.appDownloadCopy {
+  position: relative;
+  z-index: 2;
+  padding: 58px 24px 54px 64px;
+}
+
+.appDownloadEyebrow {
+  color: #cc536b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.appDownloadCopy h2 {
+  max-width: 720px;
+  margin: 14px 0 0;
+  color: #17141b;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(42px, 4vw, 68px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.appDownloadCopy > p {
+  max-width: 680px;
+  margin: 17px 0 0;
+  color: #4f4950;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.appDownloadBenefits {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  gap: 12px;
+}
+
+.appDownloadBenefits span {
+  display: inline-flex;
+  min-height: 48px;
+  padding: 0 18px;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(216, 117, 129, .18);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 8px 18px rgba(89, 48, 45, .09);
+  color: #252027;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.appDownloadBenefits svg { color: #e65370; }
+
+.appDownloadStores {
+  display: flex;
+  margin-top: 22px;
+  align-items: center;
+  gap: 12px;
+}
+
+.appDownloadStores a,
+.appDownloadStores img {
+  display: block;
+  width: auto;
+  height: 52px;
+}
+
+.appDownloadProof {
+  margin-top: 18px;
+  color: #6b5f61;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.appDownloadProof span {
+  margin-right: 10px;
+  color: #df546d;
+  font-size: 17px;
+  letter-spacing: .18em;
+}
+
+.appDownloadVisual {
+  position: relative;
+  align-self: stretch;
+  min-height: 430px;
+}
+
+.appDownloadVisual > img {
+  position: absolute;
+  z-index: 2;
+  right: -3%;
+  bottom: -20%;
+  width: min(780px, 94%);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 28px rgba(55, 29, 28, .2));
+}
+
+.appDownloadGlow {
+  position: absolute;
+  inset: 9% 5% -20% 4%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.92), rgba(244,163,150,.38) 46%, transparent 72%);
+}
+
+@media (max-width: 900px) {
+  .appDownloadShowcase {
+    width: calc(100% - 32px);
+    grid-template-columns: minmax(0, 1fr) minmax(330px, .8fr);
+  }
+
+  .appDownloadCopy { padding-left: 34px; }
+}
+
+@media (max-width: 767px) {
+  .appDownloadShowcase {
+    display: flex;
+    width: calc(100% - 24px);
+    min-height: 0;
+    margin: 14px auto 18px;
+    flex-direction: column;
+    border-radius: 18px;
+  }
+
+  .appDownloadCopy {
+    width: 100%;
+    padding: 28px 20px 10px;
+  }
+
+  .appDownloadEyebrow { font-size: 10px; }
+
+  .appDownloadCopy h2 {
+    margin-top: 9px;
+    font-size: 37px;
+  }
+
+  .appDownloadCopy > p {
+    margin-top: 13px;
+    font-size: 14px;
+  }
+
+  .appDownloadBenefits {
+    display: grid;
+    margin-top: 18px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .appDownloadBenefits span {
+    min-height: 68px;
+    padding: 8px 4px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    font-size: 9px;
+    text-align: center;
+  }
+
+  .appDownloadStores { margin-top: 18px; gap: 8px; }
+  .appDownloadStores a, .appDownloadStores img { height: 38px; }
+  .appDownloadProof { margin-top: 14px; font-size: 11px; }
+  .appDownloadProof span { font-size: 13px; }
+
+  .appDownloadVisual {
+    width: 100%;
+    min-height: 285px;
+  }
+
+  .appDownloadVisual > img {
+    right: -5%;
+    bottom: -17%;
+    width: 106%;
+  }
+}
+
 /* Services carousel */
 .serviceCarousel {
   position: relative;

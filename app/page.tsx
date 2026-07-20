@@ -150,12 +150,50 @@ function App() {
       <main>
         <Hero />
         <LaunchTrustGrid />
+        <AppDownloadShowcase />
         <ServiceCarousel />
         <VerificationProcess />
         <AssamSection />
       </main>
       <Footer />
     </div>
+  );
+}
+
+function AppDownloadShowcase() {
+  return (
+    <section className="appDownloadShowcase" aria-labelledby="app-download-title">
+      <div className="appDownloadCopy">
+        <span className="appDownloadEyebrow">The ApnaServo app</span>
+        <h2 id="app-download-title">Home services, one tap away.</h2>
+        <p>Book trusted professionals, manage every visit, and get dependable support—all from one simple app.</p>
+        <div className="appDownloadBenefits" aria-label="App benefits">
+          <span><Zap size={20} />Instant booking</span>
+          <span><MapPin size={20} />Service updates</span>
+          <span><ShieldCheck size={20} />Secure experience</span>
+        </div>
+        <div className="appDownloadStores">
+          <a href="#contact" aria-label="Get ApnaServo on Google Play">
+            <Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized />
+          </a>
+          <a href="#contact" aria-label="Download ApnaServo on the App Store">
+            <Image src="/app-store-badge.svg" alt="Download on the App Store" width={250} height={84} unoptimized />
+          </a>
+        </div>
+        <div className="appDownloadProof"><span>★★★★★</span> Made for homes across Guwahati</div>
+      </div>
+      <div className="appDownloadVisual">
+        <span className="appDownloadGlow" aria-hidden="true" />
+        <Image
+          src="/home-app-preview-cutout.png"
+          alt="Real ApnaServo app home screen and booking confirmation preview"
+          width={1448}
+          height={1086}
+          sizes="(max-width: 767px) 92vw, 52vw"
+          priority
+        />
+      </div>
+    </section>
   );
 }
 
