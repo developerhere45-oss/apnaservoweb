@@ -39,8 +39,7 @@ const organizationSchema = {
   founder: {
     '@type': 'Person',
     name: 'Dijendra Mallah',
-    jobTitle: 'Founder',
-    url: absoluteUrl('/founder')
+    jobTitle: 'Founder'
   },
   member: {
     '@type': 'OrganizationRole',
@@ -48,8 +47,7 @@ const organizationSchema = {
     member: {
       '@type': 'Person',
       name: 'Pinku Chetry',
-      jobTitle: 'Co-Founder',
-      url: absoluteUrl('/co-founder')
+      jobTitle: 'Co-Founder'
     }
   }
 };
