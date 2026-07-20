@@ -198,7 +198,7 @@ function Hero() {
           <span>Platform</span>
         </h1>
         <p>
-          Book verified electricians, plumbers, AC technicians, carpenters, painters, pest control experts, and more in selected areas of Guwahati.
+          Reliable home care from trusted local professionals, with simple booking, transparent service, and support you can count on.
         </p>
         <div className="heroActions">
           <a className="secondaryBtn rippleBtn" href="#services">Explore Services <ChevronRight size={17} /></a>

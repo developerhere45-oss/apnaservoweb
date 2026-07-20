@@ -22149,8 +22149,10 @@ body {
   }
 
   .heroWithVideo .heroActions .secondaryBtn:only-child {
-    width: 100% !important;
-    justify-content: space-between;
+    width: auto !important;
+    min-width: 190px;
+    padding-inline: 22px !important;
+    justify-content: center;
   }
 
   .heroWithVideo .heroTrustStrip {
