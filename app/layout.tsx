@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
 import './mobile-density.css';
 import { siteUrl } from './site';
@@ -40,21 +39,20 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${manrope.variable}`}>
-        {children}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-HX8P7QQ064"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX8P7QQ064" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-HX8P7QQ064');
-          `}
-        </Script>
-      </body>
+          `,
+          }}
+        />
+      </head>
+      <body className={`${inter.variable} ${manrope.variable}`}>{children}</body>
     </html>
   );
 }
