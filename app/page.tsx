@@ -490,12 +490,12 @@ function VerificationProcess() {
     },
     {
       title: 'Manual Approval',
-      image: '/verification-steps/manual-approval.png',
+      image: '/verification-steps/manual-approval-clean.png',
       alt: 'Illustration of manual partner approval'
     },
     {
       title: 'Live On Platform',
-      image: '/verification-steps/live-on-platform.png',
+      image: '/verification-steps/live-on-platform-clean.png',
       alt: 'Illustration of a service partner going live on the ApnaServo platform'
     }
   ] as const;
