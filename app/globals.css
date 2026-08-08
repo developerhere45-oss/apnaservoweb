@@ -17,6 +17,95 @@
   background: #fff;
 }
 
+/* Homepage hero cascade guard — keep at the end of this stylesheet. */
+.hero.heroWithVideo {
+  display: grid !important;
+  grid-template-columns: minmax(0, 52%) minmax(0, 48%) !important;
+  align-items: center !important;
+  gap: 0 !important;
+  min-height: clamp(650px, 76vh, 790px) !important;
+  padding: clamp(38px, 4.4vw, 72px) clamp(24px, 4.2vw, 68px) !important;
+  overflow: hidden !important;
+  background: radial-gradient(circle at 16% 20%, rgba(255,255,255,.96), transparent 34rem), linear-gradient(120deg, #fffdfb 0%, #fff9f8 48%, #fff3f5 100%) !important;
+}
+.heroWithVideo > .heroCopy {
+  position: relative !important;
+  z-index: 3 !important;
+  width: calc(100% + clamp(28px, 4vw, 70px)) !important;
+  max-width: 760px !important;
+  padding: clamp(20px, 2.2vw, 36px) clamp(26px, 3.8vw, 62px) clamp(20px, 2.2vw, 36px) 0 !important;
+  background: linear-gradient(90deg, rgba(255,253,251,.99), rgba(255,252,250,.95) 72%, rgba(255,250,249,.54) 90%, transparent) !important;
+}
+.heroWithVideo .heroCopy h1 {
+  max-width: 650px !important;
+  margin-top: clamp(24px, 2.4vw, 38px) !important;
+  font-size: clamp(52px, 4.55vw, 74px) !important;
+  line-height: 1.01 !important;
+}
+.heroWithVideo .heroCopy > p:not(.mobileHeroSupport) {
+  max-width: 590px !important;
+  margin-top: clamp(24px, 2.2vw, 34px) !important;
+  font-size: clamp(16px, 1.2vw, 18px) !important;
+  line-height: 1.68 !important;
+}
+.heroWithVideo .heroActions { margin-top: clamp(24px, 2.3vw, 34px) !important; }
+.heroWithVideo .heroTrustStrip { max-width: 610px !important; margin-top: clamp(26px, 2.4vw, 36px) !important; }
+.heroWithVideo > .heroVideoLayer {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 1 !important;
+  display: block !important;
+  width: 100% !important;
+  height: clamp(570px, 67vh, 720px) !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(137,76,89,.1) !important;
+  border-radius: clamp(24px, 2vw, 32px) !important;
+  background: #eadbd4 !important;
+  box-shadow: 0 24px 64px rgba(82,47,54,.12), 0 4px 16px rgba(82,47,54,.06) !important;
+}
+.heroWithVideo .heroVideoSharp {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: 58% center !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+.heroWithVideo .heroVideoOverlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  display: block !important;
+  background: linear-gradient(90deg, rgba(255,252,250,.98), rgba(255,252,250,.72) 7%, rgba(255,252,250,.3) 14%, transparent 27%) !important;
+}
+@media (max-width: 1100px) and (min-width: 768px) {
+  .hero.heroWithVideo { grid-template-columns: minmax(0,54%) minmax(0,46%) !important; min-height: 620px !important; padding: 34px 30px !important; }
+  .heroWithVideo .heroCopy h1 { font-size: clamp(45px,5.4vw,60px) !important; }
+  .heroWithVideo > .heroVideoLayer { height: clamp(520px,64vh,630px) !important; }
+}
+@media (max-width: 767px) {
+  .hero.heroWithVideo {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 26px !important;
+    min-height: 0 !important;
+    padding: 30px var(--mobile-page-padding,18px) 36px !important;
+    background: linear-gradient(155deg,#fffdfb,#fff7f7 58%,#fff1f4) !important;
+  }
+  .heroWithVideo > .heroCopy { order: 1 !important; width: 100% !important; max-width: none !important; padding: 0 !important; background: transparent !important; }
+  .heroWithVideo .heroCopy h1 { margin-top: 20px !important; font-size: clamp(38px,11.2vw,50px) !important; line-height: 1.02 !important; }
+  .heroWithVideo .heroCopy > p:not(.mobileHeroSupport) { max-width: 35rem !important; margin-top: 20px !important; font-size: 15px !important; line-height: 1.62 !important; }
+  .heroWithVideo .heroActions { margin-top: 22px !important; }
+  .heroWithVideo .heroTrustStrip { margin-top: 24px !important; }
+  .heroWithVideo > .heroVideoLayer { order: 2 !important; width: 100% !important; height: auto !important; aspect-ratio: 16/9 !important; border-radius: 20px !important; box-shadow: 0 18px 42px rgba(82,47,54,.13),0 3px 12px rgba(82,47,54,.06) !important; }
+  .heroWithVideo .heroVideoSharp { inset: 0 !important; width: 100% !important; height: 100% !important; object-position: 58% center !important; opacity: 1 !important; }
+  .heroWithVideo .heroVideoOverlay { background: linear-gradient(90deg,rgba(255,249,248,.34),rgba(255,249,248,.08) 16%,transparent 34%) !important; }
+}
+
 /* App download showcase directly below the homepage trust metrics. */
 .appDownloadShowcase {
   position: relative;
@@ -211,6 +300,170 @@
     right: -5%;
     bottom: -17%;
     width: 106%;
+  }
+}
+
+/* Premium blended homepage hero. Scoped here so legacy hero rules cannot
+   reintroduce the former edge-to-edge 50/50 video split. */
+.hero.heroWithVideo {
+  display: grid;
+  grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+  align-items: center;
+  gap: 0;
+  min-height: clamp(650px, 76vh, 790px);
+  padding: clamp(38px, 4.4vw, 72px) clamp(24px, 4.2vw, 68px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 16% 20%, rgba(255, 255, 255, 0.96), transparent 34rem),
+    linear-gradient(120deg, #fffdfb 0%, #fff9f8 48%, #fff3f5 100%);
+}
+
+.heroWithVideo > .heroCopy {
+  position: relative;
+  z-index: 3;
+  width: calc(100% + clamp(28px, 4vw, 70px));
+  max-width: 760px;
+  padding: clamp(20px, 2.2vw, 36px) clamp(26px, 3.8vw, 62px) clamp(20px, 2.2vw, 36px) 0;
+  border-radius: 0 36px 36px 0;
+  background: linear-gradient(90deg, rgba(255, 253, 251, 0.99) 0%, rgba(255, 252, 250, 0.95) 72%, rgba(255, 250, 249, 0.54) 90%, transparent 100%);
+}
+
+.heroWithVideo .heroCopy h1 {
+  max-width: 650px;
+  margin-top: clamp(24px, 2.4vw, 38px);
+  font-size: clamp(52px, 4.55vw, 74px);
+  line-height: 1.01;
+  letter-spacing: -0.043em;
+}
+
+.heroWithVideo .heroCopy > p:not(.mobileHeroSupport) {
+  max-width: 590px;
+  margin-top: clamp(24px, 2.2vw, 34px);
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.68;
+}
+
+.heroWithVideo .heroActions {
+  margin-top: clamp(24px, 2.3vw, 34px);
+}
+
+.heroWithVideo .heroTrustStrip {
+  max-width: 610px;
+  margin-top: clamp(26px, 2.4vw, 36px);
+}
+
+.heroWithVideo > .heroVideoLayer {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: clamp(570px, 67vh, 720px);
+  overflow: hidden;
+  border: 1px solid rgba(137, 76, 89, 0.1);
+  border-radius: clamp(24px, 2vw, 32px);
+  background: #eadbd4;
+  box-shadow: 0 24px 64px rgba(82, 47, 54, 0.12), 0 4px 16px rgba(82, 47, 54, 0.06);
+  pointer-events: none;
+}
+
+.heroWithVideo .heroVideoSharp {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 58% center;
+  opacity: 1;
+  transform: none;
+}
+
+.heroWithVideo .heroVideoOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  background: linear-gradient(90deg, rgba(255, 252, 250, 0.98) 0%, rgba(255, 252, 250, 0.72) 7%, rgba(255, 252, 250, 0.3) 14%, transparent 27%);
+}
+
+@media (max-width: 1100px) and (min-width: 768px) {
+  .hero.heroWithVideo {
+    grid-template-columns: minmax(0, 54%) minmax(0, 46%);
+    min-height: 620px;
+    padding: 34px 30px;
+  }
+
+  .heroWithVideo .heroCopy h1 {
+    font-size: clamp(45px, 5.4vw, 60px);
+  }
+
+  .heroWithVideo > .heroVideoLayer {
+    height: clamp(520px, 64vh, 630px);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero.heroWithVideo {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 26px;
+    min-height: 0 !important;
+    padding: 30px var(--mobile-page-padding, 18px) 36px !important;
+    background: linear-gradient(155deg, #fffdfb 0%, #fff7f7 58%, #fff1f4 100%);
+  }
+
+  .heroWithVideo > .heroCopy {
+    order: 1;
+    width: 100%;
+    max-width: none !important;
+    padding: 0;
+    background: transparent;
+  }
+
+  .heroWithVideo .heroCopy h1 {
+    margin-top: 20px;
+    font-size: clamp(38px, 11.2vw, 50px) !important;
+    line-height: 1.02 !important;
+  }
+
+  .heroWithVideo .heroCopy > p:not(.mobileHeroSupport) {
+    max-width: 35rem !important;
+    margin-top: 20px !important;
+    font-size: 15px;
+    line-height: 1.62;
+  }
+
+  .heroWithVideo .heroActions {
+    margin-top: 22px !important;
+  }
+
+  .heroWithVideo .heroTrustStrip {
+    margin-top: 24px !important;
+  }
+
+  .heroWithVideo > .heroVideoLayer {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    box-shadow: 0 18px 42px rgba(82, 47, 54, 0.13), 0 3px 12px rgba(82, 47, 54, 0.06);
+  }
+
+  .heroWithVideo .heroVideoSharp {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-position: 58% center;
+    opacity: 1;
+  }
+
+  .heroWithVideo .heroVideoOverlay {
+    background: linear-gradient(90deg, rgba(255, 249, 248, 0.34) 0%, rgba(255, 249, 248, 0.08) 16%, transparent 34%);
   }
 }
 
@@ -8576,7 +8829,7 @@ h1 {
     bottom: 12px;
     width: 270px;
     height: 230px;
-    opacity: 0.88;
+    opacity: 0.94;
   }
 
   .haloTwo {
@@ -22261,14 +22514,14 @@ body {
 .heroWithVideo .heroVideoSharp {
   top: -6%;
   right: 0;
-  width: min(36vw, 600px);
+  width: clamp(520px, 48vw, 820px);
   height: 112%;
   max-width: none;
-  object-fit: contain;
-  object-position: center right;
+  object-fit: cover;
+  object-position: 58% center;
   opacity: 1;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 22%, rgba(0, 0, 0, 0.18) 45%, #000 88%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, transparent 22%, rgba(0, 0, 0, 0.18) 45%, #000 88%, #000 100%);
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 .heroWithVideo .heroVideoOverlay {
@@ -22276,7 +22529,7 @@ body {
   inset: 0;
   z-index: 1;
   display: block;
-  background: linear-gradient(90deg, rgba(255, 252, 249, 0.98) 0%, rgba(255, 252, 249, 0.94) 30%, rgba(255, 252, 249, 0.84) 38%, rgba(255, 252, 249, 0.32) 50%, rgba(255, 252, 249, 0.06) 60%, transparent 70%);
+  background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.98) 38%, rgba(255, 255, 255, 0.82) 49%, rgba(255, 255, 255, 0.44) 58%, rgba(255, 255, 255, 0.12) 68%, transparent 78%);
 }
 
 .heroWithVideo video::-webkit-media-controls,
@@ -22322,18 +22575,18 @@ body {
 
   .heroWithVideo .heroVideoSharp {
     top: 0;
-    right: -4%;
-    width: 56%;
-    height: 62%;
-    object-fit: contain;
-    object-position: 78% center;
-    opacity: 0.88;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.18) 44%, #000 88%, #000 100%);
-    mask-image: linear-gradient(90deg, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.18) 44%, #000 88%, #000 100%);
+    right: -8%;
+    width: min(72vw, 360px);
+    height: 68%;
+    object-fit: cover;
+    object-position: 56% center;
+    opacity: 0.94;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .heroWithVideo .heroVideoOverlay {
-    background: linear-gradient(90deg, rgba(255, 252, 249, 0.99) 0%, rgba(255, 252, 249, 0.95) 34%, rgba(255, 252, 249, 0.65) 52%, rgba(255, 252, 249, 0.14) 72%, transparent 100%);
+    background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.98) 42%, rgba(255, 255, 255, 0.78) 58%, rgba(255, 255, 255, 0.24) 76%, transparent 100%);
   }
 
   .heroWithVideo .heroCopy > p:not(.mobileHeroSupport) {
@@ -25501,3 +25754,17 @@ body {
     font-size: 14px !important;
   }
 }
+
+/* Homepage hero final cascade guard. */
+.hero.heroWithVideo{display:grid!important;grid-template-columns:minmax(0,52%) minmax(0,48%)!important;align-items:center!important;gap:0!important;min-height:clamp(650px,76vh,790px)!important;padding:clamp(38px,4.4vw,72px) clamp(24px,4.2vw,68px)!important;overflow:hidden!important;background:radial-gradient(circle at 16% 20%,rgba(255,255,255,.96),transparent 34rem),linear-gradient(120deg,#fffdfb,#fff9f8 48%,#fff3f5)!important}
+.heroWithVideo>.heroCopy{position:relative!important;z-index:3!important;width:calc(100% + clamp(28px,4vw,70px))!important;max-width:760px!important;padding:clamp(20px,2.2vw,36px) clamp(26px,3.8vw,62px) clamp(20px,2.2vw,36px) 0!important;background:linear-gradient(90deg,rgba(255,253,251,.99),rgba(255,252,250,.95) 72%,rgba(255,250,249,.54) 90%,transparent)!important}
+.heroWithVideo .heroCopy h1{max-width:650px!important;margin-top:clamp(24px,2.4vw,38px)!important;font-size:clamp(52px,4.55vw,74px)!important;line-height:1.01!important}
+.heroWithVideo .heroCopy>p:not(.mobileHeroSupport){max-width:590px!important;margin-top:clamp(24px,2.2vw,34px)!important;font-size:clamp(16px,1.2vw,18px)!important;line-height:1.68!important}
+.heroWithVideo .heroActions{margin-top:clamp(24px,2.3vw,34px)!important}.heroWithVideo .heroTrustStrip{max-width:610px!important;margin-top:clamp(26px,2.4vw,36px)!important}
+.heroWithVideo>.heroVideoLayer{position:relative!important;inset:auto!important;z-index:1!important;display:block!important;width:100%!important;height:clamp(570px,67vh,720px)!important;overflow:hidden!important;border:1px solid rgba(137,76,89,.1)!important;border-radius:clamp(24px,2vw,32px)!important;background:#eadbd4!important;box-shadow:0 24px 64px rgba(82,47,54,.12),0 4px 16px rgba(82,47,54,.06)!important}
+.heroWithVideo .heroVideoSharp{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;object-position:58% center!important;opacity:1!important;transform:none!important}
+.heroWithVideo .heroVideoOverlay{position:absolute!important;inset:0!important;z-index:2!important;display:block!important;background:linear-gradient(90deg,rgba(255,252,250,.98),rgba(255,252,250,.72) 7%,rgba(255,252,250,.3) 14%,transparent 27%)!important}
+@media (max-width:1100px) and (min-width:768px){.hero.heroWithVideo{grid-template-columns:minmax(0,54%) minmax(0,46%)!important;min-height:620px!important;padding:34px 30px!important}.heroWithVideo .heroCopy h1{font-size:clamp(45px,5.4vw,60px)!important}.heroWithVideo>.heroVideoLayer{height:clamp(520px,64vh,630px)!important}}
+@media (max-width:767px){.hero.heroWithVideo{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:26px!important;min-height:0!important;padding:30px var(--mobile-page-padding,18px) 36px!important;background:linear-gradient(155deg,#fffdfb,#fff7f7 58%,#fff1f4)!important}.heroWithVideo>.heroCopy{order:1!important;width:100%!important;max-width:none!important;padding:0!important;background:transparent!important}.heroWithVideo .heroCopy h1{margin-top:20px!important;font-size:clamp(38px,11.2vw,50px)!important;line-height:1.02!important}.heroWithVideo .heroCopy>p:not(.mobileHeroSupport){max-width:35rem!important;margin-top:20px!important;font-size:15px!important;line-height:1.62!important}.heroWithVideo .heroActions{margin-top:22px!important}.heroWithVideo .heroTrustStrip{margin-top:24px!important}.heroWithVideo>.heroVideoLayer{order:2!important;width:100%!important;height:auto!important;aspect-ratio:16/9!important;border-radius:20px!important;box-shadow:0 18px 42px rgba(82,47,54,.13),0 3px 12px rgba(82,47,54,.06)!important}.heroWithVideo .heroVideoSharp{inset:0!important;width:100%!important;height:100%!important;object-position:58% center!important;opacity:1!important}.heroWithVideo .heroVideoOverlay{background:linear-gradient(90deg,rgba(255,249,248,.34),rgba(255,249,248,.08) 16%,transparent 34%)!important}}
+.heroWithVideo>.heroCopy{grid-column:1!important;grid-row:1!important}
+.heroWithVideo>.heroVideoLayer{grid-column:2!important;grid-row:1!important}

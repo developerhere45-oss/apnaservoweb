@@ -1,0 +1,1049 @@
+/* ApnaServo premium system — authoritative, compact layer loaded last. */
+:root {
+  --as-ink: #17161d;
+  --as-muted: #686166;
+  --as-rose: #c95f7a;
+  --as-rose-dark: #9f405b;
+  --as-ivory: #fffaf7;
+  --as-paper: #ffffff;
+  --as-soft: #fff3f4;
+  --as-line: rgba(119, 73, 83, 0.14);
+  --as-radius-sm: 12px;
+  --as-radius-md: 20px;
+  --as-radius-lg: 28px;
+  --as-shadow-sm: 0 10px 30px rgba(64, 38, 45, 0.07);
+  --as-shadow-lg: 0 28px 72px rgba(64, 38, 45, 0.12);
+  --as-container: 1440px;
+  --as-focus: 0 0 0 3px rgba(201, 95, 122, 0.28);
+  --as-ease: 220ms cubic-bezier(.2,.7,.2,1);
+}
+
+html { scroll-behavior: smooth; }
+body { color: var(--as-ink); background: var(--as-ivory); }
+a, button, summary { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--as-rose-dark) !important;
+  outline-offset: 3px !important;
+  box-shadow: var(--as-focus);
+}
+
+/* Homepage shell and navigation */
+.page { overflow-x: clip; background: var(--as-ivory); }
+.page > .nav {
+  position: sticky !important;
+  top: 0;
+  z-index: 100;
+  min-height: 82px !important;
+  padding-inline: max(24px, calc((100vw - var(--as-container)) / 2 + 28px)) !important;
+  border-bottom: 1px solid var(--as-line) !important;
+  background: rgba(255, 250, 247, 0.92) !important;
+  box-shadow: 0 8px 28px rgba(70, 38, 45, 0.04) !important;
+  backdrop-filter: blur(18px);
+}
+.navLinks a {
+  position: relative;
+  min-height: 44px;
+  padding: 12px 4px;
+  color: #332f32;
+  font-weight: 700;
+  transition: color var(--as-ease);
+}
+.navLinks a::after {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--as-rose);
+  content: "";
+  transform: scaleX(0);
+  transition: transform var(--as-ease);
+}
+.navLinks a:hover { color: var(--as-rose-dark); }
+.navLinks a:hover::after, .navLinks a:focus-visible::after { transform: scaleX(1); }
+
+/* Homepage narrative and section rhythm */
+.page main { background: linear-gradient(180deg, #fffaf7, #fff 42%, #fff9f6); }
+.page main > * { scroll-margin-top: 96px; }
+.hero.heroWithVideo { max-width: var(--as-container); margin-inline: auto; }
+.heroWithVideo .eyebrow { letter-spacing: .11em !important; }
+.heroWithVideo .secondaryBtn {
+  min-height: 50px;
+  border-color: rgba(201,95,122,.25) !important;
+  border-radius: var(--as-radius-sm) !important;
+  background: #fff !important;
+  box-shadow: var(--as-shadow-sm);
+  transition: transform var(--as-ease), box-shadow var(--as-ease), border-color var(--as-ease);
+}
+.heroWithVideo .secondaryBtn:hover { transform: translateY(-2px); border-color: var(--as-rose) !important; box-shadow: 0 16px 36px rgba(108,54,68,.12); }
+.launchTrustGrid { max-width: calc(var(--as-container) - 96px) !important; margin: 0 auto !important; border-radius: 0 0 var(--as-radius-md) var(--as-radius-md); }
+.launchTrustCard { border-color: var(--as-line) !important; }
+.appDownloadShowcase, .serviceCarousel, .verificationProcess, .assamBackdrop { margin-inline: auto !important; }
+.appDownloadShowcase {
+  max-width: calc(var(--as-container) - 64px) !important;
+  border-color: var(--as-line) !important;
+  border-radius: var(--as-radius-lg) !important;
+  box-shadow: var(--as-shadow-lg) !important;
+}
+.appDownloadShowcase h2, .serviceCarousel h2, .verificationProcess h2, .assamCopy h2 { letter-spacing: -.035em !important; }
+.appDownloadBenefits span { min-height: 44px; }
+.appDownloadStores a, .footerStores a { min-height: 44px; }
+.serviceCarousel { max-width: var(--as-container) !important; padding-block: clamp(72px, 8vw, 116px) !important; }
+.serviceCarouselViewport { border-radius: var(--as-radius-lg) !important; box-shadow: var(--as-shadow-lg) !important; }
+.serviceCarouselControls {
+  position: absolute;
+  z-index: 8;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  gap: 8px;
+}
+.serviceCarouselControls button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(24,20,22,.7);
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: transform var(--as-ease), background var(--as-ease);
+}
+.serviceCarouselControls button:hover { transform: translateY(-2px); background: var(--as-rose-dark); }
+.serviceCarouselControls svg { width: 18px; height: 18px; }
+.verificationProcess { max-width: var(--as-container) !important; padding-block: clamp(76px, 8vw, 120px) !important; }
+.verificationProcess .processTrack article { border-color: var(--as-line) !important; border-radius: var(--as-radius-md) !important; box-shadow: var(--as-shadow-sm) !important; }
+.assam.assamBackdrop { max-width: calc(var(--as-container) - 64px); border-radius: var(--as-radius-lg); overflow: hidden; box-shadow: var(--as-shadow-lg); }
+.footer { border-top: 1px solid var(--as-line) !important; }
+.footer a { min-height: 28px; }
+.footerContact a { min-height: 44px; }
+
+/* Legal and support product family */
+.legalCleanPage { --legal-pink: var(--as-rose); background: linear-gradient(180deg, var(--as-ivory), #fff 28rem) !important; }
+.legalCleanNav {
+  min-height: 82px !important;
+  border-bottom: 1px solid var(--as-line) !important;
+  background: rgba(255,250,247,.92) !important;
+  backdrop-filter: blur(18px);
+}
+.legalCleanNav a { min-height: 44px; }
+.legalCleanHero, .legalOverviewHero, .supportCenterHero { max-width: var(--as-container); margin-inline: auto; }
+.legalCleanHero h1, .legalOverviewHero h1, .supportCenterHero h1 { letter-spacing: -.04em !important; }
+.legalCleanLayout { max-width: 1180px !important; margin-inline: auto; }
+.legalCleanToc { top: 106px !important; }
+.legalCleanToc a { min-height: 40px; padding-block: 10px !important; }
+.legalCleanSection { border-color: var(--as-line) !important; border-radius: var(--as-radius-md) !important; box-shadow: var(--as-shadow-sm) !important; }
+.legalCleanSection summary { min-height: 64px; cursor: pointer; }
+.legalCleanSection p, .legalCleanSection li { max-width: 72ch; font-size: 15px !important; line-height: 1.72 !important; }
+.legalDocumentCard, .supportOptionGrid article {
+  border-color: var(--as-line) !important;
+  border-radius: var(--as-radius-md) !important;
+  box-shadow: var(--as-shadow-sm) !important;
+  transition: transform var(--as-ease), box-shadow var(--as-ease), border-color var(--as-ease);
+}
+.legalDocumentCard:hover, .supportOptionGrid article:hover { transform: translateY(-4px); border-color: rgba(201,95,122,.35) !important; box-shadow: var(--as-shadow-lg) !important; }
+.supportOptionGrid article > a { min-height: 46px !important; }
+.supportFaqSection details { border-color: var(--as-line) !important; border-radius: var(--as-radius-sm) !important; }
+.supportFaqSection summary { min-height: 56px; }
+.legalCleanFooter a { min-height: 32px; }
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .hero.heroWithVideo {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+    min-height: 0 !important;
+    padding: 54px 34px 64px !important;
+  }
+  .heroWithVideo > .heroCopy { order: 1 !important; width: 100% !important; max-width: 760px !important; padding: 0 !important; background: transparent !important; }
+  .heroWithVideo > .heroVideoLayer { order: 2 !important; grid-column: auto !important; width: 100% !important; height: auto !important; aspect-ratio: 16/9 !important; border-radius: 26px !important; }
+  .heroWithVideo .heroCopy h1 { max-width: 720px !important; font-size: clamp(50px,7vw,64px) !important; }
+  .heroWithVideo .heroCopy > p:not(.mobileHeroSupport) { max-width: 620px !important; }
+  .launchTrustGrid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+}
+
+@media (max-width: 767px) {
+  .page > .nav { min-height: 70px !important; padding: 12px 18px !important; align-items: center !important; }
+  .page > .nav .brandLogo { width: 148px !important; }
+  .mobileMenuBtn { width: 44px !important; height: 44px !important; }
+  .mobileNavigation { top: 70px !important; max-height: calc(100dvh - 70px); overflow-y: auto; box-shadow: 0 24px 50px rgba(50,30,36,.14) !important; }
+  .mobileNavigation a { min-height: 48px !important; display: flex !important; align-items: center; }
+  .page main { display: flex !important; flex-direction: column !important; }
+  .page main > .hero { order: 1 !important; }
+  .page main > .launchTrustGrid { order: 2 !important; }
+  .page main > .serviceCarousel { order: 3 !important; }
+  .page main > .verificationProcess { order: 4 !important; }
+  .page main > .appDownloadShowcase { order: 5 !important; }
+  .page main > .assam { order: 6 !important; }
+  .hero.heroWithVideo { gap: 24px !important; padding: 30px 16px 44px !important; }
+  .heroWithVideo .heroCopy > h1 { display: block !important; max-width: 335px !important; font-size: clamp(40px,12vw,52px) !important; line-height: 1.01 !important; letter-spacing: -.045em !important; }
+  .heroWithVideo .heroCopy > h1 span { display: block !important; }
+  .heroWithVideo .heroCopy > p:not(.mobileHeroSupport) { max-width: 34rem !important; font-size: 15px !important; }
+  .heroWithVideo .heroActions .secondaryBtn:only-child { min-width: 0 !important; min-height: 48px !important; }
+  .heroWithVideo > .heroVideoLayer { border-radius: var(--as-radius-md) !important; }
+  .launchTrustGrid { width: calc(100% - 32px) !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; border-radius: var(--as-radius-md) !important; }
+  .launchTrustCard { min-height: 126px !important; padding: 20px 14px !important; }
+  .appDownloadShowcase, .serviceCarousel, .verificationProcess, .assam.assamBackdrop { width: calc(100% - 24px) !important; }
+  .serviceCarousel { padding-block: 64px !important; }
+  .serviceCarouselViewport { border-radius: var(--as-radius-md) !important; }
+  .serviceCarouselControls { right: 12px; bottom: 12px; }
+  .serviceCarouselControls button { width: 42px; height: 42px; }
+  .verificationProcess { padding-block: 64px !important; }
+  .appDownloadShowcase { border-radius: var(--as-radius-md) !important; }
+  .assam.assamBackdrop { min-height: 540px !important; border-radius: var(--as-radius-md) !important; }
+  .footer { padding-inline: 20px !important; }
+  .footer a, .footerContact a, .mobileSocials a { min-height: 44px !important; }
+
+  .legalCleanNav { min-height: 70px !important; padding-inline: 18px !important; }
+  .legalCleanNavCta { min-height: 44px !important; }
+  .legalCleanHero, .legalOverviewHero, .supportCenterHero { padding-inline: 20px !important; }
+  .legalCleanHero h1, .legalOverviewHero h1, .supportCenterHero h1 { font-size: clamp(38px,11vw,48px) !important; }
+  .legalCleanLayout { padding-inline: 16px !important; }
+  .legalCleanToc { position: static !important; }
+  .legalCleanToc nav { grid-template-columns: 1fr !important; }
+  .legalCleanToc a { min-height: 44px !important; font-size: 13px !important; }
+  .legalCleanSection summary { min-height: 58px !important; font-size: 14px !important; }
+  .legalCleanSection p, .legalCleanSection li { font-size: 15px !important; line-height: 1.7 !important; }
+  .legalDocumentGrid, .supportOptionGrid { grid-template-columns: 1fr !important; }
+  .supportOptionGrid article { min-height: 230px !important; padding: 24px !important; }
+  .supportOptionGrid article strong { font-size: 15px !important; }
+  .supportOptionGrid article p { font-size: 14px !important; }
+  .supportOptionGrid article > a { min-height: 48px !important; }
+  .supportFaqSection { padding-inline: 18px !important; }
+  .supportFaqSection summary { min-height: 58px !important; }
+}
+
+@media print {
+  .legalCleanNav, .legalCleanFooter, .legalCleanToc, .legalCleanCta { display: none !important; }
+  .legalCleanLayout { display: block !important; max-width: none !important; padding: 0 !important; }
+  .legalCleanSection { break-inside: avoid; border: 0 !important; box-shadow: none !important; }
+  .legalCleanSection > div { display: block !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .heroVideoSharp { animation: none !important; }
+}
+
+/* Final critic pass: one authoritative tablet composition and mobile legibility. */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .hero.heroWithVideo {
+    display: grid !important;
+    grid-template-columns: minmax(0, 50%) minmax(0, 50%) !important;
+    gap: 0 !important;
+    min-height: 620px !important;
+    padding: 42px 30px !important;
+  }
+  .heroWithVideo > .heroCopy { grid-column: 1 !important; grid-row: 1 !important; order: initial !important; width: calc(100% + 36px) !important; padding-right: 42px !important; background: linear-gradient(90deg,rgba(255,253,251,.99),rgba(255,252,250,.92) 78%,transparent) !important; }
+  .heroWithVideo > .heroVideoLayer { grid-column: 2 !important; grid-row: 1 !important; order: initial !important; width: 100% !important; height: clamp(460px,58vw,560px) !important; aspect-ratio: auto !important; }
+  .heroWithVideo .heroCopy h1 { font-size: clamp(46px,5.8vw,58px) !important; }
+}
+
+@media (max-width: 767px) {
+  .appDownloadBenefits { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .appDownloadBenefits span { font-size: 12px !important; }
+  .appDownloadProof { font-size: 12px !important; }
+  .serviceCarouselTrust span, .heroTrustStrip span { font-size: 12px !important; }
+  .legalCleanNav nav { display: flex !important; min-width: 0; overflow-x: auto; gap: 4px; scrollbar-width: none; }
+  .legalCleanNav nav a { min-width: max-content; padding-inline: 10px !important; font-size: 11px !important; }
+  .legalCleanNavCta { display: none !important; }
+}
+
+/* Final compact 16:9 launch composition for phones and narrow tablets. */
+@media (max-width: 900px) {
+  .assam.assamBackdrop {
+    position: relative !important;
+    width: calc(100% - 24px) !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    padding: 0 !important;
+    border-radius: 18px !important;
+    background-size: cover !important;
+    background-position: center top !important;
+  }
+
+  .assam.assamBackdrop .assamCopy {
+    position: absolute !important;
+    z-index: 3 !important;
+    top: clamp(18px, 5vw, 40px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    font-family: var(--font-display), sans-serif !important;
+    font-size: clamp(24px, 6.1vw, 48px) !important;
+    font-weight: 600 !important;
+    line-height: .96 !important;
+    letter-spacing: -.045em !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2::after {
+    display: none !important;
+  }
+}
+
+/* Mobile: title sits in its own top strip; artwork begins underneath it. */
+@media (max-width: 767px) {
+  .assam.assamBackdrop {
+    height: calc((100vw - 24px) * .5625 + 46px) !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    background-color: #fff9f7 !important;
+    background-image: none !important;
+  }
+
+  .assam.assamBackdrop::before {
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    z-index: 1 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    height: calc(100% - 46px) !important;
+    background: url('/assam-launch-background.png') center / cover no-repeat !important;
+  }
+
+  .assam.assamBackdrop .assamCopy {
+    top: 0 !important;
+    height: 46px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding-top: 2px !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    font-size: clamp(24px, 6.1vw, 28px) !important;
+    line-height: 1 !important;
+  }
+}
+
+/* Requested homepage mobile composition — authoritative final overrides. */
+@media (max-width: 767px) {
+  .page main > .waitlist { order: 7 !important; }
+
+  .hero.heroWithVideo {
+    position: relative !important;
+    display: block !important;
+    min-height: 700px !important;
+    margin: 12px !important;
+    padding: clamp(34px, 9vw, 48px) 20px 32px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(151, 83, 99, .16) !important;
+    border-radius: 24px !important;
+    background: #eadbd4 !important;
+    box-shadow: var(--as-shadow-lg) !important;
+  }
+
+  .heroWithVideo > .heroVideoLayer {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    width: auto !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .heroWithVideo .heroVideoSharp {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 61% center !important;
+  }
+
+  .heroWithVideo .heroVideoOverlay {
+    background:
+      linear-gradient(90deg, rgba(255,250,248,.98) 0%, rgba(255,250,248,.9) 48%, rgba(255,250,248,.48) 76%, rgba(255,250,248,.16) 100%),
+      linear-gradient(180deg, rgba(255,250,248,.14) 0%, rgba(255,250,248,.24) 62%, rgba(255,250,248,.86) 100%) !important;
+  }
+
+  .heroWithVideo > .heroCopy {
+    position: relative !important;
+    z-index: 3 !important;
+    width: 100% !important;
+    max-width: 355px !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .heroWithVideo .heroCopy > h1 {
+    max-width: 325px !important;
+    color: #11121a !important;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5) !important;
+  }
+
+  .heroWithVideo .heroCopy > p:not(.mobileHeroSupport) {
+    max-width: 315px !important;
+    color: #56525a !important;
+  }
+
+  .heroWithVideo .heroTrustStrip { max-width: 325px !important; }
+  .heroWithVideo .heroTrustStrip span::before,
+  .heroWithVideo .heroTrustStrip span::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .appDownloadShowcase .appDownloadVisual {
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 0 10px 10px !important;
+    overflow: hidden !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .appDownloadShowcase .appDownloadVisual > img {
+    inset: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+
+  .assam.assamBackdrop {
+    min-height: clamp(610px, 158vw, 720px) !important;
+    height: auto !important;
+    padding: 38px 24px !important;
+    background-size: cover !important;
+    background-position: 62% center !important;
+  }
+
+  .assam.assamBackdrop .assamCopy {
+    max-width: 350px !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    font-size: clamp(42px, 13vw, 56px) !important;
+    line-height: 1.02 !important;
+  }
+
+  .waitlist {
+    width: calc(100% - 24px) !important;
+    max-width: 520px !important;
+    margin: 24px auto 36px !important;
+  }
+}
+
+/* Compact mobile launch areas requested in the final visual pass. */
+@media (max-width: 767px) {
+  .mobileMenuBtn {
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .assam.assamBackdrop {
+    min-height: 460px !important;
+    height: 460px !important;
+    padding: 26px 20px !important;
+    align-content: start !important;
+    border-radius: 20px !important;
+    background-position: 60% center !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    max-width: 310px !important;
+    margin-top: 16px !important;
+    font-size: clamp(38px, 10.5vw, 46px) !important;
+    line-height: 1 !important;
+  }
+
+  .assam.assamBackdrop .assamCopy p {
+    max-width: 300px !important;
+    margin-top: 14px !important;
+    font-size: 14px !important;
+    line-height: 1.42 !important;
+  }
+
+  .waitlist {
+    min-height: 0 !important;
+    padding: 20px 16px !important;
+    gap: 14px !important;
+    border-radius: 20px !important;
+  }
+
+  .waitlist .launchCopy {
+    display: none !important;
+  }
+
+  .waitlist .launchPill {
+    min-height: 34px !important;
+    margin-bottom: 12px !important;
+    padding-inline: 13px !important;
+    font-size: 10px !important;
+  }
+
+  .waitlist .mobileLaunchTitle {
+    font-size: clamp(28px, 8vw, 34px) !important;
+    line-height: 1.04 !important;
+  }
+
+  .waitlist .launchCopy > p {
+    margin-top: 10px !important;
+    font-size: 13px !important;
+    line-height: 1.42 !important;
+  }
+
+  .waitlist .storeRow,
+  .waitlist .rewardScene,
+  .waitlist .waitMobileDivider,
+  .waitlist .waitMobileProof {
+    display: none !important;
+  }
+
+  .waitlist .waitCard {
+    margin-top: 0 !important;
+    padding: 18px 14px !important;
+    border-radius: 17px !important;
+  }
+
+  .waitlist .waitCardIcon {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .waitlist .waitCardIcon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .waitlist .waitCard h3 {
+    margin-top: 8px !important;
+    font-size: 25px !important;
+  }
+
+  .waitlist .waitCard > p {
+    margin-top: 5px !important;
+    font-size: 12px !important;
+  }
+
+  .waitlist .waitFormFields {
+    margin-top: 14px !important;
+    gap: 8px !important;
+  }
+
+  .waitlist .waitFormFields input,
+  .waitlist .waitFormFields button {
+    min-height: 48px !important;
+  }
+}
+
+/* Homepage detail corrections: final authoritative layer. */
+.serviceCarouselArrow,
+.serviceCarouselControls {
+  display: none !important;
+}
+
+.appDownloadShowcase {
+  grid-template-rows: minmax(0, auto) minmax(0, auto) !important;
+}
+
+.appDownloadCopy {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  padding-bottom: 18px !important;
+  align-self: end !important;
+}
+
+.appDownloadVisual {
+  grid-column: 2 !important;
+  grid-row: 1 / span 2 !important;
+}
+
+.appDownloadFooter {
+  position: relative;
+  z-index: 2;
+  grid-column: 1;
+  grid-row: 2;
+  padding: 0 24px 54px 64px;
+  align-self: start;
+}
+
+@media (max-width: 767px) {
+  .appDownloadBenefits {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  .appDownloadBenefits span {
+    min-height: 62px !important;
+    padding-inline: 3px !important;
+    font-size: 10px !important;
+  }
+
+  .appDownloadShowcase .appDownloadCopy {
+    order: 1 !important;
+    padding-bottom: 18px !important;
+  }
+
+  .appDownloadShowcase .appDownloadVisual {
+    order: 2 !important;
+  }
+
+  .appDownloadShowcase .appDownloadFooter {
+    order: 3 !important;
+    width: 100% !important;
+    padding: 10px 20px 26px !important;
+  }
+
+  .appDownloadShowcase .appDownloadStores {
+    justify-content: center !important;
+    margin-top: 0 !important;
+  }
+
+  .appDownloadShowcase .appDownloadProof {
+    text-align: center !important;
+  }
+
+  .verificationProcess .processTrack article {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .verificationProcess .processTrack small,
+  .verificationProcess .processTrack h3 {
+    width: 100% !important;
+    margin-inline: auto !important;
+    align-self: center !important;
+    text-align: center !important;
+  }
+
+  .verificationProcess .processTrack small {
+    margin-top: 2px !important;
+  }
+
+  .verificationProcess .processTrack h3 {
+    margin-top: 9px !important;
+  }
+}
+
+/* Compact launch banner and waitlist strip. */
+@media (max-width: 767px) {
+  .assam.assamBackdrop {
+    height: 410px !important;
+    min-height: 410px !important;
+    padding: 24px 20px !important;
+    background-position: 66% center !important;
+  }
+
+  .assam.assamBackdrop::after {
+    background: linear-gradient(180deg, rgba(255,250,248,.88) 0%, rgba(255,250,248,.42) 30%, rgba(255,250,248,.08) 58%, transparent 78%) !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    max-width: 300px !important;
+    margin: 0 !important;
+    font-family: var(--font-display), sans-serif !important;
+    font-size: clamp(36px, 10vw, 44px) !important;
+    font-weight: 700 !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.045em !important;
+  }
+
+  .waitlist {
+    padding: 12px !important;
+    border-radius: 16px !important;
+    background: linear-gradient(110deg, #fff8f8, #ffeef2) !important;
+  }
+
+  .waitlist .waitCard {
+    display: block !important;
+    padding: 10px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .waitlist .waitCardIcon,
+  .waitlist .waitCard > p,
+  .waitlist .waitSeparator,
+  .waitlist .waitProof {
+    display: none !important;
+  }
+
+  .waitlist .waitCard h3 {
+    margin: 0 0 10px !important;
+    font-family: var(--font-display), sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 750 !important;
+    line-height: 1.1 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+  }
+
+  .waitlist .waitCard h3 span {
+    display: inline !important;
+  }
+
+  .waitlist .waitFormFields {
+    display: grid !important;
+    margin-top: 0 !important;
+    grid-template-columns: minmax(0, 1fr) 108px !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  .waitlist .waitFormFields input,
+  .waitlist .waitFormFields button {
+    width: 100% !important;
+    min-height: 46px !important;
+    height: 46px !important;
+    border-radius: 11px !important;
+  }
+
+  .waitlist .waitFormFields input {
+    min-width: 0 !important;
+    padding: 0 10px 0 39px !important;
+    font-size: 12px !important;
+  }
+
+  .waitlist .waitEmailIcon {
+    left: 11px !important;
+  }
+
+  .waitlist .waitEmailIcon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .waitlist .waitFormFields button {
+    padding-inline: 10px !important;
+    font-size: 12px !important;
+    gap: 4px !important;
+  }
+
+  .waitlist .waitFormFields button span {
+    white-space: nowrap !important;
+  }
+
+  .waitlist .waitFormFields button svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+/* Desktop media clarity and launch artwork placement. */
+@media (min-width: 768px) {
+  .appDownloadShowcase {
+    min-height: 540px !important;
+  }
+
+  .appDownloadVisual {
+    min-height: 540px !important;
+    overflow: hidden !important;
+  }
+
+  .appDownloadVisual > img {
+    position: absolute !important;
+    inset: 18px 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: calc(100% - 36px) !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+
+  .heroWithVideo > .heroVideoLayer {
+    border: 1px solid rgba(137, 76, 89, .14) !important;
+    box-shadow: none !important;
+  }
+
+  .heroWithVideo .heroVideoSharp {
+    filter: none !important;
+  }
+
+  .heroWithVideo .heroVideoOverlay {
+    background: transparent !important;
+  }
+
+  .assam.assamBackdrop {
+    align-items: start !important;
+    padding: 54px clamp(42px, 6vw, 92px) !important;
+  }
+
+  .assam.assamBackdrop .assamCopy {
+    align-self: start !important;
+    max-width: 430px !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    max-width: 420px !important;
+    margin: 0 !important;
+    font-family: var(--font-display), sans-serif !important;
+    font-size: clamp(38px, 3.3vw, 50px) !important;
+    font-weight: 700 !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.045em !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .appDownloadShowcase .appDownloadVisual { order: 2 !important; }
+  .appDownloadShowcase .appDownloadFooter { order: 3 !important; }
+}
+
+/* Final mobile sizing and media-visibility corrections. */
+@media (max-width: 767px) {
+  .appDownloadShowcase .appDownloadStores {
+    gap: 10px !important;
+  }
+
+  .appDownloadShowcase .appDownloadStores a,
+  .appDownloadShowcase .appDownloadStores img {
+    width: 142px !important;
+    height: 44px !important;
+    object-fit: fill !important;
+  }
+
+  .appDownloadShowcase .appDownloadStores a:first-child,
+  .appDownloadShowcase .appDownloadStores a:first-child img {
+    width: 152px !important;
+  }
+
+  .assam.assamBackdrop {
+    width: calc(100% - 24px) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 8px 18px 18px !important;
+    aspect-ratio: 16 / 9 !important;
+    border-radius: 16px !important;
+    background-size: cover !important;
+    background-position: center top !important;
+  }
+
+  .assam.assamBackdrop .assamCopy {
+    max-width: none !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    max-width: none !important;
+    margin: 0 !important;
+    font-size: clamp(25px, 7.2vw, 30px) !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .heroWithVideo .heroVideoOverlay {
+    background:
+      linear-gradient(90deg, rgba(255,250,248,.68) 0%, rgba(255,250,248,.48) 40%, rgba(255,250,248,.12) 72%, transparent 100%),
+      linear-gradient(180deg, rgba(255,250,248,.05) 0%, transparent 62%, rgba(255,250,248,.38) 100%) !important;
+  }
+
+  .heroWithVideo .heroCopy > h1,
+  .heroWithVideo .heroCopy > p:not(.mobileHeroSupport),
+  .heroWithVideo .heroTrustStrip {
+    text-shadow: 0 1px 2px rgba(255,255,255,.85), 0 0 14px rgba(255,255,255,.5) !important;
+  }
+}
+
+/* Final readability and desktop section sizing. */
+@media (max-width: 767px) {
+  .heroWithVideo .heroCopy > h1 {
+    color: #111118 !important;
+    font-weight: 650 !important;
+  }
+
+  .heroWithVideo .heroCopy > p:not(.mobileHeroSupport) {
+    color: #3d3942 !important;
+    font-weight: 400 !important;
+  }
+
+  .heroWithVideo .heroTrustStrip span {
+    color: #242129 !important;
+    font-weight: 700 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .page main > .waitlist {
+    display: none !important;
+  }
+
+  .assam.assamBackdrop {
+    width: calc(100% - 32px) !important;
+    max-width: 1920px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 2.52 / 1 !important;
+    margin: 32px auto !important;
+    overflow: hidden !important;
+    border-radius: 30px !important;
+    background-size: 100% 100% !important;
+    background-position: center !important;
+    padding: clamp(26px, 3vw, 54px) clamp(30px, 4vw, 74px) !important;
+    align-items: start !important;
+    border: 1px solid rgba(157, 80, 99, .20) !important;
+    box-shadow: 0 14px 34px rgba(86, 42, 54, .12) !important;
+  }
+
+  .assam.assamBackdrop::after {
+    display: none !important;
+  }
+
+  .assam.assamBackdrop .assamCopy,
+  .assam.assamBackdrop .assamCopy h2 {
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    margin: 0 !important;
+    font-family: Georgia, 'Times New Roman', serif !important;
+    font-size: clamp(38px, 4vw, 70px) !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    letter-spacing: -.035em !important;
+    white-space: nowrap !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2::after {
+    content: '' !important;
+    display: block !important;
+    width: min(72%, 380px) !important;
+    height: 1px !important;
+    margin-top: 18px !important;
+    background: linear-gradient(90deg, transparent, #cf4969 18%, #cf4969 82%, transparent) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .assam.assamBackdrop {
+    position: relative !important;
+    padding: 0 18px 18px !important;
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+    align-content: start !important;
+  }
+
+  .assam.assamBackdrop .assamCopy {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    margin-top: 0 !important;
+    align-self: start !important;
+    justify-self: center !important;
+    text-align: center !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    font-family: var(--font-display), sans-serif !important;
+    font-size: clamp(24px, 7vw, 30px) !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    letter-spacing: -.04em !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    transform: translateY(-2px) !important;
+  }
+}
+
+/* Authoritative phone/tablet launch title match. */
+@media (max-width: 900px) {
+  .assam.assamBackdrop {
+    position: relative !important;
+    width: calc(100% - 24px) !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    padding: 0 !important;
+    border-radius: 18px !important;
+    background-size: cover !important;
+    background-position: center top !important;
+  }
+
+  .assam.assamBackdrop .assamCopy {
+    position: absolute !important;
+    z-index: 3 !important;
+    top: clamp(18px, 5vw, 40px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    font-family: var(--font-display), sans-serif !important;
+    font-size: clamp(24px, 6.1vw, 48px) !important;
+    font-weight: 600 !important;
+    line-height: .96 !important;
+    letter-spacing: -.045em !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2::after {
+    display: none !important;
+  }
+}
+
+/* Final mobile split: title above, artwork below. */
+@media (max-width: 767px) {
+  .assam.assamBackdrop {
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    overflow: hidden !important;
+    background-color: #f8d9dc !important;
+    background-image: url('/assam-launch-background.png') !important;
+    background-position: center top !important;
+    background-size: cover !important;
+  }
+
+  .assam.assamBackdrop::before {
+    display: none !important;
+  }
+
+  .assam.assamBackdrop .assamCopy {
+    top: 0 !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding-top: 0 !important;
+  }
+
+  .assam.assamBackdrop .assamCopy h2 {
+    font-size: clamp(24px, 6.1vw, 28px) !important;
+    line-height: 1 !important;
+  }
+}

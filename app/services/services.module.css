@@ -238,9 +238,8 @@
 @media (max-width: 767px) {
   .nav { height: 68px; padding: 0 18px; }
   .nav > a img { width: 150px; }
-  .nav nav { gap: 16px; }
-  .nav nav a { font-size: 11px; }
-  .nav nav a:nth-child(3), .nav nav a:nth-child(4) { display: none; }
+  .nav nav { gap: 4px; }
+  .nav nav a { min-width: 44px; height: 44px; padding-inline: 7px; justify-content: center; font-size: 13px; }
 
   .hero { min-height: 0; padding-top: 222px; background: #fffaf7; }
   .heroImage { height: 230px !important; object-fit: contain; object-position: right center; }
@@ -249,18 +248,28 @@
   .heroCopy h1 { margin-top: 12px; font-size: 46px; }
   .heroCopy > p { margin-top: 16px; font-size: 15px; }
   .trust { margin-top: 22px; gap: 12px 8px; }
-  .trust span { gap: 6px; font-size: 11px; }
+  .trust span { gap: 6px; font-size: 13px; }
   .trust svg { width: 18px; height: 18px; }
 
   .grid { width: calc(100% - 24px); margin-top: 18px; gap: 10px; }
-  .grid article { min-height: 205px; padding: 18px 14px; border-radius: 14px; }
+  .grid article { min-height: 205px; padding: 18px 14px; border-radius: 16px; }
   .grid article > span { width: 46px; height: 46px; }
   .grid h2 { margin-top: 16px; font-size: 14px; }
-  .grid p { margin-top: 8px; font-size: 11px; }
+  .grid p { margin-top: 8px; font-size: 13px; }
 
   .appBanner { display: block; width: calc(100% - 24px); min-height: 520px; margin: 14px auto 28px; padding: 28px 22px; }
   .appCopy h2 { font-size: 38px; }
   .appCopy p { font-size: 14px; }
   .stores a, .stores img { height: 38px; }
   .phones { right: -8px; bottom: -44px; width: 86%; }
+}
+
+@media (max-width: 390px) {
+  .nav > a img { width: 112px; }
+  .nav nav { gap: 0; }
+  .nav nav a { min-width: 42px; padding-inline: 5px; font-size: 12px; }
+  .grid { grid-template-columns: 1fr; }
+  .grid article { min-height: 0; padding: 22px 20px; }
+  .grid h2 { font-size: 17px; }
+  .grid p { font-size: 14px; line-height: 1.55; }
 }

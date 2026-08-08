@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Headphones,
+  ChevronDown,
   Mail,
   MessageCircle,
   Phone,
-  Search,
   Send
 } from 'lucide-react';
 import { LegalFooter, LegalNav, contactDetails } from '../legal-pages';
@@ -63,7 +63,7 @@ export default function ContactUsPage() {
         <div><h2>Frequently Asked Questions</h2><Link href="/legal-support">View all FAQs →</Link></div>
         {faqs.map((faq) => (
           <details key={faq}>
-            <summary><span>{faq}</span><Search size={17} /></summary>
+            <summary><span>{faq}</span><ChevronDown size={17} /></summary>
             <p>Contact our support team with your registered phone number or email, and we&apos;ll guide you through the correct steps.</p>
           </details>
         ))}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
 import './globals.css';
 import './mobile-density.css';
+import './premium-system.css';
 import { siteUrl } from './site';
 
 const inter = Inter({

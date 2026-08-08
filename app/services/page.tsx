@@ -85,12 +85,12 @@ export default function ServicesPage() {
           <h2>Home Services,<br />Just a Tap Away</h2>
           <p>Book, track and manage all your home services easily with the ApnaServo app.</p>
           <div className={styles.stores}>
-            <a href="#download" aria-label="Get ApnaServo on Google Play">
+            <Link href="/contact-us" aria-label="Contact ApnaServo about Google Play availability">
               <Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={250} unoptimized />
-            </a>
-            <a href="#download" aria-label="Download ApnaServo on the App Store">
+            </Link>
+            <Link href="/contact-us" aria-label="Contact ApnaServo about App Store availability">
               <Image src="/app-store-badge.svg" alt="Download on the App Store" width={250} height={84} unoptimized />
-            </a>
+            </Link>
           </div>
         </div>
         <Image className={styles.phones} src="/home-app-preview-cutout.png" alt="ApnaServo mobile app screens" width={1448} height={1086} />

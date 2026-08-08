@@ -148,10 +148,11 @@ function App() {
       <main>
         <Hero />
         <LaunchTrustGrid />
-        <AppDownloadShowcase />
         <ServiceCarousel />
         <VerificationProcess />
+        <AppDownloadShowcase />
         <AssamSection />
+        <Waitlist />
       </main>
       <Footer />
     </div>
@@ -170,15 +171,6 @@ function AppDownloadShowcase() {
           <span><MapPin size={20} />Service updates</span>
           <span><ShieldCheck size={20} />Secure experience</span>
         </div>
-        <div className="appDownloadStores">
-          <a href="#contact" aria-label="Get ApnaServo on Google Play">
-            <Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized />
-          </a>
-          <a href="#contact" aria-label="Download ApnaServo on the App Store">
-            <Image src="/app-store-badge.svg" alt="Download on the App Store" width={250} height={84} unoptimized />
-          </a>
-        </div>
-        <div className="appDownloadProof"><span>★★★★★</span> Made for homes across Guwahati</div>
       </div>
       <div className="appDownloadVisual">
         <span className="appDownloadGlow" aria-hidden="true" />
@@ -188,8 +180,18 @@ function AppDownloadShowcase() {
           width={1448}
           height={1086}
           sizes="(max-width: 767px) 92vw, 52vw"
-          priority
         />
+      </div>
+      <div className="appDownloadFooter">
+        <div className="appDownloadStores">
+          <a href="#contact" aria-label="Get ApnaServo on Google Play">
+            <Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized />
+          </a>
+          <a href="#contact" aria-label="Download ApnaServo on the App Store">
+            <Image src="/app-store-badge.svg" alt="Download on the App Store" width={250} height={84} unoptimized />
+          </a>
+        </div>
+        <div className="appDownloadProof"><span>★★★★★</span> Made for homes across Guwahati</div>
       </div>
     </section>
   );
@@ -226,11 +228,6 @@ function Hero() {
         <h1>
           <span>Guwahati&apos;s</span>
           <span className="heroAccent">Home Service</span>
-          <span>Platform</span>
-        </h1>
-        <h1 className="mobileHeroTitle" aria-hidden="true">
-          <span>Guwahati&apos;s</span>
-          <span><b>Home</b> Service</span>
           <span>Platform</span>
         </h1>
         <p>
@@ -374,9 +371,7 @@ function AssamSection() {
   return (
     <section className="assam assamBackdrop section" id="launch" aria-label="Assam skyline with Rang Ghar, Saraighat Bridge, river, hills, birds and a rhino">
       <div className="assamCopy">
-        <span className="eyebrow"><Rocket size={14} /> Launching soon</span>
-        <h2>Launching Soon<br />In <span>Guwahati.</span></h2>
-        <p>Starting with selected areas and expanding with a verified local partner network.</p>
+        <h2>Launching In <span>Guwahati.</span></h2>
       </div>
     </section>
   );

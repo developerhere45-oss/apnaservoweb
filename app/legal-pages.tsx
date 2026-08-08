@@ -75,7 +75,7 @@ export function LegalPage({ eyebrow, title, intro, updated = 'June 8, 2026', sec
 
         <div className="legalCleanContent">
           {sections.map((section, index) => (
-            <details className="legalCleanSection" id={`legal-section-${index + 1}`} open={index === 0} key={section.title}>
+            <details className="legalCleanSection" id={`legal-section-${index + 1}`} open key={section.title}>
               <summary>
                 <span>{index + 1}. {section.title}</span>
                 <ChevronDown size={19} />

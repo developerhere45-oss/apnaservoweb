@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { BadgeCheck, Check, ChevronRight } from 'lucide-react';
+import { BadgeCheck, Check } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import { useEffect, useState } from 'react';
 
@@ -76,9 +76,11 @@ export default function ServiceCarousel() {
   const slide = slides[activeSlide];
 
   useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reducedMotion.matches) return;
     const interval = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % slides.length);
-    }, 3500);
+    }, 5000);
 
     return () => window.clearInterval(interval);
   }, []);
@@ -87,7 +89,7 @@ export default function ServiceCarousel() {
     <section className="serviceCarousel" id="services" aria-roledescription="carousel" aria-label="ApnaServo home services">
       <span className="anchorTarget" id="commercial" />
       <div className="serviceCarouselViewport">
-        <div className="serviceCarouselMedia" aria-live="polite">
+        <div className="serviceCarouselMedia">
           <span className="serviceCarouselMediaFallback" aria-hidden="true">{slide.label}</span>
           {slides.map((item, index) => (
             <figure
@@ -119,13 +121,6 @@ export default function ServiceCarousel() {
             Discover reliable electricians, plumbers, AC technicians, cleaners and more&mdash;all verified and
             available through the ApnaServo app.
           </p>
-
-          <div className="serviceCarouselActions">
-            <a className="serviceCarouselSecondaryCta" href="#how">
-              <span>Explore Services</span>
-              <ChevronRight aria-hidden="true" />
-            </a>
-          </div>
 
           <p className="serviceCarouselBookingNote">
             All bookings are securely managed through the ApnaServo app.

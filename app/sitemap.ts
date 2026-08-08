@@ -3,6 +3,7 @@ import { absoluteUrl } from './site';
 
 const publicPaths = [
   '/',
+  '/services',
   '/our-story',
   '/contact-us',
   '/legal-support',
