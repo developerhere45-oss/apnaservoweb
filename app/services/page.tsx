@@ -16,6 +16,8 @@ import {
 import styles from './services.module.css';
 import { LegalFooter } from '../legal-pages';
 
+const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.apnaservo.user';
+
 export const metadata: Metadata = {
   title: 'Home Services in Guwahati | ApnaServo',
   description: 'Explore verified electrical, plumbing, AC, cleaning, painting, carpentry, and pest-control services in Guwahati.'
@@ -85,9 +87,9 @@ export default function ServicesPage() {
           <h2>Home Services,<br />Just a Tap Away</h2>
           <p>Book, track and manage all your home services easily with the ApnaServo app.</p>
           <div className={styles.stores}>
-            <Link href="/contact-us" aria-label="Contact ApnaServo about Google Play availability">
+            <a href={GOOGLE_PLAY_URL} aria-label="Get ApnaServo on Google Play">
               <Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={250} unoptimized />
-            </Link>
+            </a>
             <Link href="/contact-us" aria-label="Contact ApnaServo about App Store availability">
               <Image src="/app-store-badge.svg" alt="Download on the App Store" width={250} height={84} unoptimized />
             </Link>

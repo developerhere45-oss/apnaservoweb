@@ -54,6 +54,8 @@ import {
   Zap,
   type LucideIcon
 } from 'lucide-react';
+
+const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.apnaservo.user';
 import WaitlistSignupForm from './WaitlistSignupForm';
 import ServiceCarousel from './ServiceCarousel';
 import { absoluteUrl, siteUrl } from './site';
@@ -184,7 +186,7 @@ function AppDownloadShowcase() {
       </div>
       <div className="appDownloadFooter">
         <div className="appDownloadStores">
-          <a href="#contact" aria-label="Get ApnaServo on Google Play">
+          <a href={GOOGLE_PLAY_URL} aria-label="Get ApnaServo on Google Play">
             <Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized />
           </a>
           <a href="#contact" aria-label="Download ApnaServo on the App Store">
@@ -561,11 +563,11 @@ function Footer() {
         <a className="brand" href="#home"><Image className="brandLogo" src="/apnaservo-wordmark.png" alt="ApnaServo" width={969} height={257} sizes="154px" /></a>
         <p>Guwahati-based home services platform connecting households with trusted local professionals in selected serviceable areas.</p>
         <div className="footerStores footerStoresDesktop">
-          <a href="#contact" aria-label="Get ApnaServo on Google Play"><Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized /></a>
+          <a href={GOOGLE_PLAY_URL} aria-label="Get ApnaServo on Google Play"><Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized /></a>
           <a href="#contact" aria-label="Download ApnaServo on the App Store"><Image src="/app-store-badge.svg" alt="Download on the App Store" width={250} height={84} unoptimized /></a>
         </div>
         <div className="footerStoresMobile">
-          <a href="#contact" aria-label="Contact ApnaServo"><Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized /></a>
+          <a href={GOOGLE_PLAY_URL} aria-label="Get ApnaServo on Google Play"><Image src="/google-play-badge.png" alt="Get it on Google Play" width={646} height={192} unoptimized /></a>
           <a href="#contact" aria-label="Contact ApnaServo"><Image src="/app-store-badge.svg" alt="Download on the App Store" width={250} height={84} unoptimized /></a>
         </div>
         <div className="socials"><Send size={18} /><Mail size={18} /><Phone size={18} /></div>
