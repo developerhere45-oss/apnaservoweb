@@ -15,12 +15,14 @@ import {
 } from 'lucide-react';
 import styles from './services.module.css';
 import { LegalFooter } from '../legal-pages';
+import { servicePages } from '../service-data';
 
 const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.apnaservo.user';
 
 export const metadata: Metadata = {
   title: 'Home Services in Guwahati | ApnaServo',
-  description: 'Explore verified electrical, plumbing, AC, cleaning, painting, carpentry, and pest-control services in Guwahati.'
+  description: 'Explore AC repair, plumbing, electrical, cleaning, painting, carpentry, appliance repair and pest-control services in Guwahati, Assam.',
+  alternates: { canonical: '/services' }
 };
 
 const services = [
@@ -72,13 +74,17 @@ export default function ServicesPage() {
       </section>
 
       <section className={styles.grid} aria-label="Available services">
-        {services.map(([title, text, Icon]) => (
+        {services.map(([title, text, Icon]) => {
+          const service = servicePages.find((item) => item.shortName === title);
+          return (
           <article key={title}>
             <span><Icon aria-hidden="true" /></span>
             <h2>{title}</h2>
             <p>{text}</p>
+            {service && <Link className={styles.serviceLink} href={`/services/${service.slug}`}>Explore {service.shortName} →</Link>}
           </article>
-        ))}
+          );
+        })}
       </section>
 
       <section className={styles.appBanner}>

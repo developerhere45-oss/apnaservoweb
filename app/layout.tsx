@@ -20,8 +20,11 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: 'ApnaServo',
-  title: 'ApnaServo | Guwahati Home Services Platform',
-  description: 'Join the waitlist for ApnaServo, a Guwahati-based home services platform launching across selected areas.',
+  title: { default: 'Home Services in Guwahati, Assam | ApnaServo', template: '%s | ApnaServo' },
+  description: 'ApnaServo is a Guwahati-based home services platform for AC repair, plumbing, electrical work, cleaning, painting, carpentry and more.',
+  keywords: ['home services Guwahati', 'home services Assam', 'AC repair Guwahati', 'plumber Guwahati', 'electrician Guwahati', 'ApnaServo'],
+  alternates: { canonical: '/' },
+  openGraph: { type: 'website', locale: 'en_IN', url: siteUrl, siteName: 'ApnaServo', title: 'Home Services in Guwahati, Assam | ApnaServo', description: 'Find home-service support in Guwahati for AC repair, plumbing, electrical work, cleaning and more.' },
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon' },
@@ -33,7 +36,8 @@ export const metadata: Metadata = {
   },
   robots: {
     index: true,
-    follow: true
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 }
   }
 };
 

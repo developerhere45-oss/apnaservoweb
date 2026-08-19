@@ -174,6 +174,30 @@
   line-height: 1.55;
 }
 
+.serviceLink { display: inline-block; margin-top: 15px; color: #b72b4a; font-size: 13px; font-weight: 750; text-decoration: none; }
+.serviceLink:hover { text-decoration: underline; }
+.detailPage { min-height: 100vh; background: #fffdfa; color: #17151c; }
+.detailHero { padding: clamp(52px, 8vw, 106px) clamp(24px, 10vw, 170px); background: linear-gradient(120deg, #fff0ef, #fffaf7 68%, #f4dce1); }
+.breadcrumb { margin: 0 0 25px; color: #766d74; font-size: 14px; }
+.breadcrumb a { color: inherit; text-decoration: none; }
+.detailHero > span { display: flex; width: fit-content; align-items: center; gap: 7px; color: #c93252; font-size: 14px; font-weight: 750; }
+.detailHero h1 { max-width: 850px; margin: 15px 0 0; font-size: clamp(40px, 6vw, 76px); line-height: 1.02; letter-spacing: -.055em; }
+.detailHero > p:not(.breadcrumb) { max-width: 700px; margin: 22px 0 0; color: #5f5861; font-size: 18px; line-height: 1.65; }
+.detailCta { display: inline-block; margin-top: 30px; padding: 13px 20px; border-radius: 999px; background: #c93252; color: #fff; font-size: 14px; font-weight: 750; text-decoration: none; }
+.detailContent { display: grid; width: min(100% - 48px, 1120px); margin: 60px auto; grid-template-columns: minmax(0, 1.45fr) minmax(260px, .75fr); gap: 70px; }
+.detailContent h2, .faq > h2 { margin: 0; font-size: clamp(28px, 3vw, 42px); letter-spacing: -.04em; }
+.detailContent p { color: #615a62; line-height: 1.65; }
+.detailContent ul { padding: 0; list-style: none; }
+.detailContent li { display: flex; margin: 15px 0; align-items: center; gap: 10px; font-weight: 650; }
+.detailContent li svg { width: 20px; color: #c93252; }
+.detailContent aside { padding: 26px; border: 1px solid #eee1e0; border-radius: 18px; background: #fff; }
+.detailContent aside h2 { font-size: 20px; }
+.detailContent aside a { display: block; margin-top: 18px; color: #b72b4a; font-size: 14px; font-weight: 700; text-decoration: none; }
+.faq { width: min(100% - 48px, 1120px); margin: 0 auto 70px; }
+.faq article { padding: 23px 0; border-bottom: 1px solid #eadfdd; }
+.faq h3 { margin: 0; font-size: 18px; }
+.faq p { max-width: 780px; margin: 9px 0 0; color: #615a62; line-height: 1.6; }
+
 .appBanner {
   position: relative;
   display: grid;
@@ -256,6 +280,13 @@
   .grid article > span { width: 46px; height: 46px; }
   .grid h2 { margin-top: 16px; font-size: 14px; }
   .grid p { margin-top: 8px; font-size: 13px; }
+  .serviceLink { margin-top: 11px; font-size: 12px; }
+  .detailHero { padding: 44px 22px 52px; }
+  .detailHero h1 { font-size: 42px; }
+  .detailHero > p:not(.breadcrumb) { font-size: 16px; }
+  .detailContent { display: block; width: calc(100% - 40px); margin: 42px auto; }
+  .detailContent aside { margin-top: 32px; }
+  .faq { width: calc(100% - 40px); margin-bottom: 48px; }
 
   .appBanner { display: block; width: calc(100% - 24px); min-height: 520px; margin: 14px auto 28px; padding: 28px 22px; }
   .appCopy h2 { font-size: 38px; }

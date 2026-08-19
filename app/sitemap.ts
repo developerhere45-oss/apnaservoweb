@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { absoluteUrl } from './site';
+import { servicePages } from './service-data';
 
 const publicPaths = [
   '/',
@@ -15,9 +16,11 @@ const publicPaths = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return publicPaths.map((path) => ({
+  const sitePages: MetadataRoute.Sitemap = publicPaths.map((path) => ({
     url: absoluteUrl(path),
     changeFrequency: path === '/' ? 'weekly' : 'monthly',
     priority: path === '/' ? 1 : 0.6
   }));
+  const serviceUrls = servicePages.map(({ slug }) => ({ url: absoluteUrl(`/services/${slug}`), changeFrequency: 'monthly' as const, priority: 0.8 }));
+  return [...sitePages, ...serviceUrls];
 }
