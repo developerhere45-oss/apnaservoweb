@@ -236,7 +236,7 @@ function Hero() {
           Reliable home care from trusted local professionals, with simple booking, transparent service, and support you can count on.
         </p>
         <div className="heroActions">
-          <a className="primaryBtn rippleBtn downloadNowBtn" href={GOOGLE_PLAY_URL} aria-label="Download ApnaServo on Google Play">
+          <a className="primaryBtn rippleBtn" href={GOOGLE_PLAY_URL} aria-label="Download ApnaServo on Google Play">
             Download Now <Smartphone size={17} />
           </a>
           <a className="secondaryBtn rippleBtn" href="#services">Explore Services <ChevronRight size={17} /></a>
