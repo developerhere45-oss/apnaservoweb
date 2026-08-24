@@ -25801,9 +25801,6 @@ body {
 }
 
 .heroActions .primaryBtn.downloadNowBtn svg {
-  width: 24px;
-  height: 24px;
-  stroke-width: 2.5;
   animation: downloadCtaIcon 1.5s ease-in-out infinite;
 }
 
@@ -25831,26 +25828,6 @@ body {
   .heroActions .primaryBtn.downloadNowBtn,
   .heroActions .primaryBtn.downloadNowBtn::before,
   .heroActions .primaryBtn.downloadNowBtn svg { animation: none; }
-}
-
-/* Match the large red download treatment on phones too. */
-@media (max-width: 767px) {
-  .heroWithVideo .heroActions .primaryBtn.downloadNowBtn {
-    width: min(100%, 355px) !important;
-    min-width: 0 !important;
-    min-height: 72px !important;
-    margin-inline: 0 auto;
-    padding: 0 26px !important;
-    border-radius: 24px !important;
-    font-size: 22px !important;
-    font-weight: 850 !important;
-  }
-
-  .heroWithVideo .heroActions .primaryBtn.downloadNowBtn svg {
-    width: 28px !important;
-    height: 28px !important;
-    stroke-width: 2.5;
-  }
 }
 .heroWithVideo>.heroCopy{grid-column:1!important;grid-row:1!important}
 .heroWithVideo>.heroVideoLayer{grid-column:2!important;grid-row:1!important}
