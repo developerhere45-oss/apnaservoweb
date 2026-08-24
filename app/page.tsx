@@ -18,6 +18,7 @@ import {
   ClipboardCheck,
   Clock3,
   Droplets,
+  Download,
   Eye,
   FileCheck2,
   Gift,
@@ -237,7 +238,7 @@ function Hero() {
         </p>
         <div className="heroActions">
           <a className="primaryBtn rippleBtn" href={GOOGLE_PLAY_URL} aria-label="Download ApnaServo on Google Play">
-            Download Now <Smartphone size={17} />
+            Download Now <Download className="downloadNowIcon" aria-hidden="true" />
           </a>
           <a className="secondaryBtn rippleBtn" href="#services">Explore Services <ChevronRight size={17} /></a>
         </div>

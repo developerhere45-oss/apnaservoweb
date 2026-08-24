@@ -25768,3 +25768,17 @@ body {
 @media (max-width:767px){.hero.heroWithVideo{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:26px!important;min-height:0!important;padding:30px var(--mobile-page-padding,18px) 36px!important;background:linear-gradient(155deg,#fffdfb,#fff7f7 58%,#fff1f4)!important}.heroWithVideo>.heroCopy{order:1!important;width:100%!important;max-width:none!important;padding:0!important;background:transparent!important}.heroWithVideo .heroCopy h1{margin-top:20px!important;font-size:clamp(38px,11.2vw,50px)!important;line-height:1.02!important}.heroWithVideo .heroCopy>p:not(.mobileHeroSupport){max-width:35rem!important;margin-top:20px!important;font-size:15px!important;line-height:1.62!important}.heroWithVideo .heroActions{margin-top:22px!important}.heroWithVideo .heroTrustStrip{margin-top:24px!important}.heroWithVideo>.heroVideoLayer{order:2!important;width:100%!important;height:auto!important;aspect-ratio:16/9!important;border-radius:20px!important;box-shadow:0 18px 42px rgba(82,47,54,.13),0 3px 12px rgba(82,47,54,.06)!important}.heroWithVideo .heroVideoSharp{inset:0!important;width:100%!important;height:100%!important;object-position:58% center!important;opacity:1!important}.heroWithVideo .heroVideoOverlay{background:linear-gradient(90deg,rgba(255,249,248,.34),rgba(255,249,248,.08) 16%,transparent 34%)!important}}
 .heroWithVideo>.heroCopy{grid-column:1!important;grid-row:1!important}
 .heroWithVideo>.heroVideoLayer{grid-column:2!important;grid-row:1!important}
+
+/* Keep the Play Store CTA's download symbol prominent on every screen size. */
+.heroActions .primaryBtn .downloadNowIcon {
+  width: 28px !important;
+  height: 28px !important;
+  stroke-width: 3 !important;
+}
+
+@media (max-width: 767px) {
+  .heroActions .primaryBtn .downloadNowIcon {
+    width: 22px !important;
+    height: 22px !important;
+  }
+}
