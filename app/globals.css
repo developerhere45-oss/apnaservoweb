@@ -25782,3 +25782,16 @@ body {
     height: 22px !important;
   }
 }
+
+/* Match the solid red Play Store call-to-action in the reference. */
+.heroWithVideo .heroActions .primaryBtn {
+  color: #fff !important;
+  border-color: #ed0025 !important;
+  background: #ed0025 !important;
+  box-shadow: 0 18px 34px rgba(237, 0, 37, 0.28) !important;
+}
+
+.heroWithVideo .heroActions .primaryBtn:hover {
+  background: #cf001f !important;
+  border-color: #cf001f !important;
+}
